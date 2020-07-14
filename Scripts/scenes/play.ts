@@ -7,6 +7,8 @@ module scenes {
         // private enemy:objects.Enemy;
         // private enemies:objects.Enemy[];
         // private enemyNum:number;
+        
+        private aliens:objects.Alien[];
 
         // Constructor
         constructor(assetManager:createjs.LoadQueue) {
@@ -24,6 +26,15 @@ module scenes {
             objects.Game.KeyA = false;
             objects.Game.KeyS = false;
             objects.Game.KeyD = false;
+
+            // Spawning Aliens
+            this.aliens = new Array<objects.Alien>();
+            
+            // Temporarily Spawning 1 of each
+            for(let i = 0; i < 6; i++){
+                this.aliens[i] = new objects.Alien(this.assetManager, i);
+            }
+
             // this.enemy = new objects.Enemy(this.assetManager);
             // this.enemies = new Array<objects.Enemy>();
             // this.enemyNum = 5;
@@ -45,6 +56,7 @@ module scenes {
             this.player.Update();
 
             // Player Bullet Logic
+            // On-Screen Bullets
             if(this.playerShots.length > 0){
                 this.playerShots.forEach(b => {
                     if(!b.isOffScreen) {b.Update();}
@@ -53,7 +65,18 @@ module scenes {
                     }
                 });
                 console.log("Bullets Left:" + this.playerShots.length);
+                this.playerShots.forEach(bullet => {
+                    this.aliens.forEach(alien => {
+                        if( alien.CheckHitbox(bullet.x, bullet.y) && (bullet.colour == alien.colour)){
+                            console.log("ALIEN KILLED!!!");
+                            bullet.isOffScreen = true;
+                            alien.isDead = true;
+                            this.removeChild(bullet);
+                            this.removeChild(alien);
+                        }
+                })});
             }
+            // Off-Screen Bullets
             if(this.playerShots.length > 0){
                 var DeleteBullets = this.playerShots.filter(b => b.isOffScreen);
                 this.playerShots = this.playerShots.filter(b => !b.isOffScreen);
@@ -64,15 +87,34 @@ module scenes {
                 }
             }
 
-            // this.enemy.Update();
-            // this.enemies.forEach(e => {
-            //     e.Update();
-            // })
+            this.aliens.forEach(a => a.Update());
+
+            // Cleaning up Dead Aliens
+            if(this.aliens.length > 0){
+                var DeleteAliens = this.aliens.filter(a => a.isDead);
+                this.aliens = this.aliens.filter(a => !a.isDead);
+                if (DeleteAliens.length > 0){
+                    console.log("DeleteAliens:" + DeleteAliens.length);
+                    DeleteAliens.splice(0, DeleteAliens.length);
+                    console.log("DeleteAliensConfirm:" + DeleteAliens.length);
+                }
+            }
+
+            // Breaking down "Bullet Hit" logic
+            /*
+                1. Check bullet x, y
+                2. Check alien x, y
+                3. If bullet x, y matches alien x,y "range"
+                    a. alien & bullet destroyed
+            */
+
+            
         }
 
         public Main():void {
             this.addChild(this.background);
             this.addChild(this.player);
+            this.aliens.forEach(a => this.addChild(a));
             // this.addChild(this.enemy);
             // this.enemies.forEach(e => {
             //     this.addChild(e);
@@ -101,7 +143,7 @@ module scenes {
         }
 
         private FireBullet():void{
-            var BulletColourIndex = this.GetBulletColour();
+            var BulletColourIndex = this.GetActiveColour();
             if(BulletColourIndex != -1){
                 var newBullet = new objects.Projectile(this.assetManager, BulletColourIndex, this.player);
                 this.playerShots.push(newBullet);
@@ -109,21 +151,18 @@ module scenes {
             }
         }
 
-        private GetBulletColour():number{
+        private GetActiveColour():number{
             let Red = objects.Game.KeyA;
             let Blue = objects.Game.KeyS;
             let Yellow = objects.Game.KeyD;
-            let Green = !Red && Blue && Yellow;
-            let Purple = Red && Blue && !Yellow;
-            let Orange = Red && !Blue && Yellow;
 
-            if(Green) {return 3;}
-            else if(Purple) {return 4;}
-            else if(Orange) {return 5;}
-            else if(Red) {return 0;}
-            else if(Blue) {return 1;}
-            else if(Yellow) {return 2;}
-            else {return -1;}
+            if((Red && Blue && Yellow)||(!Red && !Blue && !Yellow)) return -1;  //If All or None of the Keys are Pressed
+            else if (Blue && Yellow) return 3;  // Green
+            else if (Red && Blue) return 4;     // Purple
+            else if (Red && Yellow) return 5;   // Orange
+            else if (Red) return 0;
+            else if (Blue) return 1;
+            else if (Yellow) return 2; 
         }
     }
 }

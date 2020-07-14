@@ -36,5 +36,17 @@ module objects {
         public Reset():void {}
         public Move():void {}
         public CheckBound():void {}
+
+        public CheckHitbox(pointX:number, pointY:number):boolean{
+            var inHitbox = false;
+
+            if(pointX < (this.x + this.halfW) && pointX > (this.x - this.halfW)){   //If its within the object's range on X axis
+                if(pointY < (this.y + this.halfH) && pointY > (this.y - this.halfH)){
+                    console.log("HIT!!!")
+                    return true
+                }
+            }
+            return inHitbox;
+        }
     }
 }

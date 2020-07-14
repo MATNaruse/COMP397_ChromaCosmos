@@ -13,19 +13,20 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var objects;
 (function (objects) {
-    var BulletColour;
-    (function (BulletColour) {
-        BulletColour[BulletColour["RED"] = 0] = "RED";
-        BulletColour[BulletColour["BLUE"] = 1] = "BLUE";
-        BulletColour[BulletColour["YELLOW"] = 2] = "YELLOW";
-        BulletColour[BulletColour["GREEN"] = 3] = "GREEN";
-        BulletColour[BulletColour["PURPLE"] = 4] = "PURPLE";
-        BulletColour[BulletColour["ORANGE"] = 5] = "ORANGE";
-    })(BulletColour = objects.BulletColour || (objects.BulletColour = {}));
+    var ColourPalette;
+    (function (ColourPalette) {
+        ColourPalette[ColourPalette["RED"] = 0] = "RED";
+        ColourPalette[ColourPalette["BLUE"] = 1] = "BLUE";
+        ColourPalette[ColourPalette["YELLOW"] = 2] = "YELLOW";
+        ColourPalette[ColourPalette["GREEN"] = 3] = "GREEN";
+        ColourPalette[ColourPalette["PURPLE"] = 4] = "PURPLE";
+        ColourPalette[ColourPalette["ORANGE"] = 5] = "ORANGE";
+    })(ColourPalette = objects.ColourPalette || (objects.ColourPalette = {}));
     var Projectile = /** @class */ (function (_super) {
         __extends(Projectile, _super);
         function Projectile(assetManager, colour, shooter) {
-            var _this = _super.call(this, assetManager, BulletColour[colour]) || this;
+            var _this = _super.call(this, assetManager, "bullet" + ColourPalette[colour]) || this;
+            _this.colour = ColourPalette[colour];
             _this.x = shooter.x;
             _this.y = shooter.y;
             _this.scaleX = 0.25;
@@ -46,6 +47,8 @@ var objects;
                 this.isOffScreen = true;
                 // Currently tracking if it's off screen here to be cleaned up on PlayScene
             }
+        };
+        Projectile.prototype.ColisionDetect = function () {
         };
         return Projectile;
     }(objects.GameObject));

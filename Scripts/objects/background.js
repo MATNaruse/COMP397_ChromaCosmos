@@ -30,7 +30,7 @@ var objects;
             this.Reset();
         };
         Background.prototype.Update = function () {
-            this.Move();
+            // this.Move();
             this.CheckBound();
         };
         Background.prototype.Reset = function () {

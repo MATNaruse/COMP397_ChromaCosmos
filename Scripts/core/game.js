@@ -17,12 +17,27 @@
         { id: "player", src: "./Assets/spaceship.png" },
         { id: "enemy", src: "./Assets/enemy.png" },
         // Bullet Colours
-        { id: "RED", src: "./Assets/bulletRed.png" },
-        { id: "BLUE", src: "./Assets/bulletBlue.png" },
-        { id: "YELLOW", src: "./Assets/bulletYellow.png" },
-        { id: "GREEN", src: "./Assets/bulletGreen.png" },
-        { id: "PURPLE", src: "./Assets/bulletPurple.png" },
-        { id: "ORANGE", src: "./Assets/bulletOrange.png" }
+        { id: "bulletRED", src: "./Assets/bulletRed.png" },
+        { id: "bulletBLUE", src: "./Assets/bulletBlue.png" },
+        { id: "bulletYELLOW", src: "./Assets/bulletYellow.png" },
+        { id: "bulletGREEN", src: "./Assets/bulletGreen.png" },
+        { id: "bulletPURPLE", src: "./Assets/bulletPurple.png" },
+        { id: "bulletORANGE", src: "./Assets/bulletOrange.png" },
+        // Enemies
+        { id: "alienRED", src: "./Assets/alienRed.png" },
+        { id: "alienBLUE", src: "./Assets/alienBlue.png" },
+        { id: "alienYELLOW", src: "./Assets/alienYellow.png" },
+        { id: "alienGREEN", src: "./Assets/alienGreen.png" },
+        { id: "alienPURPLE", src: "./Assets/alienPurple.png" },
+        { id: "alienORANGE", src: "./Assets/alienOrange.png" },
+        // Colour Chamber
+        { id: "chamberEMPTY", src: "./Assets/chamberEmpty.png" },
+        { id: "chamberRED", src: "./Assets/chamberRed.png" },
+        { id: "chamberBLUE", src: "./Assets/chamberBlue.png" },
+        { id: "chamberYELLOW", src: "./Assets/chamberYellow.png" },
+        { id: "chamberGREEN", src: "./Assets/chamberGreen.png" },
+        { id: "chamberPURPLE", src: "./Assets/chamberPurple.png" },
+        { id: "chamberORANGE", src: "./Assets/chamberOrange.png" }
     ];
     function Init() {
         console.log("Initializing Start");

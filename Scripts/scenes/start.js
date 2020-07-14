@@ -25,9 +25,9 @@ var scenes;
         StartScene.prototype.Start = function () {
             // Initialize our objects for this scene
             this.background = new objects.Background(this.assetManager);
-            this.welcomeLabel = new objects.Label("Welcome to School!", "60px", "Consolas", "#FFFFFF", 320, 240, true);
+            this.welcomeLabel = new objects.Label("Chroma Cosmos!", "60px", "Consolas", "#FFFFFF", objects.Game.canvasW / 2, 240, true);
             // NOTE: PreloadJS manifest id
-            this.startButton = new objects.Button(this.assetManager, "nextButton", 320, 300);
+            this.startButton = new objects.Button(this.assetManager, "nextButton", objects.Game.canvasW / 2, 300);
             this.Main();
         };
         StartScene.prototype.Update = function () {

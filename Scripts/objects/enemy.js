@@ -17,8 +17,9 @@ var objects;
         __extends(Enemy, _super);
         // Variables
         // Constructor
-        function Enemy(assetManager) {
-            var _this = _super.call(this, assetManager, "enemy") || this;
+        function Enemy(assetManager, spriteName) {
+            if (spriteName === void 0) { spriteName = "enemy"; }
+            var _this = _super.call(this, assetManager, spriteName) || this;
             _this.Start();
             return _this;
         }
@@ -31,14 +32,14 @@ var objects;
             this.CheckBound();
         };
         Enemy.prototype.Reset = function () {
-            this.x = Math.floor(Math.random() * 540) + 50;
-            this.y = Math.floor(Math.random() * -800) - 50;
+            this.x = Math.floor(Math.random() * (objects.Game.canvasW - 100)) + 50;
+            this.y = Math.floor(Math.random() * -(objects.Game.canvasH - 100)) - 50;
         };
         Enemy.prototype.Move = function () {
             this.y += 5;
         };
         Enemy.prototype.CheckBound = function () {
-            if (this.y >= 900 + this.halfH + 25) {
+            if (this.y >= objects.Game.canvasH + this.halfH + 25) {
                 this.Reset();
             }
         };
