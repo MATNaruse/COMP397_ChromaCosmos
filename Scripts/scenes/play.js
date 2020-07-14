@@ -39,11 +39,30 @@ var scenes;
             // for(let i = 0; i < this.enemyNum; i++) {
             //     this.enemies[i] = new objects.Enemy(this.assetManager);
             // }
+            // Detecting Keyboard Key Presses
+            window.addEventListener("keydown", this.KeyPressHandler);
+            window.addEventListener("keyup", this.KeyPressHandler);
+            // Detecting Mouse Click
+            this.on("click", this.FireBullet);
             this.Main();
         };
         PlayScene.prototype.Update = function () {
+            var _this = this;
             this.background.Update();
             this.player.Update();
+            // Player Bullet Logic
+            if (this.playerShots.length > 0) {
+                this.playerShots.forEach(function (b) {
+                    if (!b.isOffScreen)
+                        b.Update();
+                    else
+                        _this.removeChild(b);
+                });
+                console.log("Bullets Left:" + this.playerShots.length);
+            }
+            if (this.playerShots.length > 0) {
+                this.playerShots = this.playerShots.filter(function (b) { return !b.isOffScreen; });
+            }
             // this.enemy.Update();
             // this.enemies.forEach(e => {
             //     e.Update();
@@ -56,6 +75,68 @@ var scenes;
             // this.enemies.forEach(e => {
             //     this.addChild(e);
             // })
+        };
+        // Private Methods
+        PlayScene.prototype.KeyPressHandler = function (evt) {
+            // console.log("Key Pressed! - " + evt.keyCode + "[" + evt.type + "]");
+            // A = 65, S = 83, D = 68
+            switch (evt.keyCode) {
+                case 65:
+                    if (evt.type == "keydown")
+                        objects.Game.KeyA = true;
+                    else
+                        objects.Game.KeyA = false;
+                    break;
+                case 83:
+                    if (evt.type == "keydown")
+                        objects.Game.KeyS = true;
+                    else
+                        objects.Game.KeyS = false;
+                    break;
+                case 68:
+                    if (evt.type == "keydown")
+                        objects.Game.KeyD = true;
+                    else
+                        objects.Game.KeyD = false;
+                    break;
+            }
+        };
+        PlayScene.prototype.FireBullet = function () {
+            var BulletColourIndex = this.GetBulletColour();
+            if (BulletColourIndex != -1) {
+                var newBullet = new objects.Projectile(this.assetManager, BulletColourIndex, this.player);
+                this.playerShots.push(newBullet);
+                this.addChild(newBullet);
+            }
+        };
+        PlayScene.prototype.GetBulletColour = function () {
+            var Red = objects.Game.KeyA;
+            var Blue = objects.Game.KeyS;
+            var Yellow = objects.Game.KeyD;
+            var Green = !Red && Blue && Yellow;
+            var Purple = Red && Blue && !Yellow;
+            var Orange = Red && !Blue && Yellow;
+            if (Green) {
+                return 3;
+            }
+            else if (Purple) {
+                return 4;
+            }
+            else if (Orange) {
+                return 5;
+            }
+            else if (Red) {
+                return 0;
+            }
+            else if (Blue) {
+                return 1;
+            }
+            else if (Yellow) {
+                return 2;
+            }
+            else {
+                return -1;
+            }
         };
         return PlayScene;
     }(objects.Scene));

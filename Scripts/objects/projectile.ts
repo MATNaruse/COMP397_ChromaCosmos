@@ -1,11 +1,11 @@
 module objects{
     export enum BulletColour{
         RED = 0,
-        BLUE,
-        YELLOW,
-        GREEN,
-        PURPLE,
-        ORANGE
+        BLUE = 1,
+        YELLOW = 2,
+        GREEN = 3,
+        PURPLE = 4,
+        ORANGE = 5
     }
 
     export class Projectile extends objects.GameObject{
