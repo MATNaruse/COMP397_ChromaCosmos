@@ -7,7 +7,7 @@ module objects {
         {
             super(assetManager.getResult("background"));
             console.log("Creating the background");
-
+            this.scaleX = 1.25;
             this.Start();
         }
         // Functions
@@ -20,7 +20,7 @@ module objects {
         }
         public Reset():void {
             // Reset my background y position.
-            console.log("RESET!");
+            // console.log("RESET!");
         }
         public Move():void{
             this.y += this.speedY;

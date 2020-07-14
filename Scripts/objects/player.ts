@@ -8,8 +8,8 @@ module objects {
         }
 
         public Start():void {
-            this.x = 320;
-            this.y = 700;
+            this.x = objects.Game.canvasW / 2;
+            this.y = 600;
         }
         public Update():void {
             this.Move();
@@ -24,10 +24,10 @@ module objects {
         }
         public CheckBound():void {
             // Right boundary
-            if(this.x >= 640 - this.halfW)
+            if(this.x >= objects.Game.canvasW - this.halfW)
             {
                 // I have collided with the right boundary
-                this.x = 640 - this.halfW;
+                this.x = objects.Game.canvasW - this.halfW;
             }
             // Left boundary
             if(this.x <= this.halfW) {

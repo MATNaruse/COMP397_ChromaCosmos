@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -10,7 +13,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var objects;
 (function (objects) {
-    var Background = (function (_super) {
+    var Background = /** @class */ (function (_super) {
         __extends(Background, _super);
         // Constructor
         function Background(assetManager) {
@@ -18,6 +21,7 @@ var objects;
             // Variables
             _this.speedY = 0.5;
             console.log("Creating the background");
+            _this.scaleX = 1.25;
             _this.Start();
             return _this;
         }
@@ -31,7 +35,7 @@ var objects;
         };
         Background.prototype.Reset = function () {
             // Reset my background y position.
-            console.log("RESET!");
+            // console.log("RESET!");
         };
         Background.prototype.Move = function () {
             this.y += this.speedY;

@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -10,7 +13,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var objects;
 (function (objects) {
-    var Player = (function (_super) {
+    var Player = /** @class */ (function (_super) {
         __extends(Player, _super);
         // Variables
         // Constructor
@@ -20,8 +23,8 @@ var objects;
             return _this;
         }
         Player.prototype.Start = function () {
-            this.x = 320;
-            this.y = 700;
+            this.x = objects.Game.canvasW / 2;
+            this.y = 600;
         };
         Player.prototype.Update = function () {
             this.Move();
@@ -36,9 +39,9 @@ var objects;
         };
         Player.prototype.CheckBound = function () {
             // Right boundary
-            if (this.x >= 640 - this.halfW) {
+            if (this.x >= objects.Game.canvasW - this.halfW) {
                 // I have collided with the right boundary
-                this.x = 640 - this.halfW;
+                this.x = objects.Game.canvasW - this.halfW;
             }
             // Left boundary
             if (this.x <= this.halfW) {

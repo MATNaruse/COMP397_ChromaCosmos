@@ -1,6 +1,6 @@
 var objects;
 (function (objects) {
-    var Game = (function () {
+    var Game = /** @class */ (function () {
         function Game() {
         }
         return Game;
