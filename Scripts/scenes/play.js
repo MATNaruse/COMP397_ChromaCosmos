@@ -63,7 +63,13 @@ var scenes;
                 console.log("Bullets Left:" + this.playerShots.length);
             }
             if (this.playerShots.length > 0) {
-                this.playerShots = this.playerShots.filter(function (b) { return (b.isOffScreen == false); });
+                var DeleteBullets = this.playerShots.filter(function (b) { return b.isOffScreen; });
+                this.playerShots = this.playerShots.filter(function (b) { return !b.isOffScreen; });
+                if (DeleteBullets.length > 0) {
+                    console.log("DeleteBullets:" + DeleteBullets.length);
+                    DeleteBullets.splice(0, DeleteBullets.length);
+                    console.log("DeleteBulletsConfirm:" + DeleteBullets.length);
+                }
             }
             // this.enemy.Update();
             // this.enemies.forEach(e => {
