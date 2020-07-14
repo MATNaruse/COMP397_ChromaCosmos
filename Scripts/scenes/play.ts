@@ -4,21 +4,18 @@ module scenes {
         private background: objects.Background;
         private player:objects.Player;
         private playerShots: objects.Projectile[];
-        // private enemy:objects.Enemy;
-        // private enemies:objects.Enemy[];
-        // private enemyNum:number;
-        
         private aliens:objects.Alien[];
+        private colourChamber: objects.GameObject;
 
         // Constructor
         constructor(assetManager:createjs.LoadQueue) {
             super(assetManager);
-
             this.Start();
         }
 
         public Start():void {
             console.log("Play scene start");
+
             // Inintialize our variables
             this.background = new objects.Background(this.assetManager);
             this.player = new objects.Player(this.assetManager);
@@ -30,17 +27,15 @@ module scenes {
             // Spawning Aliens
             this.aliens = new Array<objects.Alien>();
             
-            // Temporarily Spawning 1 of each
+            // Temporarily Spawning 1 of each colour
             for(let i = 0; i < 6; i++){
                 this.aliens[i] = new objects.Alien(this.assetManager, i);
             }
 
-            // this.enemy = new objects.Enemy(this.assetManager);
-            // this.enemies = new Array<objects.Enemy>();
-            // this.enemyNum = 5;
-            // for(let i = 0; i < this.enemyNum; i++) {
-            //     this.enemies[i] = new objects.Enemy(this.assetManager);
-            // }
+            // Initializing ColourChamber
+            this.colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY", 0.4);
+            this.colourChamber.x = 100;
+            this.colourChamber.y = 620;
 
             // Detecting Keyboard Key Presses
             window.addEventListener("keydown", this.KeyPressHandler);
@@ -52,6 +47,7 @@ module scenes {
         }
 
         public Update():void {
+            this.UpdateColourChamber();
             this.background.Update();
             this.player.Update();
 
@@ -114,6 +110,7 @@ module scenes {
         public Main():void {
             this.addChild(this.background);
             this.addChild(this.player);
+            this.addChild(this.colourChamber);
             this.aliens.forEach(a => this.addChild(a));
             // this.addChild(this.enemy);
             // this.enemies.forEach(e => {
@@ -149,6 +146,22 @@ module scenes {
                 this.playerShots.push(newBullet);
                 this.addChild(newBullet);
             }
+        }
+
+        private UpdateColourChamber():void{
+            var CurrentColour = this.GetActiveColour();
+            if(CurrentColour != -1){
+                this.removeChild(this.colourChamber);
+                this.colourChamber = new objects.HUDItem(this.assetManager, "chamber"+ objects.ColourPalette[CurrentColour], 0.4);
+                this.addChild(this.colourChamber);
+            }
+            else{
+                this.removeChild(this.colourChamber);
+                this.colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY", 0.4);
+                this.addChild(this.colourChamber);
+            }
+            this.colourChamber.x = 100;
+            this.colourChamber.y = 620;
         }
 
         private GetActiveColour():number{

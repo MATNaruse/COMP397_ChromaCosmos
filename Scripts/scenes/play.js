@@ -32,16 +32,14 @@ var scenes;
             objects.Game.KeyD = false;
             // Spawning Aliens
             this.aliens = new Array();
-            // Temporarily Spawning 1 of each
+            // Temporarily Spawning 1 of each colour
             for (var i = 0; i < 6; i++) {
                 this.aliens[i] = new objects.Alien(this.assetManager, i);
             }
-            // this.enemy = new objects.Enemy(this.assetManager);
-            // this.enemies = new Array<objects.Enemy>();
-            // this.enemyNum = 5;
-            // for(let i = 0; i < this.enemyNum; i++) {
-            //     this.enemies[i] = new objects.Enemy(this.assetManager);
-            // }
+            // Initializing ColourChamber
+            this.colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY", 0.4);
+            this.colourChamber.x = 100;
+            this.colourChamber.y = 620;
             // Detecting Keyboard Key Presses
             window.addEventListener("keydown", this.KeyPressHandler);
             window.addEventListener("keyup", this.KeyPressHandler);
@@ -51,6 +49,7 @@ var scenes;
         };
         PlayScene.prototype.Update = function () {
             var _this = this;
+            this.UpdateColourChamber();
             this.background.Update();
             this.player.Update();
             // Player Bullet Logic
@@ -110,6 +109,7 @@ var scenes;
             var _this = this;
             this.addChild(this.background);
             this.addChild(this.player);
+            this.addChild(this.colourChamber);
             this.aliens.forEach(function (a) { return _this.addChild(a); });
             // this.addChild(this.enemy);
             // this.enemies.forEach(e => {
@@ -148,6 +148,21 @@ var scenes;
                 this.playerShots.push(newBullet);
                 this.addChild(newBullet);
             }
+        };
+        PlayScene.prototype.UpdateColourChamber = function () {
+            var CurrentColour = this.GetActiveColour();
+            if (CurrentColour != -1) {
+                this.removeChild(this.colourChamber);
+                this.colourChamber = new objects.HUDItem(this.assetManager, "chamber" + objects.ColourPalette[CurrentColour], 0.4);
+                this.addChild(this.colourChamber);
+            }
+            else {
+                this.removeChild(this.colourChamber);
+                this.colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY", 0.4);
+                this.addChild(this.colourChamber);
+            }
+            this.colourChamber.x = 100;
+            this.colourChamber.y = 620;
         };
         PlayScene.prototype.GetActiveColour = function () {
             var Red = objects.Game.KeyA;

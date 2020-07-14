@@ -38,14 +38,13 @@ var objects;
         GameObject.prototype.Move = function () { };
         GameObject.prototype.CheckBound = function () { };
         GameObject.prototype.CheckHitbox = function (pointX, pointY) {
-            var inHitbox = false;
             if (pointX < (this.x + this.halfW) && pointX > (this.x - this.halfW)) { //If its within the object's range on X axis
-                if (pointY < (this.y + this.halfH) && pointY > (this.y - this.halfH)) {
+                if (pointY < (this.y + this.halfH) && pointY > (this.y - this.halfH)) { //If its within the object's range on Y axis
                     console.log("HIT!!!");
                     return true;
                 }
             }
-            return inHitbox;
+            return false;
         };
         return GameObject;
     }(createjs.Bitmap));
