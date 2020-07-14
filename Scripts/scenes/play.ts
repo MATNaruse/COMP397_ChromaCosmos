@@ -47,14 +47,13 @@ module scenes {
             // Player Bullet Logic
             if(this.playerShots.length > 0){
                 this.playerShots.forEach(b => {
-                    if(!b.isOffScreen) b.Update();
-                    else this.removeChild(b);
+                    if(!b.isOffScreen) {b.Update();}
+                    else {this.removeChild(b);}
                 });
                 console.log("Bullets Left:" + this.playerShots.length);
             }
-
             if(this.playerShots.length > 0){
-                this.playerShots = this.playerShots.filter(b => !b.isOffScreen);
+                this.playerShots = this.playerShots.filter((b) => (b.isOffScreen == false));
             }
 
             // this.enemy.Update();

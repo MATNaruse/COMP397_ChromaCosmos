@@ -25,6 +25,7 @@ module objects{
 
         public Update():void{
             this.Move()
+            this.CheckBound();
         }
 
         public Move():void{

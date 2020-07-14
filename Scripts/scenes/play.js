@@ -53,15 +53,17 @@ var scenes;
             // Player Bullet Logic
             if (this.playerShots.length > 0) {
                 this.playerShots.forEach(function (b) {
-                    if (!b.isOffScreen)
+                    if (!b.isOffScreen) {
                         b.Update();
-                    else
+                    }
+                    else {
                         _this.removeChild(b);
+                    }
                 });
                 console.log("Bullets Left:" + this.playerShots.length);
             }
             if (this.playerShots.length > 0) {
-                this.playerShots = this.playerShots.filter(function (b) { return !b.isOffScreen; });
+                this.playerShots = this.playerShots.filter(function (b) { return (b.isOffScreen == false); });
             }
             // this.enemy.Update();
             // this.enemies.forEach(e => {

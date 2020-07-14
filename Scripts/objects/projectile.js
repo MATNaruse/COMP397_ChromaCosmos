@@ -36,6 +36,7 @@ var objects;
         }
         Projectile.prototype.Update = function () {
             this.Move();
+            this.CheckBound();
         };
         Projectile.prototype.Move = function () {
             this.y -= 10;
