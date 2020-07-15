@@ -96,6 +96,7 @@ module scenes {
                 }
             }
 
+            if(this.aliens.length == 0) objects.Game.currentScene = config.Scene.OVER;
             // Breaking down "Bullet Hit" logic
             /*
                 1. Check bullet x, y
