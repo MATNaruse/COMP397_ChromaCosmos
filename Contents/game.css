@@ -1,3 +1,25 @@
+@font-face{
+    font-family: KronaOne;
+    src: url(../Assets/fonts/KronaOne-Regular.ttf);
+    font-weight: normal;
+}
+@font-face{
+    font-family: Staatliches;
+    src: url(../Assets/fonts/Staatliches-Regular.ttf);
+    font-weight: normal;
+}
+@font-face{
+    font-family: Righteous;
+    src: url(../Assets/fonts/Righteous-Regular.ttf);
+    font-weight: normal;
+}
+@font-face{
+    font-family: MuseoModerno;
+    src: url(../Assets/fonts/MuseoModerno-VariableFont_wght.ttf);
+    font-weight: normal;
+}
+
+/* Main CSS */
 #canvas {
     display: block;
     margin-left: auto;
@@ -5,7 +27,8 @@
     box-shadow: 10px 10px rgba(0,0,0,0.3);
 }
 
-footer h3{
+footer{
     display: block;
     text-align: center;
+    font-family: MuseoModerno;
 }

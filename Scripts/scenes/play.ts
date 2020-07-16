@@ -63,7 +63,7 @@ module scenes {
                 console.log("Bullets Left:" + this.playerShots.length);
                 this.playerShots.forEach(bullet => {
                     this.aliens.forEach(alien => {
-                        if( alien.CheckHitbox(bullet.x, bullet.y) && (bullet.colour == alien.colour)){
+                        if( (bullet.colour == alien.colour) && alien.CheckHitbox(bullet.x, bullet.y)){
                             console.log("ALIEN KILLED!!!");
                             bullet.isOffScreen = true;
                             alien.isDead = true;

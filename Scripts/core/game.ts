@@ -23,29 +23,29 @@
         {id:"enemy", src:"./Assets/enemy.png"},
 
         // Bullet Colours
-        {id:"bulletRED", src:"./Assets/bulletRed.png"},
-        {id:"bulletBLUE", src:"./Assets/bulletBlue.png"},
-        {id:"bulletYELLOW", src:"./Assets/bulletYellow.png"},
-        {id:"bulletGREEN", src:"./Assets/bulletGreen.png"},
-        {id:"bulletPURPLE", src:"./Assets/bulletPurple.png"},
-        {id:"bulletORANGE", src:"./Assets/bulletOrange.png"},
+        {id:"bulletRED", src:"./Assets/bullets/bulletRed.png"},
+        {id:"bulletBLUE", src:"./Assets/bullets/bulletBlue.png"},
+        {id:"bulletYELLOW", src:"./Assets/bullets/bulletYellow.png"},
+        {id:"bulletGREEN", src:"./Assets/bullets/bulletGreen.png"},
+        {id:"bulletPURPLE", src:"./Assets/bullets/bulletPurple.png"},
+        {id:"bulletORANGE", src:"./Assets/bullets/bulletOrange.png"},
 
         // Enemies
-        {id:"alienRED", src:"./Assets/alienRed.png"},
-        {id:"alienBLUE", src:"./Assets/alienBlue.png"},
-        {id:"alienYELLOW", src:"./Assets/alienYellow.png"},
-        {id:"alienGREEN", src:"./Assets/alienGreen.png"},
-        {id:"alienPURPLE", src:"./Assets/alienPurple.png"},
-        {id:"alienORANGE", src:"./Assets/alienOrange.png"},
+        {id:"alienRED", src:"./Assets/aliens/alienRed.png"},
+        {id:"alienBLUE", src:"./Assets/aliens/alienBlue.png"},
+        {id:"alienYELLOW", src:"./Assets/aliens/alienYellow.png"},
+        {id:"alienGREEN", src:"./Assets/aliens/alienGreen.png"},
+        {id:"alienPURPLE", src:"./Assets/aliens/alienPurple.png"},
+        {id:"alienORANGE", src:"./Assets/aliens/alienOrange.png"},
 
-        // Colour Chamber
-        {id:"chamberEMPTY", src:"./Assets/chamberEmpty.png"},
-        {id:"chamberRED", src:"./Assets/chamberRed.png"},
-        {id:"chamberBLUE", src:"./Assets/chamberBlue.png"},
-        {id:"chamberYELLOW", src:"./Assets/chamberYellow.png"},
-        {id:"chamberGREEN", src:"./Assets/chamberGreen.png"},
-        {id:"chamberPURPLE", src:"./Assets/chamberPurple.png"},
-        {id:"chamberORANGE", src:"./Assets/chamberOrange.png"}
+        // Colour Chamber -> Temp Changed to Style 2
+        {id:"chamberEMPTY", src:"./Assets/hud/chamberEmpty2.png"},
+        {id:"chamberRED", src:"./Assets/hud/chamberRed2.png"},
+        {id:"chamberBLUE", src:"./Assets/hud/chamberBlue2.png"},
+        {id:"chamberYELLOW", src:"./Assets/hud/chamberYellow2.png"},
+        {id:"chamberGREEN", src:"./Assets/hud/chamberGreen2.png"},
+        {id:"chamberPURPLE", src:"./Assets/hud/chamberPurple2.png"},
+        {id:"chamberORANGE", src:"./Assets/hud/chamberOrange2.png"}
     ];
 
     function Init() {

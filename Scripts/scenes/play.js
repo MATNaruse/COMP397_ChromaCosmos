@@ -66,7 +66,7 @@ var scenes;
                 console.log("Bullets Left:" + this.playerShots.length);
                 this.playerShots.forEach(function (bullet) {
                     _this.aliens.forEach(function (alien) {
-                        if (alien.CheckHitbox(bullet.x, bullet.y) && (bullet.colour == alien.colour)) {
+                        if ((bullet.colour == alien.colour) && alien.CheckHitbox(bullet.x, bullet.y)) {
                             console.log("ALIEN KILLED!!!");
                             bullet.isOffScreen = true;
                             alien.isDead = true;
