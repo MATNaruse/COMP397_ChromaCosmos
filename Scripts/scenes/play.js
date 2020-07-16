@@ -38,7 +38,7 @@ var scenes;
             }
             // Initializing ColourChamber
             this.colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY", 0.4);
-            this.colourChamber.x = 100;
+            this.colourChamber.x = 100; //TODO: Move x/y placement to constructor
             this.colourChamber.y = 620;
             // Detecting Keyboard Key Presses
             window.addEventListener("keydown", this.KeyPressHandler);
@@ -56,14 +56,20 @@ var scenes;
             // On-Screen Bullets
             if (this.playerShots.length > 0) {
                 this.playerShots.forEach(function (b) {
-                    if (!b.isOffScreen) {
+                    if (!b.isOffScreen)
                         b.Update();
-                    }
-                    else {
+                    else
                         _this.removeChild(b);
-                    }
                 });
                 console.log("Bullets Left:" + this.playerShots.length);
+                // Collision Detection -> Temp until covered in class
+                // Breaking down "Bullet Hit" logic
+                /*
+                    1. Check bullet x, y
+                    2. Check alien x, y
+                    3. If bullet x, y matches alien x,y "range"
+                        a. alien & bullet destroyed
+                */
                 this.playerShots.forEach(function (bullet) {
                     _this.aliens.forEach(function (alien) {
                         if ((bullet.colour == alien.colour) && alien.CheckHitbox(bullet.x, bullet.y)) {
@@ -97,15 +103,9 @@ var scenes;
                     console.log("DeleteAliensConfirm:" + DeleteAliens.length);
                 }
             }
+            // Win Condition
             if (this.aliens.length == 0)
                 objects.Game.currentScene = config.Scene.OVER;
-            // Breaking down "Bullet Hit" logic
-            /*
-                1. Check bullet x, y
-                2. Check alien x, y
-                3. If bullet x, y matches alien x,y "range"
-                    a. alien & bullet destroyed
-            */
         };
         PlayScene.prototype.Main = function () {
             var _this = this;
@@ -113,10 +113,6 @@ var scenes;
             this.addChild(this.player);
             this.addChild(this.colourChamber);
             this.aliens.forEach(function (a) { return _this.addChild(a); });
-            // this.addChild(this.enemy);
-            // this.enemies.forEach(e => {
-            //     this.addChild(e);
-            // })
         };
         // Private Methods
         PlayScene.prototype.KeyPressHandler = function (evt) {
@@ -163,6 +159,7 @@ var scenes;
                 this.colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY", 0.4);
                 this.addChild(this.colourChamber);
             }
+            // Placing the new colourChamber HUDItem
             this.colourChamber.x = 100;
             this.colourChamber.y = 620;
         };

@@ -28,7 +28,7 @@ var objects;
             var _this = _super.call(this, assetManager, "bullet" + ColourPalette[colour]) || this;
             _this.colour = ColourPalette[colour];
             _this.x = shooter.x;
-            _this.y = shooter.y;
+            _this.y = shooter.y - shooter.halfH;
             _this.scaleX = 0.25;
             _this.scaleY = 0.25;
             _this.isOffScreen = false;
@@ -47,8 +47,6 @@ var objects;
                 this.isOffScreen = true;
                 // Currently tracking if it's off screen here to be cleaned up on PlayScene
             }
-        };
-        Projectile.prototype.ColisionDetect = function () {
         };
         return Projectile;
     }(objects.GameObject));

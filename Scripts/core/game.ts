@@ -14,13 +14,8 @@
     let currentState:number;
 
     assetManifest = [
-        {id:"startButton", src:"./Assets/StartButton.png"},
-        {id:"nextButton", src:"./Assets/NextButton.png"},
-        {id:"backButton", src:"./Assets/BackButton.png"},
         {id:"background", src:"./Assets/background2.jpg"},
-        // {id:"background", src:"./Assets/background.png"},
         {id:"player", src:"./Assets/spaceship.png"},
-        {id:"enemy", src:"./Assets/enemy.png"},
 
         // Bullet Colours
         {id:"bulletRED", src:"./Assets/bullets/bulletRed.png"},
@@ -55,6 +50,8 @@
         assetManager.installPlugin(createjs.Sound);
         assetManager.loadManifest(assetManifest);
         assetManager.on("complete", Start, this);
+        
+        //Tracking Canvas Size based on HTML
         objects.Game.canvasW = canvas.clientWidth;
         objects.Game.canvasH = canvas.clientHeight;
     }

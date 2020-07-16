@@ -37,6 +37,14 @@ module objects {
         public Move():void {}
         public CheckBound():void {}
 
+
+        // Breaking down "Bullet Hit" logic
+        /*
+            1. Check bullet x, y
+            2. Check alien x, y
+            3. If bullet x, y matches alien x,y "range"
+                a. alien & bullet destroyed
+        */
         public CheckHitbox(pointX:number, pointY:number):boolean{
             if(pointX < (this.x + this.halfW) && pointX > (this.x - this.halfW)){   //If its within the object's range on X axis
                 if(pointY < (this.y + this.halfH) && pointY > (this.y - this.halfH)){   //If its within the object's range on Y axis

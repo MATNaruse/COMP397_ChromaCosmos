@@ -5,7 +5,7 @@ module objects {
         public static assetManager: createjs.LoadQueue;
         public static currentScene: number;
 
-        //Tracking Canvas Size dynamically
+        //Tracking Canvas Size
         public static canvasW:number;
         public static canvasH:number;
 

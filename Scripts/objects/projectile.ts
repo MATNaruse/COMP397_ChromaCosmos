@@ -16,7 +16,7 @@ module objects{
             super(assetManager, "bullet" + ColourPalette[colour]);
             this.colour = ColourPalette[colour];
             this.x = shooter.x;
-            this.y = shooter.y;
+            this.y = shooter.y - shooter.halfH;
             this.scaleX = 0.25;
             this.scaleY = 0.25;
 
@@ -39,10 +39,6 @@ module objects{
                 this.isOffScreen = true;
                 // Currently tracking if it's off screen here to be cleaned up on PlayScene
             }
-        }
-
-        public ColisionDetect():void{
-
         }
     }
 }

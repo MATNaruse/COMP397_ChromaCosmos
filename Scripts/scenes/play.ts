@@ -5,7 +5,7 @@ module scenes {
         private player:objects.Player;
         private playerShots: objects.Projectile[];
         private aliens:objects.Alien[];
-        private colourChamber: objects.GameObject;
+        private colourChamber: objects.HUDItem;
 
         // Constructor
         constructor(assetManager:createjs.LoadQueue) {
@@ -34,7 +34,7 @@ module scenes {
 
             // Initializing ColourChamber
             this.colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY", 0.4);
-            this.colourChamber.x = 100;
+            this.colourChamber.x = 100; //TODO: Move x/y placement to constructor
             this.colourChamber.y = 620;
 
             // Detecting Keyboard Key Presses
@@ -55,12 +55,19 @@ module scenes {
             // On-Screen Bullets
             if(this.playerShots.length > 0){
                 this.playerShots.forEach(b => {
-                    if(!b.isOffScreen) {b.Update();}
-                    else {
-                        this.removeChild(b);
-                    }
+                    if(!b.isOffScreen) b.Update();
+                    else this.removeChild(b);
                 });
                 console.log("Bullets Left:" + this.playerShots.length);
+
+                // Collision Detection -> Temp until covered in class
+                // Breaking down "Bullet Hit" logic
+                /*
+                    1. Check bullet x, y
+                    2. Check alien x, y
+                    3. If bullet x, y matches alien x,y "range"
+                        a. alien & bullet destroyed
+                */
                 this.playerShots.forEach(bullet => {
                     this.aliens.forEach(alien => {
                         if( (bullet.colour == alien.colour) && alien.CheckHitbox(bullet.x, bullet.y)){
@@ -96,16 +103,8 @@ module scenes {
                 }
             }
 
-            if(this.aliens.length == 0) objects.Game.currentScene = config.Scene.OVER;
-            // Breaking down "Bullet Hit" logic
-            /*
-                1. Check bullet x, y
-                2. Check alien x, y
-                3. If bullet x, y matches alien x,y "range"
-                    a. alien & bullet destroyed
-            */
-
-            
+            // Win Condition
+            if(this.aliens.length == 0) objects.Game.currentScene = config.Scene.OVER;            
         }
 
         public Main():void {
@@ -113,10 +112,6 @@ module scenes {
             this.addChild(this.player);
             this.addChild(this.colourChamber);
             this.aliens.forEach(a => this.addChild(a));
-            // this.addChild(this.enemy);
-            // this.enemies.forEach(e => {
-            //     this.addChild(e);
-            // })
         }
 
         // Private Methods
@@ -161,6 +156,8 @@ module scenes {
                 this.colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY", 0.4);
                 this.addChild(this.colourChamber);
             }
+
+            // Placing the new colourChamber HUDItem
             this.colourChamber.x = 100;
             this.colourChamber.y = 620;
         }

@@ -15,7 +15,7 @@ module objects {
             this.Reset();
         }
         public Update():void {
-            // this.Move();
+            // this.Move(); // Movement Temporarily Disabled
             this.CheckBound();
         }
         public Reset():void {

@@ -24,6 +24,8 @@ var objects;
         }
         Alien.prototype.CheckHitbox = function (pointX, pointY) {
             var inHitbox = false;
+            // Reimplemented to adjust the Bitmap Scaling
+            // TODO: Compensate for bitmap Scaling in gameobject.ts
             if (pointX < (this.x + (this.halfW * 0.25)) && pointX > (this.x - (this.halfW * 0.25))) { //If its within the object's range on X axis
                 if (pointY < (this.y + (this.halfH * 0.25)) && pointY > (this.y - (this.halfH * 0.25))) {
                     console.log("HIT!!!");
