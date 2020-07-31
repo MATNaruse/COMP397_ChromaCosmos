@@ -62,17 +62,9 @@ module scenes {
                 });
                 console.log("Bullets Left:" + this.playerShots.length);
 
-                // Collision Detection -> Temp until covered in class
-                // Breaking down "Bullet Hit" logic
-                /*
-                    1. Check bullet x, y
-                    2. Check alien x, y
-                    3. If bullet x, y matches alien x,y "range"
-                        a. alien & bullet destroyed
-                */
                 this.playerShots.forEach(bullet => {
                     this.bombs.forEach(bomb => {
-                        if( (bullet.colour == bomb.colour) && bomb.CheckHitbox(bullet.x, bullet.y)){
+                        if( (bullet.colour == bomb.colour) && Collision.Detect(bullet, bomb)){
                             console.log("BOMB EXPLODED!!!");
                             bullet.isOffScreen = true;
                             bomb.isDead = true;
@@ -82,7 +74,7 @@ module scenes {
                         }
                     })
                     this.aliens.forEach(alien => {
-                        if( (bullet.colour == alien.colour) && alien.CheckHitbox(bullet.x, bullet.y)){
+                        if( (bullet.colour == alien.colour) && Collision.Detect(bullet, alien)){
                             console.log("ALIEN KILLED!!!");
                             bullet.isOffScreen = true;
                             alien.isDead = true;

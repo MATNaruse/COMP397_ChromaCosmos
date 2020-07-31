@@ -3,6 +3,7 @@ module objects {
         // Variables
         protected speedX: number;
         protected speedY: number;
+        public ImgScale: number;
 
         // Useful for collision detection
         public width: number;
@@ -15,7 +16,7 @@ module objects {
             super(assetManager.getResult(imageString));
 
             this.name = imageString;
-
+            this.ImgScale = 1;
             this.Init();
         }
 
@@ -45,14 +46,14 @@ module objects {
             3. If bullet x, y matches alien x,y "range"
                 a. alien & bullet destroyed
         */
-        public CheckHitbox(pointX:number, pointY:number):boolean{
-            if(pointX < (this.x + this.halfW) && pointX > (this.x - this.halfW)){   //If its within the object's range on X axis
-                if(pointY < (this.y + this.halfH) && pointY > (this.y - this.halfH)){   //If its within the object's range on Y axis
-                    console.log("HIT!!!")
-                    return true
-                }
-            }
-            return false;
-        }
+        // public CheckHitbox(pointX:number, pointY:number):boolean{
+        //     if(pointX < (this.x + this.halfW) && pointX > (this.x - this.halfW)){   //If its within the object's range on X axis
+        //         if(pointY < (this.y + this.halfH) && pointY > (this.y - this.halfH)){   //If its within the object's range on Y axis
+        //             console.log("HIT!!!")
+        //             return true
+        //         }
+        //     }
+        //     return false;
+        // }
     }
 }

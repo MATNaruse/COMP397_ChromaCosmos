@@ -18,13 +18,20 @@
         { id: "bulletGREEN", src: "./Assets/bullets/bulletGreen.png" },
         { id: "bulletPURPLE", src: "./Assets/bullets/bulletPurple.png" },
         { id: "bulletORANGE", src: "./Assets/bullets/bulletOrange.png" },
-        // Enemies
-        { id: "alienRED", src: "./Assets/aliens/alienRed.png" },
-        { id: "alienBLUE", src: "./Assets/aliens/alienBlue.png" },
-        { id: "alienYELLOW", src: "./Assets/aliens/alienYellow.png" },
-        { id: "alienGREEN", src: "./Assets/aliens/alienGreen.png" },
-        { id: "alienPURPLE", src: "./Assets/aliens/alienPurple.png" },
-        { id: "alienORANGE", src: "./Assets/aliens/alienOrange.png" },
+        // // Enemies
+        // {id:"alienRED", src:"./Assets/aliens/alienRed.png"},
+        // {id:"alienBLUE", src:"./Assets/aliens/alienBlue.png"},
+        // {id:"alienYELLOW", src:"./Assets/aliens/alienYellow.png"},
+        // {id:"alienGREEN", src:"./Assets/aliens/alienGreen.png"},
+        // {id:"alienPURPLE", src:"./Assets/aliens/alienPurple.png"},
+        // {id:"alienORANGE", src:"./Assets/aliens/alienOrange.png"},
+        // Enemies - Updated Assets
+        { id: "alienRED", src: "./InkscapeAssets/alienRed.png" },
+        { id: "alienBLUE", src: "./InkscapeAssets/alienBlue.png" },
+        { id: "alienYELLOW", src: "./InkscapeAssets/alienYellow.png" },
+        { id: "alienGREEN", src: "./InkscapeAssets/alienGreen.png" },
+        { id: "alienPURPLE", src: "./InkscapeAssets/alienPurple.png" },
+        { id: "alienORANGE", src: "./InkscapeAssets/alienOrange.png" },
         // Colour Chamber -> Temp Changed to Style 2
         { id: "chamberEMPTY", src: "./Assets/hud/chamberEmpty2.png" },
         { id: "chamberRED", src: "./Assets/hud/chamberRed2.png" },
