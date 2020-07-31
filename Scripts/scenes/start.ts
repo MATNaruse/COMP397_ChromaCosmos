@@ -16,15 +16,15 @@ module scenes {
         public Start():void {
             // Initialize our objects for this scene
             this.background = new objects.Background(this.assetManager);
-            this.welcomeLabel = new objects.Label("Chroma Cosmos!", "60px", "Arial Black", "#FFFFFF", objects.Game.canvasW/2, 240, true);
+            this.welcomeLabel = new objects.Label("Chroma Cosmos!", "60px", "Arial Black", "#FFFFFF", managers.Game.canvasW/2, 240, true);
 
             var instruct:string = "Defeat all the Aliens by matching colours!\nUse the mouse to move and Click to fire\nUse a combination of A, S, and D to match the colours"
-            this.instructions = new objects.Label(instruct, "32px", "Arial", "#fff", objects.Game.canvasW/2, 270);
+            this.instructions = new objects.Label(instruct, "32px", "Arial", "#fff", managers.Game.canvasW/2, 270);
             this.instructions.x -= 300; //Temporary Manual Adjustment
 
             // NOTE: PreloadJS manifest id
-            this.startButton = new objects.MenuButton("Start", objects.Game.canvasW/2, 380, true);
-            this.overButton = new objects.MenuButton("Skip to Game Over Screen", objects.Game.canvasW/2, 460, true);
+            this.startButton = new objects.MenuButton("Start", managers.Game.canvasW/2, 380, true);
+            this.overButton = new objects.MenuButton("Skip to Game Over Screen", managers.Game.canvasW/2, 460, true);
             this.Main();
         }
 
@@ -42,11 +42,11 @@ module scenes {
         }
 
         private startButtonClick():void {
-            objects.Game.currentScene = config.Scene.GAME;
+            managers.Game.currentScene = config.Scene.GAME;
         }
 
         private overButtonClick():void {
-            objects.Game.currentScene = config.Scene.OVER;
+            managers.Game.currentScene = config.Scene.OVER;
         }
     }
 }

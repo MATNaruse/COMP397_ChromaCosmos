@@ -18,7 +18,7 @@ module scenes {
 
         public Start():void {
             console.log("Play scene start");
-
+            managers.Game.Score = 0;
             // Inintialize our variables
             this.background = new objects.Background(this.assetManager);
             this.background2 = new objects.Background(this.assetManager, true);
@@ -28,7 +28,7 @@ module scenes {
             // Spawning Aliens
             this.aliens = new Array<objects.Alien>();
             
-            this.fleetGen = new levels.FleetGenerator(this.assetManager, this.aliens);
+            this.fleetGen = new levels.FleetGenerator(this.aliens);
             this.fleetGen.GenerateWaves(3, 3);
 
 
@@ -57,7 +57,7 @@ module scenes {
             });
             
             if(this.player.isDead){
-                objects.Game.currentScene = config.Scene.OVER;
+                managers.Game.currentScene = config.Scene.OVER;
             }
             else {
                 // Player Bullet Logic
@@ -82,6 +82,7 @@ module scenes {
                         // })
                         this.aliens.forEach(alien => {
                             if(managers.Collision.Detect(bullet, alien)){
+                                managers.Game.Score += alien.ScoreValue;
                                 this.removeChild(bullet);
                                 this.removeChild(alien);
                             };
@@ -125,7 +126,7 @@ module scenes {
                 }
 
                 // Win Condition
-                if(this.aliens.length == 0) objects.Game.currentScene = config.Scene.OVER;     
+                if(this.aliens.length == 0) managers.Game.currentScene = config.Scene.OVER;     
             }
         }
 
@@ -167,9 +168,9 @@ module scenes {
         }
 
         private GetActiveColour():number{
-            let Red = objects.Game.controlManager.KeyA;
-            let Blue = objects.Game.controlManager.KeyS;
-            let Yellow = objects.Game.controlManager.KeyD;
+            let Red = managers.Game.controlManager.KeyA;
+            let Blue = managers.Game.controlManager.KeyS;
+            let Yellow = managers.Game.controlManager.KeyD;
 
             if((Red && Blue && Yellow)||(!Red && !Blue && !Yellow)) return -1;  //If All or None of the Keys are Pressed
             else if (Blue && Yellow) return 3;  // Green

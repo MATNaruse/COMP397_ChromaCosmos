@@ -1,13 +1,10 @@
 module levels{
     export class FleetGenerator{
-        private laneXSpacing:number;
         private listOfAllAliens: objects.Alien[];
         private assetManager: createjs.LoadQueue;
 
-        constructor(assetManager: createjs.LoadQueue, alienList: objects.Alien[]){
-            // this.listOfAllAliens = new Array<objects.Alien>();
+        constructor(alienList: objects.Alien[]){
             this.listOfAllAliens = alienList;
-            this.assetManager = assetManager;
         }
 
         public Spawn(alien:objects.Alien, lane:number){
@@ -27,7 +24,7 @@ module levels{
                     console.log("PICKED " + colourPicked + ": " +  objects.ColourPalette[colourPicked]);
 
                     // Generate Alien
-                    var new_alien = new objects.Alien(this.assetManager, colourPicked);
+                    var new_alien = new objects.Alien(managers.Game.assetManager, colourPicked);
                     
                     // Set Y Offset for "Wave"
                     new_alien.y = yWaveOffset;
@@ -50,6 +47,13 @@ module levels{
             4 - 900
             5 - 1075
             6 - 1250
+        */
+
+        /*
+            - Each wave should be pre-determined (Random alien colours?)
+            - Each wave should NOT reload at the top ? 
+            - Score should be assigned to kills & Calculated
+
         */
     }
 }

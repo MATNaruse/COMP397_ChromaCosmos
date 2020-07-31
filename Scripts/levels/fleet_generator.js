@@ -1,10 +1,8 @@
 var levels;
 (function (levels) {
     var FleetGenerator = /** @class */ (function () {
-        function FleetGenerator(assetManager, alienList) {
-            // this.listOfAllAliens = new Array<objects.Alien>();
+        function FleetGenerator(alienList) {
             this.listOfAllAliens = alienList;
-            this.assetManager = assetManager;
         }
         FleetGenerator.prototype.Spawn = function (alien, lane) {
             var baseX = 200;
@@ -22,7 +20,7 @@ var levels;
                     var colourPicked = Math.floor(Math.random() * (colourRange));
                     console.log("PICKED " + colourPicked + ": " + objects.ColourPalette[colourPicked]);
                     // Generate Alien
-                    var new_alien = new objects.Alien(this.assetManager, colourPicked);
+                    var new_alien = new objects.Alien(managers.Game.assetManager, colourPicked);
                     // Set Y Offset for "Wave"
                     new_alien.y = yWaveOffset;
                     console.log("SET YOFF" + yWaveOffset);

@@ -23,6 +23,7 @@ var scenes;
         }
         PlayScene.prototype.Start = function () {
             console.log("Play scene start");
+            managers.Game.Score = 0;
             // Inintialize our variables
             this.background = new objects.Background(this.assetManager);
             this.background2 = new objects.Background(this.assetManager, true);
@@ -30,7 +31,7 @@ var scenes;
             this.playerShots = new Array();
             // Spawning Aliens
             this.aliens = new Array();
-            this.fleetGen = new levels.FleetGenerator(this.assetManager, this.aliens);
+            this.fleetGen = new levels.FleetGenerator(this.aliens);
             this.fleetGen.GenerateWaves(3, 3);
             this.bombs = new Array();
             // Initializing ColourChamber
@@ -53,7 +54,7 @@ var scenes;
                 }
             });
             if (this.player.isDead) {
-                objects.Game.currentScene = config.Scene.OVER;
+                managers.Game.currentScene = config.Scene.OVER;
             }
             else {
                 // Player Bullet Logic
@@ -79,6 +80,7 @@ var scenes;
                         // })
                         _this.aliens.forEach(function (alien) {
                             if (managers.Collision.Detect(bullet, alien)) {
+                                managers.Game.Score += alien.ScoreValue;
                                 _this.removeChild(bullet);
                                 _this.removeChild(alien);
                             }
@@ -120,7 +122,7 @@ var scenes;
                 }
                 // Win Condition
                 if (this.aliens.length == 0)
-                    objects.Game.currentScene = config.Scene.OVER;
+                    managers.Game.currentScene = config.Scene.OVER;
             }
         };
         PlayScene.prototype.Main = function () {
@@ -158,9 +160,9 @@ var scenes;
             this.colourChamber.y = 620;
         };
         PlayScene.prototype.GetActiveColour = function () {
-            var Red = objects.Game.controlManager.KeyA;
-            var Blue = objects.Game.controlManager.KeyS;
-            var Yellow = objects.Game.controlManager.KeyD;
+            var Red = managers.Game.controlManager.KeyA;
+            var Blue = managers.Game.controlManager.KeyS;
+            var Yellow = managers.Game.controlManager.KeyD;
             if ((Red && Blue && Yellow) || (!Red && !Blue && !Yellow))
                 return -1; //If All or None of the Keys are Pressed
             else if (Blue && Yellow)

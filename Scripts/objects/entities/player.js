@@ -24,7 +24,7 @@ var objects;
             return _this;
         }
         Player.prototype.Start = function () {
-            this.x = objects.Game.canvasW / 2;
+            this.x = managers.Game.canvasW / 2;
             this.y = 600;
         };
         Player.prototype.Update = function () {
@@ -34,15 +34,15 @@ var objects;
         Player.prototype.Reset = function () { };
         Player.prototype.Move = function () {
             // I need a reference to the "STAGE" createjs object to get mouse position
-            this.x = objects.Game.stage.mouseX;
+            this.x = managers.Game.stage.mouseX;
             // This will eventually be replaced with keyboard input
             // Maybe xbox controller....maybe...
         };
         Player.prototype.CheckBound = function () {
             // Right boundary
-            if (this.x >= objects.Game.canvasW - this.halfW) {
+            if (this.x >= managers.Game.canvasW - this.halfW) {
                 // I have collided with the right boundary
-                this.x = objects.Game.canvasW - this.halfW;
+                this.x = managers.Game.canvasW - this.halfW;
             }
             // Left boundary
             if (this.x <= this.halfW) {
@@ -58,6 +58,7 @@ var objects;
             }
             else {
                 this.isDead = true;
+                managers.Game.PlayerLose = true;
             }
         };
         return Player;

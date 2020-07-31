@@ -12,7 +12,7 @@ module objects {
         }
 
         public Start():void {
-            this.x = objects.Game.canvasW / 2;
+            this.x = managers.Game.canvasW / 2;
             this.y = 600;
         }
         public Update():void {
@@ -23,16 +23,16 @@ module objects {
 
         public Move():void {
             // I need a reference to the "STAGE" createjs object to get mouse position
-            this.x = objects.Game.stage.mouseX;
+            this.x = managers.Game.stage.mouseX;
             // This will eventually be replaced with keyboard input
             // Maybe xbox controller....maybe...
         }
         public CheckBound():void {
             // Right boundary
-            if(this.x >= objects.Game.canvasW - this.halfW)
+            if(this.x >= managers.Game.canvasW - this.halfW)
             {
                 // I have collided with the right boundary
-                this.x = objects.Game.canvasW - this.halfW;
+                this.x = managers.Game.canvasW - this.halfW;
             }
             // Left boundary
             if(this.x <= this.halfW) {
@@ -46,7 +46,10 @@ module objects {
                 this.Health -= dmg;
                 console.log("PLAYER HIT - " + this.Health);
             }
-            else {this.isDead = true;}
+            else {
+                this.isDead = true;
+                managers.Game.PlayerLose = true;
+            }
         }
     }
 }

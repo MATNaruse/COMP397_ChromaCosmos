@@ -41,8 +41,10 @@
         /*
             AUDIO ASSETS
         */
+        // Player Related
         { id: "laserFire1", src: "./Assets/audio/sfx/laser1.wav" },
         { id: "playerHit1", src: "./Assets/audio/sfx/dull_metal_collision_08_44k_32bit_stereo.wav" },
+        // Alien Related
         { id: "alienDie1", src: "./Assets/audio/sfx/alien_07.ogg" },
         { id: "alienDie2", src: "./Assets/audio/sfx/alien_08.ogg" },
         { id: "alienDie3", src: "./Assets/audio/sfx/alien_09.ogg" },
@@ -57,8 +59,9 @@
         assetManager.loadManifest(assetManifest);
         assetManager.on("complete", Start, this);
         //Tracking Canvas Size based on HTML
-        objects.Game.canvasW = canvas.clientWidth;
-        objects.Game.canvasH = canvas.clientHeight;
+        managers.Game.canvasW = canvas.clientWidth;
+        managers.Game.canvasH = canvas.clientHeight;
+        managers.Game.assetManager = assetManager;
     }
     function Start() {
         console.log("Starting Application...");
@@ -68,17 +71,17 @@
         createjs.Ticker.framerate = 60;
         createjs.Ticker.on("tick", Update);
         // Set up default game states -- State Machine
-        objects.Game.stage = stage;
-        objects.Game.currentScene = config.Scene.START;
+        managers.Game.stage = stage;
+        managers.Game.currentScene = config.Scene.START;
         currentState = config.Scene.START;
         controlManager = new managers.PlayerControls;
-        objects.Game.controlManager = controlManager;
+        managers.Game.controlManager = controlManager;
         Main();
     }
     function Update() {
         // Has my state changed since the last check?
-        if (currentState != objects.Game.currentScene) {
-            console.log("Changing scenes to " + objects.Game.currentScene);
+        if (currentState != managers.Game.currentScene) {
+            console.log("Changing scenes to " + managers.Game.currentScene);
             Main();
         }
         currentScene.Update();
@@ -87,7 +90,7 @@
     function Main() {
         console.log("Game Start");
         // Finite State Machine
-        switch (objects.Game.currentScene) {
+        switch (managers.Game.currentScene) {
             case config.Scene.START:
                 stage.removeAllChildren();
                 currentScene = new scenes.StartScene(assetManager);
@@ -104,7 +107,7 @@
                 stage.addChild(currentScene);
                 break;
         }
-        currentState = objects.Game.currentScene;
+        currentState = managers.Game.currentScene;
     }
     window.onload = Init;
 })();
