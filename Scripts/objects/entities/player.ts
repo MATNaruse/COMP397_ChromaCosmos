@@ -41,10 +41,10 @@ module objects {
         }
 
         public TakeDamage(dmg:number = 1){
+            createjs.Sound.play("playerHit1").setVolume(3);
             if(this.Health > 1) {
                 this.Health -= dmg;
                 console.log("PLAYER HIT - " + this.Health);
-                createjs.Sound.play("playerHit1").setVolume(3);
             }
             else {this.isDead = true;}
         }

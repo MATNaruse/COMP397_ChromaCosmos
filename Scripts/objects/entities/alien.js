@@ -28,6 +28,9 @@ var objects;
             _super.prototype.Reset.call(this);
             this.attackedPlayer = false;
         };
+        Alien.prototype.Move = function () {
+            this.y += 5;
+        };
         return Alien;
     }(objects.Enemy));
     objects.Alien = Alien;

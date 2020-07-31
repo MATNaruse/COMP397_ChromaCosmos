@@ -7,6 +7,7 @@ module scenes {
         private aliens:objects.Alien[];
         private bombs:objects.Bomb[];
         private colourChamber: objects.HUDItem;
+        private fleetGen: levels.FleetGenerator;
 
         // Constructor
         constructor(assetManager:createjs.LoadQueue) {
@@ -25,20 +26,14 @@ module scenes {
             // Spawning Aliens
             this.aliens = new Array<objects.Alien>();
             
-            // Temporarily Spawning 1 of each colour
-            for(let i = 0; i < 6; i++){
-                this.aliens[i] = new objects.Alien(this.assetManager, i);
-            }
+            this.fleetGen = new levels.FleetGenerator(this.assetManager, this.aliens);
+            this.fleetGen.GenerateWaves(3, 3);
+
 
             this.bombs = new Array<objects.Bomb>();
 
             // Initializing ColourChamber
             this.colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY", 100, 620, 0.4);
-
-            // Detecting Keyboard Key Presses
-            // TODO: Move to a KeyboardManager
-            // window.addEventListener("keydown", this.KeyPressHandler);
-            // window.addEventListener("keyup", this.KeyPressHandler);
 
             // Detecting Mouse Click
             this.on("click", this.FireBullet);
@@ -59,7 +54,7 @@ module scenes {
             });
             
             if(this.player.isDead){
-                objects.Game.currentScene = config.Scene.OVER;s
+                objects.Game.currentScene = config.Scene.OVER;
             }
             else {
                 // Player Bullet Logic
@@ -72,28 +67,23 @@ module scenes {
                     console.log("Bullets Left:" + this.playerShots.length);
 
                     this.playerShots.forEach(bullet => {
-                        this.bombs.forEach(bomb => {
-                            if( (bullet.colour == bomb.colour) && managers.Collision.Detect(bullet, bomb)){
-                                console.log("BOMB EXPLODED!!!");
-                                bullet.isOffScreen = true;
-                                bomb.isDead = true;
-                                this.BombExplode(bomb.colour)
-                                this.removeChild(bullet);
-                                this.removeChild(bomb);
-                            }
-                        })
+                        // this.bombs.forEach(bomb => {
+                        //     if( (bullet.colour == bomb.colour) && managers.Collision.Detect(bullet, bomb)){
+                        //         console.log("BOMB EXPLODED!!!");
+                        //         bullet.isOffScreen = true;
+                        //         bomb.isDead = true;
+                        //         this.BombExplode(bomb.colour)
+                        //         this.removeChild(bullet);
+                        //         this.removeChild(bomb);
+                        //     }
+                        // })
                         this.aliens.forEach(alien => {
-                            if( (bullet.colour == alien.colour) && managers.Collision.Detect(bullet, alien)){
-                                console.log("ALIEN KILLED!!!");
-                                bullet.isOffScreen = true;
-                                alien.isDead = true;
+                            if(managers.Collision.Detect(bullet, alien)){
                                 this.removeChild(bullet);
                                 this.removeChild(alien);
-                                var aliendeadsound:string = "alienDie" + Math.floor((Math.random() * (6-1) + 1));
-                                console.log(aliendeadsound);
-                                createjs.Sound.play(aliendeadsound).setVolume(3);
-                            }
-                        })
+                            };
+
+                        });
                     });
                 }
                 // Off-Screen Bullets

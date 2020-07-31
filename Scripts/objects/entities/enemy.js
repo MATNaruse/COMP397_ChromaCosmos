@@ -32,8 +32,9 @@ var objects;
             this.CheckBound();
         };
         Enemy.prototype.Reset = function () {
-            this.x = Math.floor(Math.random() * (objects.Game.canvasW - 100)) + 50;
-            this.y = Math.floor(Math.random() * -(objects.Game.canvasH - 100)) - 50;
+            // this.x = Math.floor(Math.random() * (objects.Game.canvasW - 100)) + 50;
+            // this.y = Math.floor(Math.random() * -(objects.Game.canvasH - 100)) - 50;
+            this.y = -50;
         };
         Enemy.prototype.Move = function () {
             this.y += 5;

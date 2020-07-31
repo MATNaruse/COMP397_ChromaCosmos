@@ -10,19 +10,34 @@ module managers{
                 3. If bullet x, y matches alien x,y "range"
                     a. alien & bullet destroyed
             */
-
             if(Incoming.x < (Target.x + (Target.halfW * Target.ImgScale)) && Incoming.x > (Target.x -(Target.halfW * Target.ImgScale)))
             {   //If its within the object's range on X axis
                 if(Incoming.y < (Target.y + (Target.halfH * Target.ImgScale)) && Incoming.y > (Target.y - (Target.halfH * Target.ImgScale))){
                     console.log("HIT!!!")
-                    if(Incoming instanceof objects.Alien){
+                    // Handling Object Type Encounters:
+
+                    // If Alien encounters Player
+                    if(Incoming instanceof objects.Alien && Target instanceof objects.Player){
                         if(Incoming.attackedPlayer == false){
-                            Incoming.attackedPlayer = true;
+                            Incoming.attackedPlayer = true; // This prevents the alien from constantly harming the player as long as they are collided
                             return true;
                         }
                         return false;
                     }
-                    return true
+
+                    // If Bullet encounters Alien
+                    else if (Incoming instanceof objects.Projectile && Target instanceof objects.Alien && Incoming.colour == Target.colour){
+                        console.log("ALIEN KILLED!!!");
+                        Incoming.isOffScreen = true;
+                        Target.isDead = true;
+                        var aliendeadsound:string = "alienDie" + Math.floor((Math.random() * (6-1) + 1));
+                        console.log(aliendeadsound);
+                        createjs.Sound.play(aliendeadsound).setVolume(3);
+                        return true;
+                    }
+                    
+                    
+                    return false;
                 }
             }
             return false;

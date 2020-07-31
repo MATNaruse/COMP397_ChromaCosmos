@@ -1,29 +1,41 @@
 var levels;
 (function (levels) {
     var FleetGenerator = /** @class */ (function () {
-        function FleetGenerator(lane_space) {
-            this.laneXSpacing = lane_space;
-            this.waves = [];
+        function FleetGenerator(assetManager, alienList) {
+            // this.listOfAllAliens = new Array<objects.Alien>();
+            this.listOfAllAliens = alienList;
+            this.assetManager = assetManager;
         }
-        FleetGenerator.prototype.DeployFleet = function () {
-            this.waves.forEach(function (w) {
-            });
+        FleetGenerator.prototype.Spawn = function (alien, lane) {
+            var baseX = 200;
+            var increment = 175;
+            alien.x = baseX + (increment * lane);
+        };
+        FleetGenerator.prototype.GenerateWaves = function (numOfWaves, aliensPerWave, basic) {
+            if (basic === void 0) { basic = true; }
+            var colourRange = basic ? 3 : 6;
+            var yWaveOffset = -50;
+            for (var i = 0; i < numOfWaves; i++) {
+                // For Each Wave
+                for (var j = 0; j < aliensPerWave; j++) {
+                    // Pick Alien Colour
+                    var colourPicked = Math.floor(Math.random() * (colourRange));
+                    console.log("PICKED " + colourPicked + ": " + objects.ColourPalette[colourPicked]);
+                    // Generate Alien
+                    var new_alien = new objects.Alien(this.assetManager, colourPicked);
+                    // Set Y Offset for "Wave"
+                    new_alien.y = yWaveOffset;
+                    console.log("SET YOFF" + yWaveOffset);
+                    // Put into a "Lane"
+                    this.Spawn(new_alien, Math.floor((Math.random() * (6 - 1) + 1)));
+                    this.listOfAllAliens.push(new_alien);
+                }
+                yWaveOffset -= 1000;
+            }
+            // return this.listOfAllAliens;
         };
         return FleetGenerator;
     }());
     levels.FleetGenerator = FleetGenerator;
-    var Wave = /** @class */ (function () {
-        function Wave() {
-            this.wave_row = new Array(9);
-        }
-        Wave.prototype.InsertEnemy = function (enemy, lane) {
-            this.wave_row[lane] = enemy;
-        };
-        Wave.prototype.LaunchWave = function () {
-            return this.wave_row;
-        };
-        return Wave;
-    }());
-    levels.Wave = Wave;
 })(levels || (levels = {}));
 //# sourceMappingURL=fleet_generator.js.map

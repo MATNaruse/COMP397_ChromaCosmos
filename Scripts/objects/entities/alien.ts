@@ -16,5 +16,9 @@ module objects{
             super.Reset();
             this.attackedPlayer = false;
         }
+
+        public Move():void {
+            this.y += 5;
+        }
     }
 }

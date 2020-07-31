@@ -29,17 +29,11 @@ var scenes;
             this.playerShots = new Array();
             // Spawning Aliens
             this.aliens = new Array();
-            // Temporarily Spawning 1 of each colour
-            for (var i = 0; i < 6; i++) {
-                this.aliens[i] = new objects.Alien(this.assetManager, i);
-            }
+            this.fleetGen = new levels.FleetGenerator(this.assetManager, this.aliens);
+            this.fleetGen.GenerateWaves(3, 3);
             this.bombs = new Array();
             // Initializing ColourChamber
             this.colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY", 100, 620, 0.4);
-            // Detecting Keyboard Key Presses
-            // TODO: Move to a KeyboardManager
-            // window.addEventListener("keydown", this.KeyPressHandler);
-            // window.addEventListener("keyup", this.KeyPressHandler);
             // Detecting Mouse Click
             this.on("click", this.FireBullet);
             this.Main();
@@ -58,7 +52,6 @@ var scenes;
             });
             if (this.player.isDead) {
                 objects.Game.currentScene = config.Scene.OVER;
-                s;
             }
             else {
                 // Player Bullet Logic
@@ -72,27 +65,22 @@ var scenes;
                     });
                     console.log("Bullets Left:" + this.playerShots.length);
                     this.playerShots.forEach(function (bullet) {
-                        _this.bombs.forEach(function (bomb) {
-                            if ((bullet.colour == bomb.colour) && managers.Collision.Detect(bullet, bomb)) {
-                                console.log("BOMB EXPLODED!!!");
-                                bullet.isOffScreen = true;
-                                bomb.isDead = true;
-                                _this.BombExplode(bomb.colour);
-                                _this.removeChild(bullet);
-                                _this.removeChild(bomb);
-                            }
-                        });
+                        // this.bombs.forEach(bomb => {
+                        //     if( (bullet.colour == bomb.colour) && managers.Collision.Detect(bullet, bomb)){
+                        //         console.log("BOMB EXPLODED!!!");
+                        //         bullet.isOffScreen = true;
+                        //         bomb.isDead = true;
+                        //         this.BombExplode(bomb.colour)
+                        //         this.removeChild(bullet);
+                        //         this.removeChild(bomb);
+                        //     }
+                        // })
                         _this.aliens.forEach(function (alien) {
-                            if ((bullet.colour == alien.colour) && managers.Collision.Detect(bullet, alien)) {
-                                console.log("ALIEN KILLED!!!");
-                                bullet.isOffScreen = true;
-                                alien.isDead = true;
+                            if (managers.Collision.Detect(bullet, alien)) {
                                 _this.removeChild(bullet);
                                 _this.removeChild(alien);
-                                var aliendeadsound = "alienDie" + Math.floor((Math.random() * (6 - 1) + 1));
-                                console.log(aliendeadsound);
-                                createjs.Sound.play(aliendeadsound).setVolume(3);
                             }
+                            ;
                         });
                     });
                 }

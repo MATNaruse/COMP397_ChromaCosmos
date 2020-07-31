@@ -1,32 +1,55 @@
 module levels{
     export class FleetGenerator{
         private laneXSpacing:number;
-        private waves: Array<levels.Wave>;
+        private listOfAllAliens: objects.Alien[];
+        private assetManager: createjs.LoadQueue;
 
-        constructor(lane_space: number){
-            this.laneXSpacing = lane_space;
-            this.waves = [];
+        constructor(assetManager: createjs.LoadQueue, alienList: objects.Alien[]){
+            // this.listOfAllAliens = new Array<objects.Alien>();
+            this.listOfAllAliens = alienList;
+            this.assetManager = assetManager;
         }
 
-        public DeployFleet(){
-            this.waves.forEach(w =>{
-                
-            })
-        }
-    }
-
-    export class Wave{
-        private wave_row: Array<objects.Enemy>;
-        constructor(){
-            this.wave_row = new Array<objects.Enemy>(9);            
+        public Spawn(alien:objects.Alien, lane:number){
+            var baseX: number = 200;
+            var increment: number = 175;
+            alien.x = baseX + (increment * lane);
         }
 
-        public InsertEnemy(enemy: objects.Enemy, lane: number){
-            this.wave_row[lane] = enemy
+        public GenerateWaves(numOfWaves: number, aliensPerWave:number, basic:boolean = true){
+            var colourRange = basic ? 3 : 6;
+            var yWaveOffset = -50;
+            for(let i = 0; i < numOfWaves; i++){
+                // For Each Wave
+                for(let j = 0; j < aliensPerWave; j++){
+                    // Pick Alien Colour
+                    var colourPicked = Math.floor(Math.random() * (colourRange));
+                    console.log("PICKED " + colourPicked + ": " +  objects.ColourPalette[colourPicked]);
+
+                    // Generate Alien
+                    var new_alien = new objects.Alien(this.assetManager, colourPicked);
+                    
+                    // Set Y Offset for "Wave"
+                    new_alien.y = yWaveOffset;
+                    console.log("SET YOFF" + yWaveOffset);
+
+                    // Put into a "Lane"
+                    this.Spawn(new_alien, Math.floor((Math.random() * (6-1) + 1)));
+                    this.listOfAllAliens.push(new_alien);
+                }
+                yWaveOffset -= 1000;
+            }
+
+            // return this.listOfAllAliens;
         }
 
-        public LaunchWave(): Array<objects.Enemy>{
-            return this.wave_row;
-        }
+        /*  6 Lanes
+            1 - 375
+            2 - 550
+            3 - 725
+            4 - 900
+            5 - 1075
+            6 - 1250
+        */
     }
 }
