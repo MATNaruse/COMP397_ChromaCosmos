@@ -5,6 +5,7 @@ module scenes {
         private player:objects.Player;
         private playerShots: objects.Projectile[];
         private aliens:objects.Alien[];
+        private bombs:objects.Bomb[];
         private colourChamber: objects.HUDItem;
 
         // Constructor
@@ -32,12 +33,13 @@ module scenes {
                 this.aliens[i] = new objects.Alien(this.assetManager, i);
             }
 
+            this.bombs = new Array<objects.Bomb>();
+
             // Initializing ColourChamber
-            this.colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY", 0.4);
-            this.colourChamber.x = 100; //TODO: Move x/y placement to constructor
-            this.colourChamber.y = 620;
+            this.colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY", 100, 620, 0.4);
 
             // Detecting Keyboard Key Presses
+            // TODO: Move to a KeyboardManager
             window.addEventListener("keydown", this.KeyPressHandler);
             window.addEventListener("keyup", this.KeyPressHandler);
 
@@ -69,6 +71,16 @@ module scenes {
                         a. alien & bullet destroyed
                 */
                 this.playerShots.forEach(bullet => {
+                    this.bombs.forEach(bomb => {
+                        if( (bullet.colour == bomb.colour) && bomb.CheckHitbox(bullet.x, bullet.y)){
+                            console.log("BOMB EXPLODED!!!");
+                            bullet.isOffScreen = true;
+                            bomb.isDead = true;
+                            this.BombExplode(bomb.colour)
+                            this.removeChild(bullet);
+                            this.removeChild(bomb);
+                        }
+                    })
                     this.aliens.forEach(alien => {
                         if( (bullet.colour == alien.colour) && alien.CheckHitbox(bullet.x, bullet.y)){
                             console.log("ALIEN KILLED!!!");
@@ -77,7 +89,8 @@ module scenes {
                             this.removeChild(bullet);
                             this.removeChild(alien);
                         }
-                })});
+                    })
+                });
             }
             // Off-Screen Bullets
             if(this.playerShots.length > 0){
@@ -90,7 +103,19 @@ module scenes {
                 }
             }
 
+            // this.bombs.forEach(b => b.Update());
             this.aliens.forEach(a => a.Update());
+
+            // // Cleaning up Exploded Bombs
+            // if(this.bombs.length > 0){
+            //     var ExplodedBombs = this.bombs.filter(a => a.isDead);
+            //     this.bombs = this.bombs.filter(a => !a.isDead);
+            //     if (ExplodedBombs.length > 0){
+            //         console.log("ExplodedBombs:" + ExplodedBombs.length);
+            //         ExplodedBombs.splice(0, ExplodedBombs.length);
+            //         console.log("ExplodedBombsConfirm:" + ExplodedBombs.length);
+            //     }
+            // }
 
             // Cleaning up Dead Aliens
             if(this.aliens.length > 0){
@@ -148,12 +173,12 @@ module scenes {
             var CurrentColour = this.GetActiveColour();
             if(CurrentColour != -1){
                 this.removeChild(this.colourChamber);
-                this.colourChamber = new objects.HUDItem(this.assetManager, "chamber"+ objects.ColourPalette[CurrentColour], 0.4);
+                this.colourChamber = new objects.HUDItem(this.assetManager, "chamber"+ objects.ColourPalette[CurrentColour], 100, 620, 0.4);
                 this.addChild(this.colourChamber);
             }
             else{
                 this.removeChild(this.colourChamber);
-                this.colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY", 0.4);
+                this.colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY", 100, 620, 0.4);
                 this.addChild(this.colourChamber);
             }
 
@@ -174,6 +199,11 @@ module scenes {
             else if (Red) return 0;
             else if (Blue) return 1;
             else if (Yellow) return 2; 
+        }
+
+        private BombExplode(colour:string):void{
+            let filtered_aliens = this.aliens.filter(a => a.colour == colour)
+            filtered_aliens.forEach(a => a.isDead = true);
         }
     }
 }
