@@ -13,20 +13,11 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var objects;
 (function (objects) {
-    var ColourPalette;
-    (function (ColourPalette) {
-        ColourPalette[ColourPalette["RED"] = 0] = "RED";
-        ColourPalette[ColourPalette["BLUE"] = 1] = "BLUE";
-        ColourPalette[ColourPalette["YELLOW"] = 2] = "YELLOW";
-        ColourPalette[ColourPalette["GREEN"] = 3] = "GREEN";
-        ColourPalette[ColourPalette["PURPLE"] = 4] = "PURPLE";
-        ColourPalette[ColourPalette["ORANGE"] = 5] = "ORANGE";
-    })(ColourPalette = objects.ColourPalette || (objects.ColourPalette = {}));
     var Projectile = /** @class */ (function (_super) {
         __extends(Projectile, _super);
         function Projectile(assetManager, colour, shooter) {
-            var _this = _super.call(this, assetManager, "bullet" + ColourPalette[colour]) || this;
-            _this.colour = ColourPalette[colour];
+            var _this = _super.call(this, assetManager, "bullet" + objects.ColourPalette[colour]) || this;
+            _this.colour = objects.ColourPalette[colour];
             _this.x = shooter.x;
             _this.y = shooter.y - shooter.halfH;
             _this.scaleX = 0.25;

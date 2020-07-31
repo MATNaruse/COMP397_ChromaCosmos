@@ -15,10 +15,11 @@ var objects;
 (function (objects) {
     var Player = /** @class */ (function (_super) {
         __extends(Player, _super);
-        // Variables
         // Constructor
         function Player(assetManager) {
             var _this = _super.call(this, assetManager, "player") || this;
+            _this.isDead = false;
+            _this.Health = 5;
             _this.Start();
             return _this;
         }
@@ -46,6 +47,17 @@ var objects;
             // Left boundary
             if (this.x <= this.halfW) {
                 this.x = this.halfW;
+            }
+        };
+        Player.prototype.TakeDamage = function (dmg) {
+            if (dmg === void 0) { dmg = 1; }
+            if (this.Health > 1) {
+                this.Health -= dmg;
+                console.log("PLAYER HIT - " + this.Health);
+                createjs.Sound.play("playerHit1").setVolume(3);
+            }
+            else {
+                this.isDead = true;
             }
         };
         return Player;

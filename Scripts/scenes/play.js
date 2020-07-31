@@ -27,9 +27,6 @@ var scenes;
             this.background = new objects.Background(this.assetManager);
             this.player = new objects.Player(this.assetManager);
             this.playerShots = new Array();
-            objects.Game.KeyA = false;
-            objects.Game.KeyS = false;
-            objects.Game.KeyD = false;
             // Spawning Aliens
             this.aliens = new Array();
             // Temporarily Spawning 1 of each colour
@@ -41,8 +38,8 @@ var scenes;
             this.colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY", 100, 620, 0.4);
             // Detecting Keyboard Key Presses
             // TODO: Move to a KeyboardManager
-            window.addEventListener("keydown", this.KeyPressHandler);
-            window.addEventListener("keyup", this.KeyPressHandler);
+            // window.addEventListener("keydown", this.KeyPressHandler);
+            // window.addEventListener("keyup", this.KeyPressHandler);
             // Detecting Mouse Click
             this.on("click", this.FireBullet);
             this.Main();
@@ -52,73 +49,89 @@ var scenes;
             this.UpdateColourChamber();
             this.background.Update();
             this.player.Update();
-            // Player Bullet Logic
-            // On-Screen Bullets
-            if (this.playerShots.length > 0) {
-                this.playerShots.forEach(function (b) {
-                    if (!b.isOffScreen)
-                        b.Update();
-                    else
-                        _this.removeChild(b);
-                });
-                console.log("Bullets Left:" + this.playerShots.length);
-                this.playerShots.forEach(function (bullet) {
-                    _this.bombs.forEach(function (bomb) {
-                        if ((bullet.colour == bomb.colour) && Collision.Detect(bullet, bomb)) {
-                            console.log("BOMB EXPLODED!!!");
-                            bullet.isOffScreen = true;
-                            bomb.isDead = true;
-                            _this.BombExplode(bomb.colour);
-                            _this.removeChild(bullet);
-                            _this.removeChild(bomb);
-                        }
-                    });
-                    _this.aliens.forEach(function (alien) {
-                        if ((bullet.colour == alien.colour) && Collision.Detect(bullet, alien)) {
-                            console.log("ALIEN KILLED!!!");
-                            bullet.isOffScreen = true;
-                            alien.isDead = true;
-                            _this.removeChild(bullet);
-                            _this.removeChild(alien);
-                        }
-                    });
-                });
-            }
-            // Off-Screen Bullets
-            if (this.playerShots.length > 0) {
-                var DeleteBullets = this.playerShots.filter(function (b) { return b.isOffScreen; });
-                this.playerShots = this.playerShots.filter(function (b) { return !b.isOffScreen; });
-                if (DeleteBullets.length > 0) {
-                    console.log("DeleteBullets:" + DeleteBullets.length);
-                    DeleteBullets.splice(0, DeleteBullets.length);
-                    console.log("DeleteBulletsConfirm:" + DeleteBullets.length);
+            // Detect if player is hit
+            this.aliens.forEach(function (alien) {
+                if (managers.Collision.Detect(alien, _this.player)) {
+                    _this.player.TakeDamage();
+                    console.log("PLAYER LIVING STATUS - " + _this.player.isDead);
                 }
-            }
-            // this.bombs.forEach(b => b.Update());
-            this.aliens.forEach(function (a) { return a.Update(); });
-            // // Cleaning up Exploded Bombs
-            // if(this.bombs.length > 0){
-            //     var ExplodedBombs = this.bombs.filter(a => a.isDead);
-            //     this.bombs = this.bombs.filter(a => !a.isDead);
-            //     if (ExplodedBombs.length > 0){
-            //         console.log("ExplodedBombs:" + ExplodedBombs.length);
-            //         ExplodedBombs.splice(0, ExplodedBombs.length);
-            //         console.log("ExplodedBombsConfirm:" + ExplodedBombs.length);
-            //     }
-            // }
-            // Cleaning up Dead Aliens
-            if (this.aliens.length > 0) {
-                var DeleteAliens = this.aliens.filter(function (a) { return a.isDead; });
-                this.aliens = this.aliens.filter(function (a) { return !a.isDead; });
-                if (DeleteAliens.length > 0) {
-                    console.log("DeleteAliens:" + DeleteAliens.length);
-                    DeleteAliens.splice(0, DeleteAliens.length);
-                    console.log("DeleteAliensConfirm:" + DeleteAliens.length);
-                }
-            }
-            // Win Condition
-            if (this.aliens.length == 0)
+            });
+            if (this.player.isDead) {
                 objects.Game.currentScene = config.Scene.OVER;
+                s;
+            }
+            else {
+                // Player Bullet Logic
+                // On-Screen Bullets
+                if (this.playerShots.length > 0) {
+                    this.playerShots.forEach(function (b) {
+                        if (!b.isOffScreen)
+                            b.Update();
+                        else
+                            _this.removeChild(b);
+                    });
+                    console.log("Bullets Left:" + this.playerShots.length);
+                    this.playerShots.forEach(function (bullet) {
+                        _this.bombs.forEach(function (bomb) {
+                            if ((bullet.colour == bomb.colour) && managers.Collision.Detect(bullet, bomb)) {
+                                console.log("BOMB EXPLODED!!!");
+                                bullet.isOffScreen = true;
+                                bomb.isDead = true;
+                                _this.BombExplode(bomb.colour);
+                                _this.removeChild(bullet);
+                                _this.removeChild(bomb);
+                            }
+                        });
+                        _this.aliens.forEach(function (alien) {
+                            if ((bullet.colour == alien.colour) && managers.Collision.Detect(bullet, alien)) {
+                                console.log("ALIEN KILLED!!!");
+                                bullet.isOffScreen = true;
+                                alien.isDead = true;
+                                _this.removeChild(bullet);
+                                _this.removeChild(alien);
+                                var aliendeadsound = "alienDie" + Math.floor((Math.random() * (6 - 1) + 1));
+                                console.log(aliendeadsound);
+                                createjs.Sound.play(aliendeadsound).setVolume(3);
+                            }
+                        });
+                    });
+                }
+                // Off-Screen Bullets
+                if (this.playerShots.length > 0) {
+                    var DeleteBullets = this.playerShots.filter(function (b) { return b.isOffScreen; });
+                    this.playerShots = this.playerShots.filter(function (b) { return !b.isOffScreen; });
+                    if (DeleteBullets.length > 0) {
+                        console.log("DeleteBullets:" + DeleteBullets.length);
+                        DeleteBullets.splice(0, DeleteBullets.length);
+                        console.log("DeleteBulletsConfirm:" + DeleteBullets.length);
+                    }
+                }
+                // this.bombs.forEach(b => b.Update());
+                this.aliens.forEach(function (a) { return a.Update(); });
+                // // Cleaning up Exploded Bombs
+                // if(this.bombs.length > 0){
+                //     var ExplodedBombs = this.bombs.filter(a => a.isDead);
+                //     this.bombs = this.bombs.filter(a => !a.isDead);
+                //     if (ExplodedBombs.length > 0){
+                //         console.log("ExplodedBombs:" + ExplodedBombs.length);
+                //         ExplodedBombs.splice(0, ExplodedBombs.length);
+                //         console.log("ExplodedBombsConfirm:" + ExplodedBombs.length);
+                //     }
+                // }
+                // Cleaning up Dead Aliens
+                if (this.aliens.length > 0) {
+                    var DeleteAliens = this.aliens.filter(function (a) { return a.isDead; });
+                    this.aliens = this.aliens.filter(function (a) { return !a.isDead; });
+                    if (DeleteAliens.length > 0) {
+                        console.log("DeleteAliens:" + DeleteAliens.length);
+                        DeleteAliens.splice(0, DeleteAliens.length);
+                        console.log("DeleteAliensConfirm:" + DeleteAliens.length);
+                    }
+                }
+                // Win Condition
+                if (this.aliens.length == 0)
+                    objects.Game.currentScene = config.Scene.OVER;
+            }
         };
         PlayScene.prototype.Main = function () {
             var _this = this;
@@ -128,36 +141,13 @@ var scenes;
             this.aliens.forEach(function (a) { return _this.addChild(a); });
         };
         // Private Methods
-        PlayScene.prototype.KeyPressHandler = function (evt) {
-            // console.log("Key Pressed! - " + evt.keyCode + "[" + evt.type + "]");
-            // A = 65, S = 83, D = 68
-            switch (evt.keyCode) {
-                case 65:
-                    if (evt.type == "keydown")
-                        objects.Game.KeyA = true;
-                    else
-                        objects.Game.KeyA = false;
-                    break;
-                case 83:
-                    if (evt.type == "keydown")
-                        objects.Game.KeyS = true;
-                    else
-                        objects.Game.KeyS = false;
-                    break;
-                case 68:
-                    if (evt.type == "keydown")
-                        objects.Game.KeyD = true;
-                    else
-                        objects.Game.KeyD = false;
-                    break;
-            }
-        };
         PlayScene.prototype.FireBullet = function () {
             var BulletColourIndex = this.GetActiveColour();
             if (BulletColourIndex != -1) {
                 var newBullet = new objects.Projectile(this.assetManager, BulletColourIndex, this.player);
                 this.playerShots.push(newBullet);
                 this.addChild(newBullet);
+                createjs.Sound.play("laserFire1");
             }
         };
         PlayScene.prototype.UpdateColourChamber = function () {
@@ -177,9 +167,9 @@ var scenes;
             this.colourChamber.y = 620;
         };
         PlayScene.prototype.GetActiveColour = function () {
-            var Red = objects.Game.KeyA;
-            var Blue = objects.Game.KeyS;
-            var Yellow = objects.Game.KeyD;
+            var Red = objects.Game.controlManager.KeyA;
+            var Blue = objects.Game.controlManager.KeyS;
+            var Yellow = objects.Game.controlManager.KeyD;
             if ((Red && Blue && Yellow) || (!Red && !Blue && !Yellow))
                 return -1; //If All or None of the Keys are Pressed
             else if (Blue && Yellow)

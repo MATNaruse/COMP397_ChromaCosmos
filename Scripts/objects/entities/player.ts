@@ -1,9 +1,13 @@
 module objects {
     export class Player extends objects.GameObject {
         // Variables
+        public Health:number;
+        public isDead:boolean = false;
+
         // Constructor
         constructor(assetManager:createjs.LoadQueue) {
             super(assetManager, "player");
+            this.Health = 5;
             this.Start();
         }
 
@@ -16,6 +20,7 @@ module objects {
             this.CheckBound();
         }
         public Reset():void {}
+
         public Move():void {
             // I need a reference to the "STAGE" createjs object to get mouse position
             this.x = objects.Game.stage.mouseX;
@@ -33,6 +38,15 @@ module objects {
             if(this.x <= this.halfW) {
                 this.x = this.halfW;
             }
+        }
+
+        public TakeDamage(dmg:number = 1){
+            if(this.Health > 1) {
+                this.Health -= dmg;
+                console.log("PLAYER HIT - " + this.Health);
+                createjs.Sound.play("playerHit1").setVolume(3);
+            }
+            else {this.isDead = true;}
         }
     }
 }

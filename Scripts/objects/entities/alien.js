@@ -21,8 +21,13 @@ var objects;
             _this.scaleX = _this.scaleY = _this.ImgScale;
             _this.colour = objects.ColourPalette[colourIdx];
             _this.isDead = false;
+            _this.attackedPlayer = false;
             return _this;
         }
+        Alien.prototype.Reset = function () {
+            _super.prototype.Reset.call(this);
+            this.attackedPlayer = false;
+        };
         return Alien;
     }(objects.Enemy));
     objects.Alien = Alien;
