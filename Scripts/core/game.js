@@ -13,7 +13,8 @@
         /*
             VISUAL ASSETS
         */
-        { id: "background", src: "./Assets/background2.jpg" },
+        { id: "background", src: "./Assets/background4.png" },
+        { id: "background2", src: "./Assets/background3.png" },
         { id: "player", src: "./Assets/spaceship.png" },
         // Bullet Colours
         { id: "bulletRED", src: "./Assets/bullets/bulletRed.png" },

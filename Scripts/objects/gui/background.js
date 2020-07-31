@@ -16,12 +16,15 @@ var objects;
     var Background = /** @class */ (function (_super) {
         __extends(Background, _super);
         // Constructor
-        function Background(assetManager) {
+        function Background(assetManager, second) {
+            if (second === void 0) { second = false; }
             var _this = _super.call(this, assetManager.getResult("background")) || this;
             // Variables
-            _this.speedY = 0.5;
+            _this.speedY = 2;
             console.log("Creating the background");
             _this.scaleX = 1.25;
+            _this.scaleY = .72;
+            _this.second = second;
             _this.Start();
             return _this;
         }
@@ -30,20 +33,36 @@ var objects;
             this.Reset();
         };
         Background.prototype.Update = function () {
-            // this.Move(); // Movement Temporarily Disabled
+            this.Move(); // Movement Temporarily Disabled
             this.CheckBound();
         };
         Background.prototype.Reset = function () {
             // Reset my background y position.
             // console.log("RESET!");
+            if (this.second) {
+                console.log("RESET 2nd BG");
+                this.y = -720;
+            }
+            else {
+                console.log("RESET 1st BG");
+                this.y = 0;
+            }
         };
         Background.prototype.Move = function () {
+            // console.log("MOVING BG");
             this.y += this.speedY;
         };
         // Collision Detection
         Background.prototype.CheckBound = function () {
-            if (this.y >= 0) {
-                this.Reset();
+            if (this.second) {
+                if (this.y >= 0) {
+                    this.Reset();
+                }
+            }
+            else {
+                if (this.y >= 720) {
+                    this.Reset();
+                }
             }
         };
         return Background;

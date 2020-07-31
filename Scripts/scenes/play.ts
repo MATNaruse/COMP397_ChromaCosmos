@@ -2,6 +2,7 @@ module scenes {
     export class PlayScene extends objects.Scene {
         // Variables
         private background: objects.Background;
+        private background2: objects.Background;
         private player:objects.Player;
         private playerShots: objects.Projectile[];
         private aliens:objects.Alien[];
@@ -20,6 +21,7 @@ module scenes {
 
             // Inintialize our variables
             this.background = new objects.Background(this.assetManager);
+            this.background2 = new objects.Background(this.assetManager, true);
             this.player = new objects.Player(this.assetManager);
             this.playerShots = new Array<objects.Projectile>();
                                     
@@ -43,6 +45,7 @@ module scenes {
         public Update():void {
             this.UpdateColourChamber();
             this.background.Update();
+            this.background2.Update();
             this.player.Update();
 
             // Detect if player is hit
@@ -128,6 +131,7 @@ module scenes {
 
         public Main():void {
             this.addChild(this.background);
+            this.addChild(this.background2);
             this.addChild(this.player);
             this.addChild(this.colourChamber);
             this.aliens.forEach(a => this.addChild(a));

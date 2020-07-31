@@ -25,6 +25,7 @@ var scenes;
             console.log("Play scene start");
             // Inintialize our variables
             this.background = new objects.Background(this.assetManager);
+            this.background2 = new objects.Background(this.assetManager, true);
             this.player = new objects.Player(this.assetManager);
             this.playerShots = new Array();
             // Spawning Aliens
@@ -42,6 +43,7 @@ var scenes;
             var _this = this;
             this.UpdateColourChamber();
             this.background.Update();
+            this.background2.Update();
             this.player.Update();
             // Detect if player is hit
             this.aliens.forEach(function (alien) {
@@ -124,6 +126,7 @@ var scenes;
         PlayScene.prototype.Main = function () {
             var _this = this;
             this.addChild(this.background);
+            this.addChild(this.background2);
             this.addChild(this.player);
             this.addChild(this.colourChamber);
             this.aliens.forEach(function (a) { return _this.addChild(a); });
