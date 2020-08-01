@@ -39,14 +39,23 @@
         {id:"alienPURPLE", src:"./InkscapeAssets/alienPurple.png"},
         {id:"alienORANGE", src:"./InkscapeAssets/alienOrange.png"},
 
-        // Colour Chamber -> Temp Changed to Style 2
-        {id:"chamberEMPTY", src:"./Assets/hud/chamberEmpty2.png"},
-        {id:"chamberRED", src:"./Assets/hud/chamberRed2.png"},
-        {id:"chamberBLUE", src:"./Assets/hud/chamberBlue2.png"},
-        {id:"chamberYELLOW", src:"./Assets/hud/chamberYellow2.png"},
-        {id:"chamberGREEN", src:"./Assets/hud/chamberGreen2.png"},
-        {id:"chamberPURPLE", src:"./Assets/hud/chamberPurple2.png"},
-        {id:"chamberORANGE", src:"./Assets/hud/chamberOrange2.png"},
+        // // Colour Chamber -> Temp Changed to Style 2
+        // {id:"chamberEMPTY", src:"./Assets/hud/chamberEmpty2.png"},
+        // {id:"chamberRED", src:"./Assets/hud/chamberRed2.png"},
+        // {id:"chamberBLUE", src:"./Assets/hud/chamberBlue2.png"},
+        // {id:"chamberYELLOW", src:"./Assets/hud/chamberYellow2.png"},
+        // {id:"chamberGREEN", src:"./Assets/hud/chamberGreen2.png"},
+        // {id:"chamberPURPLE", src:"./Assets/hud/chamberPurple2.png"},
+        // {id:"chamberORANGE", src:"./Assets/hud/chamberOrange2.png"},
+
+        // Colour Chamber -> Updated
+        {id:"chamberEMPTY", src:"./InkscapeAssets/colourChamberEMPTY.png"},
+        {id:"chamberRED", src:"./InkscapeAssets/colourChamberRED.png"},
+        {id:"chamberBLUE", src:"./InkscapeAssets/colourChamberBLUE.png"},
+        {id:"chamberYELLOW", src:"./InkscapeAssets/colourChamberYELLOW.png"},
+        {id:"chamberGREEN", src:"./InkscapeAssets/colourChamberGREEN.png"},
+        {id:"chamberPURPLE", src:"./InkscapeAssets/colourChamberPURPLE.png"},
+        {id:"chamberORANGE", src:"./InkscapeAssets/colourChamberORANGE.png"},
 
         /*
             AUDIO ASSETS

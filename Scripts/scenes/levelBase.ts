@@ -29,7 +29,7 @@ module scenes{
             // Other/HUD Inits
             this.background1 = new objects.Background(this.assetManager);
             this.background2 = new objects.Background(this.assetManager, true);
-            this.hud_colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY",  100, 620, 0.4);
+            this.hud_colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY",  250, 550, 0.2);
             this.hud_levelIndicator = new objects.Label(this.levelName, "35px", "Consolas", "#FFFFFF", 25, 680);
             this.SpawnAliens();
         }
@@ -103,12 +103,12 @@ module scenes{
             var CurrentColour = managers.Game.GetActiveColour();
             if(CurrentColour != -1){
                 this.removeChild(this.hud_colourChamber);
-                this.hud_colourChamber = new objects.HUDItem(this.assetManager, "chamber"+ objects.ColourPalette[CurrentColour], 100, 620, 0.4);
+                this.hud_colourChamber = new objects.HUDItem(this.assetManager, "chamber"+ objects.ColourPalette[CurrentColour], 100, 620, 0.2);
                 this.addChild(this.hud_colourChamber);
             }
             else{
                 this.removeChild(this.hud_colourChamber);
-                this.hud_colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY", 100, 620, 0.4);
+                this.hud_colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY", 100, 620, 0.2);
                 this.addChild(this.hud_colourChamber);
             }
 
