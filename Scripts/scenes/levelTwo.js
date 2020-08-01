@@ -19,6 +19,7 @@ var scenes;
         // Constructor
         function LevelTwo(assetManager) {
             var _this = _super.call(this, assetManager) || this;
+            managers.Levels.LevelTwo = _this;
             _this.Start();
             return _this;
         }
@@ -30,7 +31,7 @@ var scenes;
         LevelTwo.prototype.Update = function () {
         };
         return LevelTwo;
-    }(objects.Scene));
+    }(scenes.LevelBase));
     scenes.LevelTwo = LevelTwo;
 })(scenes || (scenes = {}));
 //# sourceMappingURL=levelTwo.js.map

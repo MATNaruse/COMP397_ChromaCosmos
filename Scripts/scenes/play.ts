@@ -29,7 +29,7 @@ module scenes {
             this.aliens = new Array<objects.Alien>();
             
             this.fleetGen = new levels.FleetGenerator(this.aliens);
-            this.fleetGen.GenerateWaves(3, 3);
+            this.fleetGen.GenerateWaves(3, 3, false);
 
 
             this.bombs = new Array<objects.Bomb>();

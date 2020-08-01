@@ -32,7 +32,7 @@ var scenes;
             // Spawning Aliens
             this.aliens = new Array();
             this.fleetGen = new levels.FleetGenerator(this.aliens);
-            this.fleetGen.GenerateWaves(3, 3);
+            this.fleetGen.GenerateWaves(3, 3, false);
             this.bombs = new Array();
             // Initializing ColourChamber
             this.colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY", 100, 620, 0.4);

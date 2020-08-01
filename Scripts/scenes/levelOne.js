@@ -19,18 +19,31 @@ var scenes;
         // Constructor
         function LevelOne(assetManager) {
             var _this = _super.call(this, assetManager) || this;
+            managers.Levels.LevelOne = _this;
             _this.Start();
             return _this;
         }
         // Methods
         LevelOne.prototype.Start = function () {
+            _super.prototype.Start.call(this);
+            console.log("[LevelOne]:Start()-> Start!");
+            // Detecting Mouse Click -> TODO: Move to Seperate Manager?
+            this.on("click", this.FireBullet);
+            this.Main();
         };
         LevelOne.prototype.Main = function () {
+            _super.prototype.Main.call(this);
         };
         LevelOne.prototype.Update = function () {
+            _super.prototype.Update.call(this);
+        };
+        // Protected Methods
+        LevelOne.prototype.CheckWin = function () {
+        };
+        LevelOne.prototype.SpawnAliens = function () {
         };
         return LevelOne;
-    }(objects.Scene));
+    }(scenes.LevelBase));
     scenes.LevelOne = LevelOne;
 })(scenes || (scenes = {}));
 //# sourceMappingURL=levelOne.js.map
