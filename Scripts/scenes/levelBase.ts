@@ -7,6 +7,8 @@ module scenes{
         public playerShots: objects.Projectile[];
         public aliens: objects.Alien[];
         protected hud_colourChamber: objects.HUDItem;
+        protected hud_levelIndicator: objects.Label;
+        protected levelName: string;
         protected fleetGen: managers.AlienGenerator;
         
         // Constructor
@@ -28,7 +30,7 @@ module scenes{
             this.background1 = new objects.Background(this.assetManager);
             this.background2 = new objects.Background(this.assetManager, true);
             this.hud_colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY",  100, 620, 0.4);
-
+            this.hud_levelIndicator = new objects.Label(this.levelName, "35px", "Consolas", "#FFFFFF", 25, 680);
             this.SpawnAliens();
         }
 
@@ -37,6 +39,7 @@ module scenes{
             this.addChild(this.background2);
             this.addChild(this.player);
             this.addChild(this.hud_colourChamber);
+            this.addChild(this.hud_levelIndicator);
             this.aliens.forEach(a => this.addChild(a));
         }
 

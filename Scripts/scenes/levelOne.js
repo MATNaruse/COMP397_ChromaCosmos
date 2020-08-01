@@ -15,10 +15,10 @@ var scenes;
 (function (scenes) {
     var LevelOne = /** @class */ (function (_super) {
         __extends(LevelOne, _super);
-        // Variables
         // Constructor
         function LevelOne(assetManager) {
             var _this = _super.call(this, assetManager) || this;
+            _this.levelName = "Level One";
             managers.Levels.LevelOne = _this;
             managers.Game.Score = 0;
             _this.Start();
@@ -39,8 +39,8 @@ var scenes;
             // if(this.aliens.length == 0) managers.Game.currentScene = config.Scene.OVER;
         };
         LevelOne.prototype.SpawnAliens = function () {
-            // this.fleetGen.GenerateWaves(5, 2);
-            this.fleetGen.GenerateWaves(1, 12);
+            this.fleetGen.GenerateWaves(1, 1);
+            // this.fleetGen.GenerateWaves(1, 12);
         };
         return LevelOne;
     }(scenes.LevelBase));

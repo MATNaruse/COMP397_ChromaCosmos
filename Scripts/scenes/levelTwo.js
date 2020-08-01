@@ -19,6 +19,7 @@ var scenes;
         // Constructor
         function LevelTwo(assetManager) {
             var _this = _super.call(this, assetManager) || this;
+            _this.levelName = "Level Two";
             managers.Levels.LevelTwo = _this;
             _this.Start();
             return _this;
@@ -37,7 +38,7 @@ var scenes;
                 managers.Game.currentScene = config.Scene.OVER;
         };
         LevelTwo.prototype.SpawnAliens = function () {
-            this.fleetGen.GenerateWaves(3, 5, false);
+            this.fleetGen.GenerateWaves(1, 2, false);
         };
         return LevelTwo;
     }(scenes.LevelBase));

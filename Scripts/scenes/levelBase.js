@@ -31,6 +31,7 @@ var scenes;
             this.background1 = new objects.Background(this.assetManager);
             this.background2 = new objects.Background(this.assetManager, true);
             this.hud_colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY", 100, 620, 0.4);
+            this.hud_levelIndicator = new objects.Label(this.levelName, "35px", "Consolas", "#FFFFFF", 25, 680);
             this.SpawnAliens();
         };
         LevelBase.prototype.Main = function () {
@@ -39,6 +40,7 @@ var scenes;
             this.addChild(this.background2);
             this.addChild(this.player);
             this.addChild(this.hud_colourChamber);
+            this.addChild(this.hud_levelIndicator);
             this.aliens.forEach(function (a) { return _this.addChild(a); });
         };
         LevelBase.prototype.Update = function () {

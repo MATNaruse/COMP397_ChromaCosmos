@@ -5,6 +5,7 @@ module scenes{
         // Constructor
         constructor(assetManager: createjs.LoadQueue){
             super(assetManager);
+            this.levelName = "Level Two";
             managers.Levels.LevelTwo = this;
             this.Start();
         }
@@ -25,7 +26,7 @@ module scenes{
         }
 
         protected SpawnAliens():void{
-            this.fleetGen.GenerateWaves(3, 5, false);
+            this.fleetGen.GenerateWaves(1, 2, false);
         }
 
     }
