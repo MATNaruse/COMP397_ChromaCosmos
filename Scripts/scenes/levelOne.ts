@@ -28,7 +28,7 @@ module scenes{
 
         protected SpawnAliens():void{
             // this.fleetGen.GenerateWaves(5, 2);
-            this.fleetGen.GenerateWaves(1, 1);
+            this.fleetGen.GenerateWaves(1, 12);
         }
 
         // MOVED: GetActiveColour to managers.Game

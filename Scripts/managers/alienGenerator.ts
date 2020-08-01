@@ -7,7 +7,7 @@ module managers{
         }
 
         public Spawn(alien:objects.Alien, lane:number){
-            var baseX: number = 200;
+            var baseX: number = 100;
             var increment: number = 175;
             alien.x = baseX + (increment * lane);
             if(alien instanceof objects.PrimaryAlien){
@@ -17,32 +17,46 @@ module managers{
             
         }
 
-        public GenerateWaves(numOfWaves: number, aliensPerWave:number, basic:boolean = true){
-            // TODO: Prevent aliens stacking
+        public GenerateWaves(numOfWaves: number, aliensPerWave:number = 5, basic:boolean = true){
+            // TODO: Prevent aliens stacking --> Mutliple Waves stacking
             var colourRange = basic ? 3 : 6;
             var yWaveOffset = -50;
-            for(let i = 0; i < numOfWaves; i++){
+            var availableLane;
+            var perWave = aliensPerWave > 6 ? 6 : aliensPerWave;
+            var waves = aliensPerWave > 6 ? numOfWaves + (Math.floor(aliensPerWave / 6)) : numOfWaves;
+
+            console.log("NumOfWaves:" + waves + " | PerWave:" + perWave);
+            for(let i = 0; i < waves; i++){
                 // For Each Wave
-                for(let j = 0; j < aliensPerWave; j++){
+                availableLane = [false, false, false, false, false, false]; // Reset Lane Availability
+
+                for(let j = 0; j < perWave; j++){
                     // Pick Alien Colour
                     var colourPicked = Math.floor(Math.random() * (colourRange));
-                    //console.log("PICKED " + colourPicked + ": " +  objects.ColourPalette[colourPicked]);
 
                     // Generate Alien
                     var new_alien = new objects.PrimaryAlien(managers.Game.assetManager, colourPicked);
                     
                     // Set Y Offset for "Wave"
                     new_alien.y = yWaveOffset;
-                    //console.log("SET YOFF" + yWaveOffset);
 
-                    // Put into a "Lane"
-                    this.Spawn(new_alien, Math.floor((Math.random() * (6-1) + 1)));
+                    // Put into a "Lane" -> Ensuring no overlaps
+                    // var pickedLane = Math.floor((Math.random() * 6) + 1);
+                    var pickedLane;
+                    do { 
+                        pickedLane = Math.floor((Math.random() * 6 + 1));
+                        console.log("PickedLane: " + (pickedLane));
+                    } while(availableLane[pickedLane] == true);
+                    // if(availableLane[pickedLane] = true){
+
+                    // }
+                    availableLane[pickedLane] = true;
+                    console.log("Final-PickedLane: " + (pickedLane));
+                    this.Spawn(new_alien, pickedLane);
                     this.listOfAllAliens.push(new_alien);
                 }
                 yWaveOffset -= 1000;
             }
-
-            // return this.listOfAllAliens;
         }
 
         /*  6 Lanes
@@ -55,9 +69,9 @@ module managers{
         */
 
         /*
-            - Each wave should be pre-determined (Random alien colours?)
-            - Each wave should NOT reload at the top ? 
-            - Score should be assigned to kills & Calculated
+            X - Each wave should be pre-determined (Random alien colours?)
+            X - Each wave should NOT reload at the top ? 
+            O - Score should be assigned to kills & Calculated
 
         */
     }

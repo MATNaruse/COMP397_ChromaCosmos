@@ -40,7 +40,7 @@ var scenes;
         };
         LevelOne.prototype.SpawnAliens = function () {
             // this.fleetGen.GenerateWaves(5, 2);
-            this.fleetGen.GenerateWaves(1, 1);
+            this.fleetGen.GenerateWaves(1, 12);
         };
         return LevelOne;
     }(scenes.LevelBase));
