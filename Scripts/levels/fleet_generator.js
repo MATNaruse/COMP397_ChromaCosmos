@@ -8,6 +8,10 @@ var levels;
             var baseX = 200;
             var increment = 175;
             alien.x = baseX + (increment * lane);
+            if (alien instanceof objects.PrimaryAlien) {
+                alien.startX = alien.x;
+                alien.x += Math.floor(Math.random() * 1 - 1);
+            }
         };
         FleetGenerator.prototype.GenerateWaves = function (numOfWaves, aliensPerWave, basic) {
             if (basic === void 0) { basic = true; }
@@ -20,7 +24,7 @@ var levels;
                     var colourPicked = Math.floor(Math.random() * (colourRange));
                     //console.log("PICKED " + colourPicked + ": " +  objects.ColourPalette[colourPicked]);
                     // Generate Alien
-                    var new_alien = new objects.Alien(managers.Game.assetManager, colourPicked);
+                    var new_alien = new objects.PrimaryAlien(managers.Game.assetManager, colourPicked);
                     // Set Y Offset for "Wave"
                     new_alien.y = yWaveOffset;
                     //console.log("SET YOFF" + yWaveOffset);

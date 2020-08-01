@@ -11,6 +11,11 @@ module levels{
             var baseX: number = 200;
             var increment: number = 175;
             alien.x = baseX + (increment * lane);
+            if(alien instanceof objects.PrimaryAlien){
+                alien.startX = alien.x ;
+                alien.x += Math.floor(Math.random() * 1 - 1);
+            }
+            
         }
 
         public GenerateWaves(numOfWaves: number, aliensPerWave:number, basic:boolean = true){
@@ -24,7 +29,7 @@ module levels{
                     //console.log("PICKED " + colourPicked + ": " +  objects.ColourPalette[colourPicked]);
 
                     // Generate Alien
-                    var new_alien = new objects.Alien(managers.Game.assetManager, colourPicked);
+                    var new_alien = new objects.PrimaryAlien(managers.Game.assetManager, colourPicked);
                     
                     // Set Y Offset for "Wave"
                     new_alien.y = yWaveOffset;

@@ -17,26 +17,17 @@ var objects;
         __extends(Alien, _super);
         function Alien(assetManager, colourIdx) {
             var _this = _super.call(this, assetManager, "alien" + objects.ColourPalette[colourIdx]) || this;
-            _this.isSecondary = false;
             _this.ImgScale = 0.15;
             _this.scaleX = _this.scaleY = _this.ImgScale;
             _this.colour = objects.ColourPalette[colourIdx];
             _this.isDead = false;
             _this.attackedPlayer = false;
-            if (colourIdx > 2) {
-                _this.isSecondary = true;
-            }
-            if (_this.isSecondary) {
-                _this.ScoreValue *= 2;
-            }
+            _this.startX = _this.x;
             return _this;
         }
         Alien.prototype.Reset = function () {
             _super.prototype.Reset.call(this);
             this.attackedPlayer = false;
-        };
-        Alien.prototype.Move = function () {
-            this.y += 5;
         };
         return Alien;
     }(objects.Enemy));

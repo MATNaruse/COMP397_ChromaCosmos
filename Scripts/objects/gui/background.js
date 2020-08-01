@@ -33,7 +33,7 @@ var objects;
             this.Reset();
         };
         Background.prototype.Update = function () {
-            this.Move(); // Movement Temporarily Disabled
+            // this.Move(); // Movement Temporarily Disabled
             this.CheckBound();
         };
         Background.prototype.Reset = function () {

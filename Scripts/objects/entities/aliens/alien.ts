@@ -3,7 +3,7 @@ module objects{
         public colour:string;
         public isDead:boolean;
         public attackedPlayer:boolean;
-        private isSecondary:boolean = false;
+        public startX;
         
         constructor(assetManager:createjs.LoadQueue, colourIdx:number){
             super(assetManager, "alien" + objects.ColourPalette[colourIdx]);
@@ -12,17 +12,12 @@ module objects{
             this.colour = objects.ColourPalette[colourIdx];
             this.isDead = false;
             this.attackedPlayer = false;
-            if(colourIdx > 2) {this.isSecondary = true;}
-            if(this.isSecondary) {this.ScoreValue *= 2;}
+            this.startX = this.x;
         }
 
         public Reset(){
             super.Reset();
             this.attackedPlayer = false;
-        }
-
-        public Move():void {
-            this.y += 5;
         }
     }
 }

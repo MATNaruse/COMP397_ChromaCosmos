@@ -39,7 +39,8 @@ var scenes;
             // if(this.aliens.length == 0) managers.Game.currentScene = config.Scene.OVER;
         };
         LevelOne.prototype.SpawnAliens = function () {
-            this.fleetGen.GenerateWaves(5, 2);
+            // this.fleetGen.GenerateWaves(5, 2);
+            this.fleetGen.GenerateWaves(1, 1);
         };
         return LevelOne;
     }(scenes.LevelBase));

@@ -16,7 +16,7 @@ module objects {
             this.CheckBound();
         }
         public Reset():void {
-            this.x = Math.floor(Math.random() * (this.x - 20)) + 5;
+            // this.x = Math.floor(Math.random() * (this.x - 20)) + 5;
             this.y = Math.floor(Math.random() * -(managers.Game.canvasH - 100)) - 50;
             // this.y = -50;
         }
