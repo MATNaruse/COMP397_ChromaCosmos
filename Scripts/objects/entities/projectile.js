@@ -18,6 +18,7 @@ var objects;
         function Projectile(assetManager, colour, shooter) {
             var _this = _super.call(this, assetManager, "bullet" + objects.ColourPalette[colour]) || this;
             _this.colour = objects.ColourPalette[colour];
+            _this.shooter = shooter;
             _this.x = shooter.x;
             _this.y = shooter.y - shooter.halfH;
             _this.scaleX = 0.25;
@@ -32,6 +33,7 @@ var objects;
         };
         Projectile.prototype.Move = function () {
             this.y -= 10;
+            // TODO: Implement Movement Patterns
         };
         Projectile.prototype.CheckBound = function () {
             if (this.y < -10) {

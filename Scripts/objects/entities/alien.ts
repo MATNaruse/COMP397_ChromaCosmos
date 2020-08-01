@@ -4,6 +4,7 @@ module objects{
         public isDead:boolean;
         public attackedPlayer:boolean;
         private isSecondary:boolean = false;
+        
         constructor(assetManager:createjs.LoadQueue, colourIdx:number){
             super(assetManager, "alien" + objects.ColourPalette[colourIdx]);
             this.ImgScale = 0.15;

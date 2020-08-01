@@ -2,10 +2,12 @@ module objects{
     export class Projectile extends objects.GameObject{
         public isOffScreen:boolean;
         public colour:string;
+        public shooter: objects.GameObject
 
         constructor(assetManager:createjs.LoadQueue, colour: objects.ColourPalette, shooter:objects.GameObject){
             super(assetManager, "bullet" + ColourPalette[colour]);
             this.colour = ColourPalette[colour];
+            this.shooter = shooter;
             this.x = shooter.x;
             this.y = shooter.y - shooter.halfH;
             this.scaleX = 0.25;
@@ -23,6 +25,7 @@ module objects{
 
         public Move():void{
             this.y -= 10;
+            // TODO: Implement Movement Patterns
         }
 
         public CheckBound():void{
