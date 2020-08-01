@@ -23,12 +23,21 @@ var scenes;
             _this.Start();
             return _this;
         }
-        // Methods
+        // Public Methods
         LevelTwo.prototype.Start = function () {
+            console.log("[LevelTwo]:Start()-> Start!");
+            _super.prototype.Start.call(this);
+            // Detecting Mouse Click -> TODO: Move to Seperate Manager?
+            this.on("click", this.FireBullet);
+            this.Main();
         };
-        LevelTwo.prototype.Main = function () {
+        // Protected Methods
+        LevelTwo.prototype.CheckWin = function () {
+            if (this.aliens.length == 0)
+                managers.Game.currentScene = config.Scene.OVER;
         };
-        LevelTwo.prototype.Update = function () {
+        LevelTwo.prototype.SpawnAliens = function () {
+            this.fleetGen.GenerateWaves(3, 5, false);
         };
         return LevelTwo;
     }(scenes.LevelBase));

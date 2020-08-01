@@ -20,10 +20,11 @@ var scenes;
         function LevelOne(assetManager) {
             var _this = _super.call(this, assetManager) || this;
             managers.Levels.LevelOne = _this;
+            managers.Game.Score = 0;
             _this.Start();
             return _this;
         }
-        // Methods
+        // Public Methods
         LevelOne.prototype.Start = function () {
             console.log("[LevelOne]:Start()-> Start!");
             _super.prototype.Start.call(this);
@@ -31,16 +32,11 @@ var scenes;
             this.on("click", this.FireBullet);
             this.Main();
         };
-        LevelOne.prototype.Main = function () {
-            _super.prototype.Main.call(this);
-        };
-        LevelOne.prototype.Update = function () {
-            _super.prototype.Update.call(this);
-        };
         // Protected Methods
         LevelOne.prototype.CheckWin = function () {
             if (this.aliens.length == 0)
                 managers.Game.currentScene = config.Scene.LVL_TWO;
+            // if(this.aliens.length == 0) managers.Game.currentScene = config.Scene.OVER;
         };
         LevelOne.prototype.SpawnAliens = function () {
             this.fleetGen.GenerateWaves(5, 2);

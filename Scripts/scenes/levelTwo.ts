@@ -1,7 +1,6 @@
 module scenes{
     export class LevelTwo extends scenes.LevelBase{
         // Variables
-
         
         // Constructor
         constructor(assetManager: createjs.LoadQueue){
@@ -10,18 +9,23 @@ module scenes{
             this.Start();
         }
 
-        // Methods
-
+        // Public Methods
         public Start():void{
-
-        }
-
-        public Main():void{
+            console.log("[LevelTwo]:Start()-> Start!");
+            super.Start();
             
+            // Detecting Mouse Click -> TODO: Move to Seperate Manager?
+            this.on("click", this.FireBullet);
+            this.Main();
         }
 
-        public Update():void{
+        // Protected Methods
+        protected CheckWin():void{
+            if(this.aliens.length == 0) managers.Game.currentScene = config.Scene.OVER;
+        }
 
+        protected SpawnAliens():void{
+            this.fleetGen.GenerateWaves(3, 5, false);
         }
 
     }

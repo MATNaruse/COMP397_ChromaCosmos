@@ -19,7 +19,7 @@ var scenes;
         function LevelBase(assetManager) {
             return _super.call(this, assetManager) || this;
         }
-        // Methods
+        // Public Methods
         LevelBase.prototype.Start = function () {
             // Player Inits
             this.player = new objects.Player(this.assetManager);
@@ -60,26 +60,7 @@ var scenes;
             }
             else {
                 // Player Bullet Logic
-                // On-Screen Bullets
-                if (this.playerShots.length > 0) {
-                    this.playerShots.forEach(function (b) {
-                        if (!b.isOffScreen)
-                            b.Update();
-                        else
-                            _this.removeChild(b);
-                    });
-                    //console.log("Bullets Left:" + this.playerShots.length);
-                    this.playerShots.forEach(function (bullet) {
-                        _this.aliens.forEach(function (alien) {
-                            if (managers.Collision.Detect(bullet, alien)) {
-                                managers.Game.Score += alien.ScoreValue;
-                                _this.removeChild(bullet);
-                                _this.removeChild(alien);
-                            }
-                            ;
-                        });
-                    });
-                }
+                managers.PlayerShots.OnScreen(this);
                 // Off-Screen Bullets
                 this.playerShots = managers.CleanUp.Projectiles(this.playerShots);
                 this.aliens.forEach(function (a) { return a.Update(); });

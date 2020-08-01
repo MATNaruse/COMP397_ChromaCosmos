@@ -6,10 +6,11 @@ module scenes{
         constructor(assetManager: createjs.LoadQueue){
             super(assetManager);
             managers.Levels.LevelOne = this;
+            managers.Game.Score = 0;
             this.Start();
         }
 
-        // Methods
+        // Public Methods
         public Start():void{
             console.log("[LevelOne]:Start()-> Start!");
             super.Start();
@@ -19,18 +20,10 @@ module scenes{
             this.Main();
         }
 
-        public Main():void{
-            super.Main();
-        }
-
-        public Update():void{
-            super.Update();
-        }
-
-
         // Protected Methods
         protected CheckWin():void{
             if(this.aliens.length == 0) managers.Game.currentScene = config.Scene.LVL_TWO;
+            // if(this.aliens.length == 0) managers.Game.currentScene = config.Scene.OVER;
         }
 
         protected SpawnAliens():void{

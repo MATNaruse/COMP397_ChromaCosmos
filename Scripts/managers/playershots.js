@@ -3,6 +3,28 @@ var managers;
     var PlayerShots = /** @class */ (function () {
         function PlayerShots() {
         }
+        // TODO: Move Player Shot management here (?)
+        PlayerShots.OnScreen = function (scene) {
+            if (scene.playerShots.length > 0) {
+                scene.playerShots.forEach(function (b) {
+                    if (!b.isOffScreen)
+                        b.Update();
+                    else
+                        scene.removeChild(b);
+                });
+                //console.log("Bullets Left:" + scene.playerShots.length);
+                scene.playerShots.forEach(function (bullet) {
+                    scene.aliens.forEach(function (alien) {
+                        if (managers.Collision.Detect(bullet, alien)) {
+                            managers.Game.Score += alien.ScoreValue;
+                            scene.removeChild(bullet);
+                            scene.removeChild(alien);
+                        }
+                        ;
+                    });
+                });
+            }
+        };
         return PlayerShots;
     }());
     managers.PlayerShots = PlayerShots;

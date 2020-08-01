@@ -4,8 +4,8 @@ module scenes{
         protected background1: objects.Background;
         protected background2: objects.Background;
         protected player: objects.Player;
-        protected playerShots: objects.Projectile[];
-        protected aliens: objects.Alien[];
+        public playerShots: objects.Projectile[];
+        public aliens: objects.Alien[];
         protected hud_colourChamber: objects.HUDItem;
         protected fleetGen: levels.FleetGenerator;
         
@@ -14,7 +14,7 @@ module scenes{
             super(assetManager);
         }
 
-        // Methods
+        // Public Methods
         public Start():void{
             // Player Inits
             this.player = new objects.Player(this.assetManager);
@@ -61,25 +61,7 @@ module scenes{
 
             else {
                 // Player Bullet Logic
-                // On-Screen Bullets
-                if(this.playerShots.length > 0){
-                    this.playerShots.forEach(b => {
-                        if(!b.isOffScreen) b.Update();
-                        else this.removeChild(b);
-                    });
-                    //console.log("Bullets Left:" + this.playerShots.length);
-
-                    this.playerShots.forEach(bullet => {
-                        this.aliens.forEach(alien => {
-                            if(managers.Collision.Detect(bullet, alien)){
-                                managers.Game.Score += alien.ScoreValue;
-                                this.removeChild(bullet);
-                                this.removeChild(alien);
-                            };
-
-                        });
-                    });
-                }
+                managers.PlayerShots.OnScreen(this);
 
                 // Off-Screen Bullets
                 this.playerShots = managers.CleanUp.Projectiles(this.playerShots);
