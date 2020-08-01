@@ -11,9 +11,9 @@ module scenes{
 
         // Methods
         public Start():void{
-            super.Start();
             console.log("[LevelOne]:Start()-> Start!");
-
+            super.Start();
+            
             // Detecting Mouse Click -> TODO: Move to Seperate Manager?
             this.on("click", this.FireBullet);
             this.Main();
@@ -30,11 +30,11 @@ module scenes{
 
         // Protected Methods
         protected CheckWin():void{
-
+            if(this.aliens.length == 0) managers.Game.currentScene = config.Scene.LVL_TWO;
         }
 
-        protected SpawnAliens(): Array<objects.Alien>{
-
+        protected SpawnAliens():void{
+            this.fleetGen.GenerateWaves(5, 2);
         }
 
         // MOVED: GetActiveColour to managers.Game

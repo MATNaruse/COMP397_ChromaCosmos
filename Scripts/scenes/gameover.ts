@@ -41,7 +41,7 @@ module scenes {
         }
 
         private backButtonClick():void {
-            managers.Game.currentScene = config.Scene.GAME;
+            managers.Game.currentScene = config.Scene.LVL_ONE;
         }
 
         private startButtonClick():void{

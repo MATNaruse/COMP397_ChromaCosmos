@@ -29,9 +29,9 @@ var scenes;
             this.fleetGen = new levels.FleetGenerator(this.aliens);
             // Other/HUD Inits
             this.background1 = new objects.Background(this.assetManager);
-            this.background2 = new objects.Background(this.assetManager);
+            this.background2 = new objects.Background(this.assetManager, true);
             this.hud_colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY", 100, 620, 0.4);
-            this.aliens = this.SpawnAliens();
+            this.SpawnAliens();
         };
         LevelBase.prototype.Main = function () {
             var _this = this;
@@ -68,7 +68,7 @@ var scenes;
                         else
                             _this.removeChild(b);
                     });
-                    console.log("Bullets Left:" + this.playerShots.length);
+                    //console.log("Bullets Left:" + this.playerShots.length);
                     this.playerShots.forEach(function (bullet) {
                         _this.aliens.forEach(function (alien) {
                             if (managers.Collision.Detect(bullet, alien)) {
@@ -81,19 +81,20 @@ var scenes;
                     });
                 }
                 // Off-Screen Bullets
-                managers.CleanUp.Projectiles(this.playerShots);
+                this.playerShots = managers.CleanUp.Projectiles(this.playerShots);
                 this.aliens.forEach(function (a) { return a.Update(); });
                 // Cleaning up Dead Aliens
-                managers.CleanUp.Aliens(this.aliens);
+                this.aliens = managers.CleanUp.Aliens(this.aliens);
                 // Win Condition
                 this.CheckWin();
             }
         };
         // Protected Methods
         LevelBase.prototype.CheckWin = function () {
+            // Modify in child class for Win conditions and moving to specific Scene.
         };
         LevelBase.prototype.SpawnAliens = function () {
-            return null;
+            // Modify in child class for "Level Differences"/Difficulty.
         };
         LevelBase.prototype.FireBullet = function () {
             var BulletColourIndex = managers.Game.GetActiveColour();

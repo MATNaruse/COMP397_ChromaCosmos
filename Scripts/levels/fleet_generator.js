@@ -18,12 +18,12 @@ var levels;
                 for (var j = 0; j < aliensPerWave; j++) {
                     // Pick Alien Colour
                     var colourPicked = Math.floor(Math.random() * (colourRange));
-                    console.log("PICKED " + colourPicked + ": " + objects.ColourPalette[colourPicked]);
+                    //console.log("PICKED " + colourPicked + ": " +  objects.ColourPalette[colourPicked]);
                     // Generate Alien
                     var new_alien = new objects.Alien(managers.Game.assetManager, colourPicked);
                     // Set Y Offset for "Wave"
                     new_alien.y = yWaveOffset;
-                    console.log("SET YOFF" + yWaveOffset);
+                    //console.log("SET YOFF" + yWaveOffset);
                     // Put into a "Lane"
                     this.Spawn(new_alien, Math.floor((Math.random() * (6 - 1) + 1)));
                     this.listOfAllAliens.push(new_alien);

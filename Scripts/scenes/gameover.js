@@ -43,7 +43,7 @@ var scenes;
             this.startButton.on("click", this.startButtonClick);
         };
         GameOverScene.prototype.backButtonClick = function () {
-            managers.Game.currentScene = config.Scene.GAME;
+            managers.Game.currentScene = config.Scene.LVL_ONE;
         };
         GameOverScene.prototype.startButtonClick = function () {
             managers.Game.currentScene = config.Scene.START;

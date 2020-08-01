@@ -26,10 +26,10 @@ module scenes{
 
             // Other/HUD Inits
             this.background1 = new objects.Background(this.assetManager);
-            this.background2 = new objects.Background(this.assetManager);
+            this.background2 = new objects.Background(this.assetManager, true);
             this.hud_colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY",  100, 620, 0.4);
 
-            this.aliens = this.SpawnAliens();
+            this.SpawnAliens();
         }
 
         public Main():void{
@@ -67,7 +67,7 @@ module scenes{
                         if(!b.isOffScreen) b.Update();
                         else this.removeChild(b);
                     });
-                    console.log("Bullets Left:" + this.playerShots.length);
+                    //console.log("Bullets Left:" + this.playerShots.length);
 
                     this.playerShots.forEach(bullet => {
                         this.aliens.forEach(alien => {
@@ -80,13 +80,14 @@ module scenes{
                         });
                     });
                 }
+
                 // Off-Screen Bullets
-                managers.CleanUp.Projectiles(this.playerShots);
+                this.playerShots = managers.CleanUp.Projectiles(this.playerShots);
 
                 this.aliens.forEach(a => a.Update());
 
                 // Cleaning up Dead Aliens
-                managers.CleanUp.Aliens(this.aliens);
+                this.aliens = managers.CleanUp.Aliens(this.aliens);
 
                 // Win Condition
                 this.CheckWin();    
@@ -96,11 +97,11 @@ module scenes{
 
         // Protected Methods
         protected CheckWin():void{
-
+            // Modify in child class for Win conditions and moving to specific Scene.
         }
 
-        protected SpawnAliens(): Array<objects.Alien>{
-            return null;
+        protected SpawnAliens():void{
+            // Modify in child class for "Level Differences"/Difficulty.
         }
 
         protected FireBullet():void{

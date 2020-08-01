@@ -46,7 +46,7 @@ var scenes;
             this.overButton.on("click", this.overButtonClick);
         };
         StartScene.prototype.startButtonClick = function () {
-            managers.Game.currentScene = config.Scene.GAME;
+            managers.Game.currentScene = config.Scene.LVL_ONE;
         };
         StartScene.prototype.overButtonClick = function () {
             managers.Game.currentScene = config.Scene.OVER;

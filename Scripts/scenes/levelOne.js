@@ -25,8 +25,8 @@ var scenes;
         }
         // Methods
         LevelOne.prototype.Start = function () {
-            _super.prototype.Start.call(this);
             console.log("[LevelOne]:Start()-> Start!");
+            _super.prototype.Start.call(this);
             // Detecting Mouse Click -> TODO: Move to Seperate Manager?
             this.on("click", this.FireBullet);
             this.Main();
@@ -39,8 +39,11 @@ var scenes;
         };
         // Protected Methods
         LevelOne.prototype.CheckWin = function () {
+            if (this.aliens.length == 0)
+                managers.Game.currentScene = config.Scene.LVL_TWO;
         };
         LevelOne.prototype.SpawnAliens = function () {
+            this.fleetGen.GenerateWaves(5, 2);
         };
         return LevelOne;
     }(scenes.LevelBase));

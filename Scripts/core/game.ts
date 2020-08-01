@@ -126,6 +126,18 @@
                 currentScene = new scenes.PlayScene(assetManager);
                 stage.addChild(currentScene);
             break;
+            case config.Scene.LVL_ONE:
+                stage.removeAllChildren();
+                console.log("Level ONE");
+                currentScene = new scenes.LevelOne(assetManager);
+                stage.addChild(currentScene);
+            break;
+            case config.Scene.LVL_TWO:
+                stage.removeAllChildren();
+                console.log("Level TWO");
+                currentScene = new scenes.LevelTwo(assetManager);
+                stage.addChild(currentScene);
+            break;
             case config.Scene.OVER:
                 stage.removeAllChildren();
                 currentScene = new scenes.GameOverScene(assetManager);
