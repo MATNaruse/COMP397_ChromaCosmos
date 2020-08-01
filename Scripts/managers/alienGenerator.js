@@ -1,10 +1,10 @@
-var levels;
-(function (levels) {
-    var FleetGenerator = /** @class */ (function () {
-        function FleetGenerator(alienList) {
+var managers;
+(function (managers) {
+    var AlienGenerator = /** @class */ (function () {
+        function AlienGenerator(alienList) {
             this.listOfAllAliens = alienList;
         }
-        FleetGenerator.prototype.Spawn = function (alien, lane) {
+        AlienGenerator.prototype.Spawn = function (alien, lane) {
             var baseX = 200;
             var increment = 175;
             alien.x = baseX + (increment * lane);
@@ -13,8 +13,9 @@ var levels;
                 alien.x += Math.floor(Math.random() * 1 - 1);
             }
         };
-        FleetGenerator.prototype.GenerateWaves = function (numOfWaves, aliensPerWave, basic) {
+        AlienGenerator.prototype.GenerateWaves = function (numOfWaves, aliensPerWave, basic) {
             if (basic === void 0) { basic = true; }
+            // TODO: Prevent aliens stacking
             var colourRange = basic ? 3 : 6;
             var yWaveOffset = -50;
             for (var i = 0; i < numOfWaves; i++) {
@@ -36,8 +37,8 @@ var levels;
             }
             // return this.listOfAllAliens;
         };
-        return FleetGenerator;
+        return AlienGenerator;
     }());
-    levels.FleetGenerator = FleetGenerator;
-})(levels || (levels = {}));
-//# sourceMappingURL=fleet_generator.js.map
+    managers.AlienGenerator = AlienGenerator;
+})(managers || (managers = {}));
+//# sourceMappingURL=alienGenerator.js.map

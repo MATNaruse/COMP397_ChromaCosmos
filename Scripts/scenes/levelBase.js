@@ -26,7 +26,7 @@ var scenes;
             this.playerShots = new Array();
             // Alien Inits
             this.aliens = new Array();
-            this.fleetGen = new levels.FleetGenerator(this.aliens);
+            this.fleetGen = new managers.AlienGenerator(this.aliens);
             // Other/HUD Inits
             this.background1 = new objects.Background(this.assetManager);
             this.background2 = new objects.Background(this.assetManager, true);

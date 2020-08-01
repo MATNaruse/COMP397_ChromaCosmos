@@ -1,7 +1,6 @@
-module levels{
-    export class FleetGenerator{
+module managers{
+    export class AlienGenerator{
         private listOfAllAliens: objects.Alien[];
-        private assetManager: createjs.LoadQueue;
 
         constructor(alienList: objects.Alien[]){
             this.listOfAllAliens = alienList;
@@ -19,6 +18,7 @@ module levels{
         }
 
         public GenerateWaves(numOfWaves: number, aliensPerWave:number, basic:boolean = true){
+            // TODO: Prevent aliens stacking
             var colourRange = basic ? 3 : 6;
             var yWaveOffset = -50;
             for(let i = 0; i < numOfWaves; i++){

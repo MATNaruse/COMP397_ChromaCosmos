@@ -8,7 +8,7 @@ module scenes {
         private aliens:objects.Alien[];
         private bombs:objects.Bomb[];
         private colourChamber: objects.HUDItem;
-        private fleetGen: levels.FleetGenerator;
+        private fleetGen: managers.AlienGenerator;
 
         // Constructor
         constructor(assetManager:createjs.LoadQueue) {
@@ -28,7 +28,7 @@ module scenes {
             // Spawning Aliens
             this.aliens = new Array<objects.Alien>();
             
-            this.fleetGen = new levels.FleetGenerator(this.aliens);
+            this.fleetGen = new managers.AlienGenerator(this.aliens);
             this.fleetGen.GenerateWaves(3, 3, false);
 
 

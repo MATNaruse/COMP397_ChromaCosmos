@@ -7,7 +7,7 @@ module scenes{
         public playerShots: objects.Projectile[];
         public aliens: objects.Alien[];
         protected hud_colourChamber: objects.HUDItem;
-        protected fleetGen: levels.FleetGenerator;
+        protected fleetGen: managers.AlienGenerator;
         
         // Constructor
         constructor(assetManager: createjs.LoadQueue){
@@ -22,7 +22,7 @@ module scenes{
 
             // Alien Inits
             this.aliens = new Array<objects.Alien>();
-            this.fleetGen = new levels.FleetGenerator(this.aliens);
+            this.fleetGen = new managers.AlienGenerator(this.aliens);
 
             // Other/HUD Inits
             this.background1 = new objects.Background(this.assetManager);

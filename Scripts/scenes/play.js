@@ -31,7 +31,7 @@ var scenes;
             this.playerShots = new Array();
             // Spawning Aliens
             this.aliens = new Array();
-            this.fleetGen = new levels.FleetGenerator(this.aliens);
+            this.fleetGen = new managers.AlienGenerator(this.aliens);
             this.fleetGen.GenerateWaves(3, 3, false);
             this.bombs = new Array();
             // Initializing ColourChamber
