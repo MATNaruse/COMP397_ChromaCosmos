@@ -40,15 +40,6 @@
         {id:"alienPURPLE", src:"./InkscapeAssets/alienPurple.png"},
         {id:"alienORANGE", src:"./InkscapeAssets/alienOrange.png"},
 
-        // // Colour Chamber -> Temp Changed to Style 2
-        // {id:"chamberEMPTY", src:"./Assets/hud/chamberEmpty2.png"},
-        // {id:"chamberRED", src:"./Assets/hud/chamberRed2.png"},
-        // {id:"chamberBLUE", src:"./Assets/hud/chamberBlue2.png"},
-        // {id:"chamberYELLOW", src:"./Assets/hud/chamberYellow2.png"},
-        // {id:"chamberGREEN", src:"./Assets/hud/chamberGreen2.png"},
-        // {id:"chamberPURPLE", src:"./Assets/hud/chamberPurple2.png"},
-        // {id:"chamberORANGE", src:"./Assets/hud/chamberOrange2.png"},
-
         // Colour Chamber -> Updated
         {id:"chamberEMPTY", src:"./InkscapeAssets/colourChamberEMPTY.png"},
         {id:"chamberRED", src:"./InkscapeAssets/colourChamberRED.png"},
@@ -57,6 +48,13 @@
         {id:"chamberGREEN", src:"./InkscapeAssets/colourChamberGREEN.png"},
         {id:"chamberPURPLE", src:"./InkscapeAssets/colourChamberPURPLE.png"},
         {id:"chamberORANGE", src:"./InkscapeAssets/colourChamberORANGE.png"},
+
+        {id:"healthIndicator5", src:"./InkscapeAssets/healthIndicator5.png"},
+        {id:"healthIndicator4", src:"./InkscapeAssets/healthIndicator4.png"},
+        {id:"healthIndicator3", src:"./InkscapeAssets/healthIndicator3.png"},
+        {id:"healthIndicator2", src:"./InkscapeAssets/healthIndicator2.png"},
+        {id:"healthIndicator1", src:"./InkscapeAssets/healthIndicator1.png"},
+        {id:"healthIndicator0", src:"./InkscapeAssets/healthIndicator0.png"},
 
         /*
             AUDIO ASSETS

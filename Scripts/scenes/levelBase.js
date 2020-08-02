@@ -31,6 +31,7 @@ var scenes;
             this.background1 = new objects.Background(this.assetManager);
             this.background2 = new objects.Background(this.assetManager, true);
             this.hud_colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY", 250, 550, 0.2);
+            this.hud_healthIndicator = new objects.HUDItem(this.assetManager, "healthIndicator5", 1150, 650);
             this.hud_levelIndicator = new objects.Label(this.levelName, "35px", "Consolas", "#FFFFFF", 25, 680);
             this.SpawnAliens();
         };
@@ -41,6 +42,7 @@ var scenes;
             this.addChild(this.player);
             this.addChild(this.hud_colourChamber);
             this.addChild(this.hud_levelIndicator);
+            this.addChild(this.hud_healthIndicator);
             this.aliens.forEach(function (a) { return _this.addChild(a); });
         };
         LevelBase.prototype.Update = function () {
@@ -53,6 +55,7 @@ var scenes;
             this.aliens.forEach(function (alien) {
                 if (managers.Collision.Detect(alien, _this.player)) {
                     _this.player.TakeDamage();
+                    _this.UpdateHealthIndicator();
                     console.log("PLAYER LIVING STATUS - " + _this.player.isDead);
                 }
             });
@@ -88,7 +91,10 @@ var scenes;
                 createjs.Sound.play("laserFire1");
             }
         };
+        // Private Methods
         LevelBase.prototype.UpdateColourChamber = function () {
+            // TODO: Trigger this when button is pressed, not constant check
+            console.log("UPDATING COLOUR CHAMBER");
             var CurrentColour = managers.Game.GetActiveColour();
             if (CurrentColour != -1) {
                 this.removeChild(this.hud_colourChamber);
@@ -100,7 +106,13 @@ var scenes;
                 this.hud_colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY", 100, 620, 0.2);
                 this.addChild(this.hud_colourChamber);
             }
-            // MOVED: GetActiveColour to managers.Game
+        };
+        LevelBase.prototype.UpdateHealthIndicator = function () {
+            var assetName = "healthIndicator" + this.player.Health;
+            console.log("UPDATING HEALTH: " + assetName);
+            this.removeChild(this.hud_healthIndicator);
+            this.hud_healthIndicator = new objects.HUDItem(this.assetManager, assetName, 1150, 650);
+            this.addChild(this.hud_healthIndicator);
         };
         return LevelBase;
     }(objects.Scene));

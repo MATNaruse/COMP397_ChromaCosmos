@@ -8,6 +8,7 @@ module scenes{
         public aliens: objects.Alien[];
         protected hud_colourChamber: objects.HUDItem;
         protected hud_levelIndicator: objects.Label;
+        protected hud_healthIndicator: objects.HUDItem;
         protected levelName: string;
         protected fleetGen: managers.AlienGenerator;
         
@@ -30,6 +31,7 @@ module scenes{
             this.background1 = new objects.Background(this.assetManager);
             this.background2 = new objects.Background(this.assetManager, true);
             this.hud_colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY",  250, 550, 0.2);
+            this.hud_healthIndicator = new objects.HUDItem(this.assetManager, "healthIndicator5",  1150, 650);
             this.hud_levelIndicator = new objects.Label(this.levelName, "35px", "Consolas", "#FFFFFF", 25, 680);
             this.SpawnAliens();
         }
@@ -40,6 +42,7 @@ module scenes{
             this.addChild(this.player);
             this.addChild(this.hud_colourChamber);
             this.addChild(this.hud_levelIndicator);
+            this.addChild(this.hud_healthIndicator);
             this.aliens.forEach(a => this.addChild(a));
         }
 
@@ -53,6 +56,7 @@ module scenes{
             this.aliens.forEach(alien => {
                 if(managers.Collision.Detect(alien, this.player)){
                     this.player.TakeDamage();
+                    this.UpdateHealthIndicator();
                     console.log("PLAYER LIVING STATUS - " + this.player.isDead);
                 }
             });
@@ -99,7 +103,10 @@ module scenes{
             }
         }
 
+        // Private Methods
         private UpdateColourChamber():void{
+            // TODO: Trigger this when button is pressed, not constant check
+            console.log("UPDATING COLOUR CHAMBER");
             var CurrentColour = managers.Game.GetActiveColour();
             if(CurrentColour != -1){
                 this.removeChild(this.hud_colourChamber);
@@ -111,8 +118,14 @@ module scenes{
                 this.hud_colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY", 100, 620, 0.2);
                 this.addChild(this.hud_colourChamber);
             }
+        }
 
-        // MOVED: GetActiveColour to managers.Game
+        private UpdateHealthIndicator():void{
+            var assetName = "healthIndicator" + this.player.Health;
+            console.log("UPDATING HEALTH: " + assetName);
+            this.removeChild(this.hud_healthIndicator);
+            this.hud_healthIndicator = new objects.HUDItem(this.assetManager, assetName,  1150, 650);
+            this.addChild(this.hud_healthIndicator);
         }
     }   
 }
