@@ -1,4 +1,4 @@
-@font-face{
+/* @font-face{
     font-family: KronaOne;
     src: url(../Assets/fonts/KronaOne-Regular.ttf);
     font-weight: normal;
@@ -17,7 +17,7 @@
     font-family: MuseoModerno;
     src: url(../Assets/fonts/MuseoModerno-VariableFont_wght.ttf);
     font-weight: normal;
-}
+} */
 
 /* Main CSS */
 #canvas {

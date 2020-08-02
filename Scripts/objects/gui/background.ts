@@ -7,7 +7,7 @@ module objects {
         constructor(assetManager:createjs.LoadQueue, second: boolean = false)
         {
             super(assetManager.getResult("background"));
-            console.log("Creating the background");
+            // console.log("Creating the background");
             this.scaleX = 1.25;
             this.scaleY = .72;
             this.second = second;
@@ -18,18 +18,18 @@ module objects {
             this.Reset();
         }
         public Update():void {
-            // this.Move(); // Movement Temporarily Disabled
+            this.Move(); // Movement Temporarily Disabled
             this.CheckBound();
         }
         public Reset():void {
             // Reset my background y position.
             // console.log("RESET!");
             if(this.second) {
-                console.log("RESET 2nd BG");
+                // console.log("RESET 2nd BG");
                 this.y = -720;
             }
             else {
-                console.log("RESET 1st BG");
+                // console.log("RESET 1st BG");
                 this.y = 0;
             }
         }

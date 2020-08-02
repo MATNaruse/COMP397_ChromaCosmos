@@ -21,7 +21,7 @@ var objects;
             var _this = _super.call(this, assetManager.getResult("background")) || this;
             // Variables
             _this.speedY = 2;
-            console.log("Creating the background");
+            // console.log("Creating the background");
             _this.scaleX = 1.25;
             _this.scaleY = .72;
             _this.second = second;
@@ -33,18 +33,18 @@ var objects;
             this.Reset();
         };
         Background.prototype.Update = function () {
-            // this.Move(); // Movement Temporarily Disabled
+            this.Move(); // Movement Temporarily Disabled
             this.CheckBound();
         };
         Background.prototype.Reset = function () {
             // Reset my background y position.
             // console.log("RESET!");
             if (this.second) {
-                console.log("RESET 2nd BG");
+                // console.log("RESET 2nd BG");
                 this.y = -720;
             }
             else {
-                console.log("RESET 1st BG");
+                // console.log("RESET 1st BG");
                 this.y = 0;
             }
         };

@@ -24,7 +24,6 @@ module scenes{
 
         // Protected Methods
         protected CheckWin():void{
-            managers.Game.PlayerHealth = this.player.Health;
             if(this.aliens.length == 0) managers.Game.currentScene = config.Scene.LVL_TWO;
             // if(this.aliens.length == 0) managers.Game.currentScene = config.Scene.OVER;
         }

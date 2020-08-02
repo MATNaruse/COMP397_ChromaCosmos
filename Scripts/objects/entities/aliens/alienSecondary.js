@@ -24,8 +24,13 @@ var objects;
         }
         // Methods
         SecondaryAlien.prototype.Move = function () {
-            this.y += 3;
-            // TODO: Add Directed Movement
+            this.y += 6;
+            var Player = managers.Game.PlayerEntity;
+            var Increment = 5;
+            if (Player.x > this.x)
+                this.x += Increment;
+            else if (Player.x < this.x)
+                this.x -= Increment;
         };
         return SecondaryAlien;
     }(objects.Alien));

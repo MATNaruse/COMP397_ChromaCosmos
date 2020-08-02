@@ -24,6 +24,7 @@ var scenes;
             // Player Inits
             this.player = new objects.Player(this.assetManager);
             this.playerShots = new Array();
+            managers.Game.PlayerEntity = this.player;
             // Alien Inits
             this.aliens = new Array();
             this.fleetGen = new managers.AlienGenerator(this.aliens);
@@ -95,7 +96,6 @@ var scenes;
         // Private Methods
         LevelBase.prototype.UpdateColourChamber = function () {
             // TODO: Trigger this when button is pressed, not constant check
-            // console.log("UPDATING COLOUR CHAMBER");
             var CurrentColour = managers.Game.GetActiveColour();
             if (CurrentColour != -1) {
                 this.removeChild(this.hud_colourChamber);

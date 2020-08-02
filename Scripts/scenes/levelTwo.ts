@@ -14,7 +14,7 @@ module scenes{
         public Start():void{
             console.log("[LevelTwo]:Start()-> Start!");
             super.Start();
-            this.player.Health = managers.Game.PlayerHealth;    // Carrying over Player Health from Previous Level
+            this.player = managers.Game.PlayerEntity;    // Carrying over Player Health from Previous Level
             // Detecting Mouse Click -> TODO: Move to Seperate Manager?
             this.on("click", this.FireBullet);
             this.Main();
@@ -23,8 +23,8 @@ module scenes{
         // Protected Methods
         protected CheckWin():void{
             if(this.aliens.length == 0) {
-                console.log("SCORE:" + managers.Game.Score + " * HEALTH:" + managers.Game.PlayerHealth + " = " + (managers.Game.Score * managers.Game.PlayerHealth));
-                managers.Game.Score *= managers.Game.PlayerHealth;
+                console.log("SCORE:" + managers.Game.Score + " * HEALTH:" + managers.Game.PlayerEntity.Health + " = " + (managers.Game.Score * managers.Game.PlayerEntity.Health));
+                managers.Game.Score *= managers.Game.PlayerEntity.Health;
                 managers.Game.currentScene = config.Scene.OVER;
             }
         }

@@ -3,7 +3,7 @@ module scenes{
         // Variables
         protected background1: objects.Background;
         protected background2: objects.Background;
-        protected player: objects.Player;
+        public player: objects.Player;
         public playerShots: objects.Projectile[];
         public aliens: objects.Alien[];
         protected hud_colourChamber: objects.HUDItem;
@@ -22,6 +22,7 @@ module scenes{
             // Player Inits
             this.player = new objects.Player(this.assetManager);
             this.playerShots = new Array<objects.Projectile>();
+            managers.Game.PlayerEntity = this.player;
 
             // Alien Inits
             this.aliens = new Array<objects.Alien>();
@@ -107,7 +108,6 @@ module scenes{
         // Private Methods
         private UpdateColourChamber():void{
             // TODO: Trigger this when button is pressed, not constant check
-            // console.log("UPDATING COLOUR CHAMBER");
             var CurrentColour = managers.Game.GetActiveColour();
             if(CurrentColour != -1){
                 this.removeChild(this.hud_colourChamber);

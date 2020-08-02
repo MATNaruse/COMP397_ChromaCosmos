@@ -10,11 +10,11 @@ module managers {
         public static canvasW:number;
         public static canvasH:number;
 
-        // Tracking Score
+        // Tracking Player & Score
         public static Score:number;
         public static PlayerLose:boolean;
-        public static PlayerHealth: number;
-
+        public static PlayerEntity: objects.Player;
+        
         // Getting Active Colour
         public static GetActiveColour():number{
             let Red = managers.Game.controlManager.KeyA;
