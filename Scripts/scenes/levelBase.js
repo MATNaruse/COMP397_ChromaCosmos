@@ -43,6 +43,7 @@ var scenes;
             this.addChild(this.hud_colourChamber);
             this.addChild(this.hud_levelIndicator);
             this.addChild(this.hud_healthIndicator);
+            this.UpdateHealthIndicator();
             this.aliens.forEach(function (a) { return _this.addChild(a); });
         };
         LevelBase.prototype.Update = function () {
@@ -56,10 +57,10 @@ var scenes;
                 if (managers.Collision.Detect(alien, _this.player)) {
                     _this.player.TakeDamage();
                     _this.UpdateHealthIndicator();
-                    console.log("PLAYER LIVING STATUS - " + _this.player.isDead);
+                    // console.log("Player Dead Status - " + this.player.isDead);
                 }
             });
-            // If Player is dead, move to Game Over
+            // If Player is dead, move to Game Over immediately
             if (this.player.isDead) {
                 managers.Game.currentScene = config.Scene.OVER;
             }
@@ -94,7 +95,7 @@ var scenes;
         // Private Methods
         LevelBase.prototype.UpdateColourChamber = function () {
             // TODO: Trigger this when button is pressed, not constant check
-            console.log("UPDATING COLOUR CHAMBER");
+            // console.log("UPDATING COLOUR CHAMBER");
             var CurrentColour = managers.Game.GetActiveColour();
             if (CurrentColour != -1) {
                 this.removeChild(this.hud_colourChamber);

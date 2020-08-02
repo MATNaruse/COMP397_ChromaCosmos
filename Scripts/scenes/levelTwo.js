@@ -28,14 +28,18 @@ var scenes;
         LevelTwo.prototype.Start = function () {
             console.log("[LevelTwo]:Start()-> Start!");
             _super.prototype.Start.call(this);
+            this.player.Health = managers.Game.PlayerHealth; // Carrying over Player Health from Previous Level
             // Detecting Mouse Click -> TODO: Move to Seperate Manager?
             this.on("click", this.FireBullet);
             this.Main();
         };
         // Protected Methods
         LevelTwo.prototype.CheckWin = function () {
-            if (this.aliens.length == 0)
+            if (this.aliens.length == 0) {
+                console.log("SCORE:" + managers.Game.Score + " * HEALTH:" + managers.Game.PlayerHealth + " = " + (managers.Game.Score * managers.Game.PlayerHealth));
+                managers.Game.Score *= managers.Game.PlayerHealth;
                 managers.Game.currentScene = config.Scene.OVER;
+            }
         };
         LevelTwo.prototype.SpawnAliens = function () {
             this.fleetGen.GenerateWaves(1, 2, false);

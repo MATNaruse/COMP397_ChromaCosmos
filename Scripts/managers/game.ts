@@ -13,6 +13,7 @@ module managers {
         // Tracking Score
         public static Score:number;
         public static PlayerLose:boolean;
+        public static PlayerHealth: number;
 
         // Getting Active Colour
         public static GetActiveColour():number{

@@ -43,6 +43,7 @@ module scenes{
             this.addChild(this.hud_colourChamber);
             this.addChild(this.hud_levelIndicator);
             this.addChild(this.hud_healthIndicator);
+            this.UpdateHealthIndicator();
             this.aliens.forEach(a => this.addChild(a));
         }
 
@@ -57,11 +58,11 @@ module scenes{
                 if(managers.Collision.Detect(alien, this.player)){
                     this.player.TakeDamage();
                     this.UpdateHealthIndicator();
-                    console.log("PLAYER LIVING STATUS - " + this.player.isDead);
+                    // console.log("Player Dead Status - " + this.player.isDead);
                 }
             });
             
-            // If Player is dead, move to Game Over
+            // If Player is dead, move to Game Over immediately
             if(this.player.isDead){
                 managers.Game.currentScene = config.Scene.OVER;
             }
@@ -106,7 +107,7 @@ module scenes{
         // Private Methods
         private UpdateColourChamber():void{
             // TODO: Trigger this when button is pressed, not constant check
-            console.log("UPDATING COLOUR CHAMBER");
+            // console.log("UPDATING COLOUR CHAMBER");
             var CurrentColour = managers.Game.GetActiveColour();
             if(CurrentColour != -1){
                 this.removeChild(this.hud_colourChamber);

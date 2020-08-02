@@ -34,12 +34,14 @@ var scenes;
         };
         // Protected Methods
         LevelOne.prototype.CheckWin = function () {
+            managers.Game.PlayerHealth = this.player.Health;
             if (this.aliens.length == 0)
                 managers.Game.currentScene = config.Scene.LVL_TWO;
             // if(this.aliens.length == 0) managers.Game.currentScene = config.Scene.OVER;
         };
         LevelOne.prototype.SpawnAliens = function () {
-            this.fleetGen.GenerateWaves(10, 5);
+            // this.fleetGen.GenerateWaves(5, 5);
+            this.fleetGen.GenerateWaves(1, 1);
             // this.fleetGen.GenerateWaves(1, 12);
         };
         return LevelOne;
