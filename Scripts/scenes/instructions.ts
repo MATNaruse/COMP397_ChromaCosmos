@@ -23,6 +23,7 @@ module scenes {
         // Methods
         public Start():void{
             // Initalize Objects
+            this.music = createjs.Sound.play("musicMain").setVolume(2);
             this.background = new objects.Background(this.assetManager);
             this.instructLabels = Array<objects.Label>();
             this.MultiLineLabels(this.instructions, 100, 100, 50);
@@ -34,7 +35,10 @@ module scenes {
             this.addChild(this.background);
             this.instructLabels.forEach(l => this.addChild(l));
             this.addChild(this.returnButton);
-            this.returnButton.on("click", () => {managers.Game.currentScene = config.Scene.START;})
+            this.returnButton.on("click", () => {
+                if(this.music != null) this.music.destroy();
+                managers.Game.currentScene = config.Scene.START;
+            })
         }
 
         private MultiLineLabels(input:string[], startX:number, startY:number, spacing:number){

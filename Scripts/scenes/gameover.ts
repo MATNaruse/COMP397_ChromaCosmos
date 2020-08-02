@@ -6,7 +6,6 @@ module scenes {
         private backButton: objects.MenuButton;
         private startButton: objects.MenuButton;
         private background: objects.Background;
-        
 
         // Constructor
         constructor(assetManager:createjs.LoadQueue) {
@@ -18,6 +17,13 @@ module scenes {
         public Start():void {
             // Initialize our variables
             var gameOverMsg = managers.Game.PlayerLose ? "Game Over!" : "Success!" 
+
+            if(managers.Game.PlayerLose){
+                this.music = createjs.Sound.play("musicLose").setVolume(2);
+            }
+            else{
+                this.music = createjs.Sound.play("musicWin").setVolume(2);
+            }
 
             this.background = new objects.Background(this.assetManager);
             this.gameOverLabel = new objects.Label(gameOverMsg, "40px", "Consolas", "#FFFFFF", managers.Game.canvasW/2, 240, true);
@@ -41,10 +47,12 @@ module scenes {
         }
 
         private backButtonClick():void {
+            if (this.music != null) this.music.destroy();
             managers.Game.currentScene = config.Scene.LVL_ONE;
         }
 
         private startButtonClick():void{
+            if (this.music != null) this.music.destroy();
             managers.Game.currentScene = config.Scene.START;
         }
     }

@@ -25,6 +25,12 @@ var scenes;
         GameOverScene.prototype.Start = function () {
             // Initialize our variables
             var gameOverMsg = managers.Game.PlayerLose ? "Game Over!" : "Success!";
+            if (managers.Game.PlayerLose) {
+                this.music = createjs.Sound.play("musicLose").setVolume(2);
+            }
+            else {
+                this.music = createjs.Sound.play("musicWin").setVolume(2);
+            }
             this.background = new objects.Background(this.assetManager);
             this.gameOverLabel = new objects.Label(gameOverMsg, "40px", "Consolas", "#FFFFFF", managers.Game.canvasW / 2, 240, true);
             this.scoreLabel = new objects.Label("Your Score: " + managers.Game.Score, "40px", "Consolas", "#FFFFFF", managers.Game.canvasW / 2, 200, true);
@@ -43,9 +49,13 @@ var scenes;
             this.startButton.on("click", this.startButtonClick);
         };
         GameOverScene.prototype.backButtonClick = function () {
+            if (this.music != null)
+                this.music.destroy();
             managers.Game.currentScene = config.Scene.LVL_ONE;
         };
         GameOverScene.prototype.startButtonClick = function () {
+            if (this.music != null)
+                this.music.destroy();
             managers.Game.currentScene = config.Scene.START;
         };
         return GameOverScene;

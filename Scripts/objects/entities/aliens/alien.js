@@ -29,6 +29,13 @@ var objects;
             _super.prototype.Reset.call(this);
             this.attackedPlayer = false;
         };
+        Alien.prototype.CheckBound = function () {
+            _super.prototype.CheckBound.call(this);
+            if (this.x >= managers.Game.canvasW - this.halfW)
+                this.x = managers.Game.canvasW - this.halfW;
+            if (this.x <= this.halfW)
+                this.x = this.halfW;
+        };
         return Alien;
     }(objects.Enemy));
     objects.Alien = Alien;

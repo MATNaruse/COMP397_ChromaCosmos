@@ -27,6 +27,7 @@ var scenes;
         // Public Methods
         LevelOne.prototype.Start = function () {
             console.log("[LevelOne]:Start()-> Start!");
+            this.music = createjs.Sound.play("musicLvlOne").setVolume(2);
             _super.prototype.Start.call(this);
             // Detecting Mouse Click -> TODO: Move to Seperate Manager?
             this.on("click", this.FireBullet);
@@ -34,8 +35,10 @@ var scenes;
         };
         // Protected Methods
         LevelOne.prototype.CheckWin = function () {
-            if (this.aliens.length == 0)
+            if (this.aliens.length == 0) {
+                this.music.destroy();
                 managers.Game.currentScene = config.Scene.LVL_TWO;
+            }
             // if(this.aliens.length == 0) managers.Game.currentScene = config.Scene.OVER;
         };
         LevelOne.prototype.SpawnAliens = function () {

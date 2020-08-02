@@ -15,6 +15,7 @@ module scenes{
         // Public Methods
         public Start():void{
             console.log("[LevelOne]:Start()-> Start!");
+            this.music = createjs.Sound.play("musicLvlOne").setVolume(2);
             super.Start();
 
             // Detecting Mouse Click -> TODO: Move to Seperate Manager?
@@ -24,7 +25,10 @@ module scenes{
 
         // Protected Methods
         protected CheckWin():void{
-            if(this.aliens.length == 0) managers.Game.currentScene = config.Scene.LVL_TWO;
+            if(this.aliens.length == 0) {
+                this.music.destroy();
+                managers.Game.currentScene = config.Scene.LVL_TWO;
+            }
             // if(this.aliens.length == 0) managers.Game.currentScene = config.Scene.OVER;
         }
 

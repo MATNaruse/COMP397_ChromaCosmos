@@ -59,6 +59,12 @@
         /*
             AUDIO ASSETS
         */
+        // Music Related
+        {id:"musicMain", src:"./Assets/audio/music/Hardmoon_-_Deep_space.mp3"},
+        {id:"musicLvlOne", src:"./Assets/audio/music/Roboxel-SpaceMusic.mp3"},
+        {id:"musicLvlTwo", src:"./Assets/audio/music/throughSpace.ogg"},
+        {id:"musicWin", src:"./Assets/audio/music/winMusic3.wav"},
+        {id:"musicLose", src:"./Assets/audio/music/loseMusic3-1_0.wav"},
 
         // Player Related
         {id:"laserFire1", src:"./Assets/audio/sfx/laser1.wav"},
@@ -102,6 +108,7 @@
         currentState = config.Scene.START;
         controlManager = new managers.PlayerControls;
         managers.Game.controlManager = controlManager;
+        // createjs.Sound.play("mainMusic").setVolume(2);
         Main();
     }
 

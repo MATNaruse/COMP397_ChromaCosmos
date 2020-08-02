@@ -65,6 +65,7 @@ module scenes{
             
             // If Player is dead, move to Game Over immediately
             if(this.player.isDead){
+                this.music.destroy();
                 managers.Game.currentScene = config.Scene.OVER;
             }
 

@@ -32,6 +32,7 @@ var scenes;
         // Methods
         InstructionScene.prototype.Start = function () {
             // Initalize Objects
+            this.music = createjs.Sound.play("musicMain").setVolume(2);
             this.background = new objects.Background(this.assetManager);
             this.instructLabels = Array();
             this.MultiLineLabels(this.instructions, 100, 100, 50);
@@ -43,7 +44,11 @@ var scenes;
             this.addChild(this.background);
             this.instructLabels.forEach(function (l) { return _this.addChild(l); });
             this.addChild(this.returnButton);
-            this.returnButton.on("click", function () { managers.Game.currentScene = config.Scene.START; });
+            this.returnButton.on("click", function () {
+                if (_this.music != null)
+                    _this.music.destroy();
+                managers.Game.currentScene = config.Scene.START;
+            });
         };
         InstructionScene.prototype.MultiLineLabels = function (input, startX, startY, spacing) {
             var _this = this;

@@ -19,5 +19,11 @@ module objects{
             super.Reset();
             this.attackedPlayer = false;
         }
+
+        public CheckBound():void{
+            super.CheckBound();
+            if(this.x >= managers.Game.canvasW - this.halfW) this.x = managers.Game.canvasW - this.halfW;
+            if(this.x <= this.halfW)  this.x = this.halfW;
+        }
     }
 }

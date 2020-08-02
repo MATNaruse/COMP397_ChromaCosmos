@@ -27,6 +27,7 @@ var scenes;
         // Public Methods
         LevelTwo.prototype.Start = function () {
             console.log("[LevelTwo]:Start()-> Start!");
+            this.music = createjs.Sound.play("musicLvlTwo").setVolume(2);
             _super.prototype.Start.call(this);
             this.player = managers.Game.PlayerEntity; // Carrying over Player Health from Previous Level
             // Detecting Mouse Click -> TODO: Move to Seperate Manager?
@@ -36,6 +37,7 @@ var scenes;
         // Protected Methods
         LevelTwo.prototype.CheckWin = function () {
             if (this.aliens.length == 0) {
+                this.music.destroy();
                 console.log("SCORE:" + managers.Game.Score + " * HEALTH:" + managers.Game.PlayerEntity.Health + " = " + (managers.Game.Score * managers.Game.PlayerEntity.Health));
                 managers.Game.Score *= managers.Game.PlayerEntity.Health;
                 managers.Game.currentScene = config.Scene.OVER;
