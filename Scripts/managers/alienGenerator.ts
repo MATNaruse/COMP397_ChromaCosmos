@@ -35,7 +35,9 @@ module managers{
                     var colourPicked = Math.floor(Math.random() * (colourRange));
 
                     // Generate Alien
-                    var new_alien = new objects.PrimaryAlien(managers.Game.assetManager, colourPicked);
+                    var new_alien;
+                    if(colourPicked < 3) new_alien = new objects.PrimaryAlien(managers.Game.assetManager, colourPicked);
+                    else new_alien = new objects.SecondaryAlien(managers.Game.assetManager, colourPicked);
                     
                     // Set Y Offset for "Wave"
                     new_alien.y = yWaveOffset;
