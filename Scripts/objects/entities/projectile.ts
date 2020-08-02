@@ -25,7 +25,6 @@ module objects{
 
         public Move():void{
             this.y -= 10;
-            // TODO: Implement Movement Patterns
         }
 
         public CheckBound():void{

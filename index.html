@@ -7,8 +7,6 @@
     <!-- CSS Section -->
     <link rel="stylesheet" href="./Contents/game.css">
     <link rel="shortcut icon" href="#" /> <!-- Added becuase of annoying error in console -->
-
-    <!-- Local Fonts -->
 </head>
 <body>
     <canvas id="canvas" width="1280" height="720"></canvas>
@@ -23,11 +21,11 @@
     <script src="./Scripts/config/scene.js"></script>
 
     <!-- Object Scripts -->
+    <script src="./Scripts/objects/scene.js"></script>
     <script src="./Scripts/objects/gui/label.js"></script>
     <script src="./Scripts/objects/gui/button.js"></script>
     <script src="./Scripts/objects/gui/menuButton.js"></script>
-    <script src="./Scripts/objects/scene.js"></script>
-    
+
     <!-- Managers -->
     <script src="./Scripts/managers/collision.js"></script>
     <script src="./Scripts/managers/playercontrols.js"></script>
@@ -39,26 +37,28 @@
     
     <!--Game Objects -->
     <script src="./Scripts/objects/gameobject.js"></script>
+    <script src="./Scripts/objects/colourPalette.js"></script>
+
     <script src="./Scripts/objects/gui/background.js"></script>
+    <script src="./Scripts/objects/gui/huditem.js"></script>
+    
     <script src="./Scripts/objects/entities/player.js"></script>
     <script src="./Scripts/objects/entities/projectile.js"></script>
     <script src="./Scripts/objects/entities/enemy.js"></script>
     <script src="./Scripts/objects/entities/aliens/alien.js"></script>
     <script src="./Scripts/objects/entities/aliens/alienPrimary.js"></script>
     <script src="./Scripts/objects/entities/aliens/alienSecondary.js"></script>
-    <script src="./Scripts/objects/entities/bomb.js"></script>
-    <script src="./Scripts/objects/gui/huditem.js"></script>
-    <script src="./Scripts/objects/entities/colourPalette.js"></script>
 
     <!-- Scene Scripts -->
-    <script src="./Scripts/scenes/gameover.js"></script>
-    <script src="./Scripts/scenes/play.js"></script>
+    <script src="./Scripts/scenes/start.js"></script>
+    <script src="./Scripts/scenes/instructions.js"></script>
     <script src="./Scripts/scenes/levelBase.js"></script>
     <script src="./Scripts/scenes/levelOne.js"></script>
     <script src="./Scripts/scenes/levelTwo.js"></script>
-    <script src="./Scripts/scenes/start.js"></script>
-    <script src="./Scripts/scenes/instructions.js"></script>
+    <script src="./Scripts/scenes/gameover.js"></script>
+    <script src="./Scripts/scenes/play.js"></script>
 
+    <!-- Core Script -->
     <script src="./Scripts/core/game.js"></script>
 </body>
 </html>

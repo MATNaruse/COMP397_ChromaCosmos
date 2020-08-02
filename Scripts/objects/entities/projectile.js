@@ -33,7 +33,6 @@ var objects;
         };
         Projectile.prototype.Move = function () {
             this.y -= 10;
-            // TODO: Implement Movement Patterns
         };
         Projectile.prototype.CheckBound = function () {
             if (this.y < -10) {

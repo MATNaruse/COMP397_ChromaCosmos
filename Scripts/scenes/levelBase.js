@@ -95,7 +95,7 @@ var scenes;
         };
         // Private Methods
         LevelBase.prototype.UpdateColourChamber = function () {
-            // TODO: Trigger this when button is pressed, not constant check
+            // FUTURE: Trigger this when button is pressed, not constant check -> Logic Doesn't Currently Work
             var CurrentColour = managers.Game.GetActiveColour();
             if (CurrentColour != -1) {
                 this.removeChild(this.hud_colourChamber);

@@ -107,7 +107,7 @@ module scenes{
 
         // Private Methods
         private UpdateColourChamber():void{
-            // TODO: Trigger this when button is pressed, not constant check
+            // FUTURE: Trigger this when button is pressed, not constant check -> Logic Doesn't Currently Work
             var CurrentColour = managers.Game.GetActiveColour();
             if(CurrentColour != -1){
                 this.removeChild(this.hud_colourChamber);
