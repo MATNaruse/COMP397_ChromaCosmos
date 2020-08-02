@@ -20,10 +20,11 @@ module objects{
             this.attackedPlayer = false;
         }
 
-        public CheckBound():void{
-            super.CheckBound();
-            if(this.x >= managers.Game.canvasW - this.halfW) this.x = managers.Game.canvasW - this.halfW;
-            if(this.x <= this.halfW)  this.x = this.halfW;
-        }
+        // Temporarily removed until Alien Assets are resized
+        // public CheckBound():void{
+        //     super.CheckBound();
+        //     if(this.x >= managers.Game.canvasW - this.halfW) this.x = managers.Game.canvasW - this.halfW;
+        //     if(this.x <= this.halfW)  this.x = this.halfW;
+        // }
     }
 }

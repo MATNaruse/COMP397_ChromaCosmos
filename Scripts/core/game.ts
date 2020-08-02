@@ -60,9 +60,9 @@
             AUDIO ASSETS
         */
         // Music Related
-        {id:"musicMain", src:"./Assets/audio/music/Hardmoon_-_Deep_space.mp3"},
-        {id:"musicLvlOne", src:"./Assets/audio/music/Roboxel-SpaceMusic.mp3"},
-        {id:"musicLvlTwo", src:"./Assets/audio/music/throughSpace.ogg"},
+        {id:"musicMain", src:"./Assets/audio/music/Hardmoon_-_Deep_space.mp3"}, // LONG LOAD
+        {id:"musicLvlOne", src:"./Assets/audio/music/Roboxel-SpaceMusic.mp3"},  // LONG LOAD
+        {id:"musicLvlTwo", src:"./Assets/audio/music/throughSpace.ogg"},        // LONG LOAD
         {id:"musicWin", src:"./Assets/audio/music/winMusic3.wav"},
         {id:"musicLose", src:"./Assets/audio/music/loseMusic3-1_0.wav"},
 

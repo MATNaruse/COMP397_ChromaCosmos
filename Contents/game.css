@@ -3,11 +3,20 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 70px;
     box-shadow: 10px 10px rgba(0,0,0,0.3);
+}
+
+body {
+    background-image: url("../Assets/htmlBackground.jpg");
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 footer{
     display: block;
     text-align: center;
-    font-family: MuseoModerno;
+    font-family: Consolas;
+    color: white;
 }
