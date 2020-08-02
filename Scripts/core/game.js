@@ -16,6 +16,7 @@
         { id: "background", src: "./Assets/background4.png" },
         { id: "background2", src: "./Assets/background3.png" },
         { id: "player", src: "./Assets/spaceship.png" },
+        { id: "gameLogo", src: "./Assets/gameLogo.png" },
         // Bullet Colours
         { id: "bulletRED", src: "./Assets/bullets/bulletRed.png" },
         { id: "bulletBLUE", src: "./Assets/bullets/bulletBlue.png" },
@@ -102,6 +103,11 @@
             case config.Scene.START:
                 stage.removeAllChildren();
                 currentScene = new scenes.StartScene(assetManager);
+                stage.addChild(currentScene);
+                break;
+            case config.Scene.INSTRUCT:
+                stage.removeAllChildren();
+                currentScene = new scenes.InstructionScene(assetManager);
                 stage.addChild(currentScene);
                 break;
             case config.Scene.GAME:
