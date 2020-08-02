@@ -13,10 +13,11 @@ var managers;
                 alien.x += Math.floor(Math.random() * 1 - 1);
             }
         };
+        // TODO: Implement "Static" Alien Generation, not random like GenerateWaves()
         AlienGenerator.prototype.GenerateWaves = function (numOfWaves, aliensPerWave, basic) {
+            // TODO: Prevent aliens stacking --> Mutliple Waves stacking
             if (aliensPerWave === void 0) { aliensPerWave = 5; }
             if (basic === void 0) { basic = true; }
-            // TODO: Prevent aliens stacking --> Mutliple Waves stacking
             var colourRange = basic ? 3 : 6;
             var yWaveOffset = -50;
             var availableLane;

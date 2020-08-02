@@ -17,8 +17,11 @@ module managers{
             
         }
 
+        // TODO: Implement "Static" Alien Generation, not random like GenerateWaves()
+
         public GenerateWaves(numOfWaves: number, aliensPerWave:number = 5, basic:boolean = true){
             // TODO: Prevent aliens stacking --> Mutliple Waves stacking
+            
             var colourRange = basic ? 3 : 6;
             var yWaveOffset = -50;
             var availableLane;
