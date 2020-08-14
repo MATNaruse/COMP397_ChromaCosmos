@@ -33,6 +33,11 @@ var objects;
             this.regX = this.halfW;
             this.regY = this.halfH;
         };
+        // Get Edges - for Collision Detection
+        GameObject.prototype.GetLeftEdge = function () { return this.x - this.halfW; };
+        GameObject.prototype.GetRightEdge = function () { return this.x + this.halfW; };
+        GameObject.prototype.GetTopEdge = function () { return this.y - this.halfH; };
+        GameObject.prototype.GetBottomEdge = function () { return this.y + this.halfH; };
         GameObject.prototype.Start = function () { };
         GameObject.prototype.Update = function () { };
         GameObject.prototype.Reset = function () { };

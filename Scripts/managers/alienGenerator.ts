@@ -54,6 +54,12 @@ module managers{
                     } while(availableLane[pickedLane] == true);
                     // if(availableLane[pickedLane] = true){
 
+                    // this.listOfAllAliens.forEach(alien => {
+                    //     if (new_alien.y >= (alien.y + 10) && new_alien.y <= (alien.y - 10)){
+                    //         new_alien.y -= 50;
+                    //     }
+                    // })
+
                     // }
                     availableLane[pickedLane] = true;
                     console.log("Final-PickedLane: " + (pickedLane));

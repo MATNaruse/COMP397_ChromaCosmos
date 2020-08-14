@@ -26,11 +26,14 @@ var objects;
         SecondaryAlien.prototype.Move = function () {
             this.y += 6;
             var Player = managers.Game.PlayerEntity;
-            var Increment = 5;
+            var Increment = 1;
             if (Player.x > this.x)
                 this.x += Increment;
             else if (Player.x < this.x)
                 this.x -= Increment;
+        };
+        SecondaryAlien.prototype.CheckBound = function () {
+            _super.prototype.CheckBound.call(this);
         };
         return SecondaryAlien;
     }(objects.Alien));

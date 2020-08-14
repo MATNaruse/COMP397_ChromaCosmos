@@ -32,6 +32,13 @@ module objects {
             this.regY = this.halfH;
         }
 
+
+        // Get Edges - for Collision Detection
+        public GetLeftEdge():number{ return this.x - this.halfW; }
+        public GetRightEdge():number{ return this.x + this.halfW; }
+        public GetTopEdge():number{ return this.y - this.halfH; }
+        public GetBottomEdge():number{ return this.y + this.halfH; }
+
         public Start():void {}
         public Update():void {}
         public Reset():void {}

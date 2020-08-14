@@ -25,12 +25,12 @@
         { id: "bulletPURPLE", src: "./Assets/bullets/bulletPurple.png" },
         { id: "bulletORANGE", src: "./Assets/bullets/bulletOrange.png" },
         // Enemies - Updated Assets
-        { id: "alienRED", src: "./InkscapeAssets/alienRed.png" },
-        { id: "alienBLUE", src: "./InkscapeAssets/alienBlue.png" },
-        { id: "alienYELLOW", src: "./InkscapeAssets/alienYellow.png" },
-        { id: "alienGREEN", src: "./InkscapeAssets/alienGreen.png" },
-        { id: "alienPURPLE", src: "./InkscapeAssets/alienPurple.png" },
-        { id: "alienORANGE", src: "./InkscapeAssets/alienOrange.png" },
+        { id: "alienRED", src: "./InkscapeAssets/alienRed2.png" },
+        { id: "alienBLUE", src: "./InkscapeAssets/alienBlue2.png" },
+        { id: "alienYELLOW", src: "./InkscapeAssets/alienYellow2.png" },
+        { id: "alienGREEN", src: "./InkscapeAssets/alienGreen2.png" },
+        { id: "alienPURPLE", src: "./InkscapeAssets/alienPurple2.png" },
+        { id: "alienORANGE", src: "./InkscapeAssets/alienOrange2.png" },
         // Colour Chamber -> Updated
         { id: "chamberEMPTY", src: "./InkscapeAssets/colourChamberEMPTY.png" },
         { id: "chamberRED", src: "./InkscapeAssets/colourChamberRED.png" },
@@ -49,9 +49,9 @@
             AUDIO ASSETS
         */
         // Music Related
-        { id: "musicMain", src: "./Assets/audio/music/Hardmoon_-_Deep_space.mp3" },
-        { id: "musicLvlOne", src: "./Assets/audio/music/Roboxel-SpaceMusic.mp3" },
-        { id: "musicLvlTwo", src: "./Assets/audio/music/throughSpace.ogg" },
+        // {id:"musicMain", src:"./Assets/audio/music/Hardmoon_-_Deep_space.mp3"}, // LONG LOAD
+        // {id:"musicLvlOne", src:"./Assets/audio/music/Roboxel-SpaceMusic.mp3"},  // LONG LOAD
+        // {id:"musicLvlTwo", src:"./Assets/audio/music/throughSpace.ogg"},        // LONG LOAD
         { id: "musicWin", src: "./Assets/audio/music/winMusic3.wav" },
         { id: "musicLose", src: "./Assets/audio/music/loseMusic3-1_0.wav" },
         // Player Related

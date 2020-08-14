@@ -17,17 +17,28 @@ var objects;
         __extends(Alien, _super);
         function Alien(assetManager, colourIdx) {
             var _this = _super.call(this, assetManager, "alien" + objects.ColourPalette[colourIdx]) || this;
-            _this.ImgScale = 0.15;
+            _this.ImgScale = 1;
             _this.scaleX = _this.scaleY = _this.ImgScale;
             _this.colour = objects.ColourPalette[colourIdx];
             _this.isDead = false;
             _this.attackedPlayer = false;
             _this.startX = _this.x;
+            _this.LeftBumpAlien = null;
+            _this.RightBumpAlien = null;
             return _this;
         }
         Alien.prototype.Reset = function () {
             _super.prototype.Reset.call(this);
             this.attackedPlayer = false;
+            this.LeftBumpAlien = null;
+            this.RightBumpAlien = null;
+        };
+        Alien.prototype.CheckBound = function () {
+            _super.prototype.CheckBound.call(this);
+            if (this.x >= managers.Game.canvasW - this.halfW)
+                this.x = managers.Game.canvasW - this.halfW;
+            if (this.x <= this.halfW)
+                this.x = this.halfW;
         };
         return Alien;
     }(objects.Enemy));

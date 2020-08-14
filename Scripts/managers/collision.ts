@@ -10,9 +10,10 @@ module managers{
                 3. If bullet x, y matches alien x,y "range"
                     a. alien & bullet destroyed
             */
-            if(Incoming.x < (Target.x + (Target.halfW * Target.ImgScale)) && Incoming.x > (Target.x -(Target.halfW * Target.ImgScale)))
+            // if(Incoming.x < (Target.x + (Target.halfW * Target.ImgScale)) && Incoming.x > (Target.x -(Target.halfW * Target.ImgScale)))
+            if(Incoming.x < (Target.GetRightEdge()) && Incoming.x > (Target.GetLeftEdge()))
             {   //If its within the object's range on X axis
-                if(Incoming.y < (Target.y + (Target.halfH * Target.ImgScale)) && Incoming.y > (Target.y - (Target.halfH * Target.ImgScale))){
+                if(Incoming.y < (Target.GetBottomEdge()) && Incoming.y > (Target.GetTopEdge())){
                     console.log("HIT!!!")
                     // Handling Object Type Encounters:
 
@@ -35,12 +36,10 @@ module managers{
                         createjs.Sound.play(aliendeadsound).setVolume(3);
                         return true;
                     }
-                    
-                    
                     return false;
                 }
             }
             return false;
         }
-}
+    }
 }

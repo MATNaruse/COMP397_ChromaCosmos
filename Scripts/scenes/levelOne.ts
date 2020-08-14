@@ -33,8 +33,8 @@ module scenes{
         }
 
         protected SpawnAliens():void{
-            this.fleetGen.GenerateWaves(5, 5);
-            // this.fleetGen.GenerateWaves(1,1);
+            // this.fleetGen.GenerateWaves(5, 5);
+            this.fleetGen.GenerateWaves(1,1, false);
             // this.fleetGen.GenerateWaves(1, 12);
         }
 
