@@ -11,7 +11,7 @@ module managers{
 
                 scene.playerShots.forEach(bullet => {
                     scene.aliens.forEach(alien => {
-                        if(managers.Collision.Detect(bullet, alien)){
+                        if(managers.Collision.VerticalDetect(bullet, alien)){
                             managers.Game.Score += alien.ScoreValue;
                             scene.removeChild(bullet);
                             scene.removeChild(alien);

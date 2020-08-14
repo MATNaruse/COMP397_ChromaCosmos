@@ -53,14 +53,14 @@ var scenes;
             this.background1.Update();
             this.background2.Update();
             this.player.Update();
-            // Detect if player is hit
-            this.aliens.forEach(function (alien) {
-                if (managers.Collision.Detect(alien, _this.player)) {
-                    _this.player.TakeDamage();
-                    _this.UpdateHealthIndicator();
-                    // console.log("Player Dead Status - " + this.player.isDead);
-                }
-            });
+            // // Detect if player is hit
+            // this.aliens.forEach(alien => {
+            //     if(managers.Collision.VerticalDetect(alien, this.player)){
+            //         this.player.TakeDamage();
+            //         this.UpdateHealthIndicator();
+            //         // console.log("Player Dead Status - " + this.player.isDead);
+            //     }
+            // });
             // If Player is dead, move to Game Over immediately
             if (this.player.isDead) {
                 this.music.destroy();
@@ -71,7 +71,10 @@ var scenes;
                 managers.PlayerShots.OnScreen(this);
                 // Off-Screen Bullets
                 this.playerShots = managers.CleanUp.Projectiles(this.playerShots);
+                // Alien Update
                 this.aliens.forEach(function (a) { return a.Update(); });
+                // this.aliens.forEach(a => this.aliens.forEach(b => managers.Collision.AlienHorizDetect(a,b)))
+                this.aliens.forEach(function (a) { return _this.aliens.forEach(function (b) { return managers.Collision.HorizontalDetect(a, b); }); });
                 // Cleaning up Dead Aliens
                 this.aliens = managers.CleanUp.Aliens(this.aliens);
                 // Win Condition

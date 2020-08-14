@@ -33,9 +33,8 @@ var objects;
             this.CheckBound();
         };
         Enemy.prototype.Reset = function () {
-            // this.x = Math.floor(Math.random() * (this.x - 20)) + 5;
-            this.y = Math.floor(Math.random() * -(managers.Game.canvasH - 100)) - 50;
-            // this.y = -50;
+            // this.y = Math.floor(Math.random() * -(managers.Game.canvasH - 100)) - 50;
+            this.y = -100;
         };
         Enemy.prototype.Move = function () {
             this.y += 5;
@@ -44,6 +43,10 @@ var objects;
             if (this.y >= managers.Game.canvasH + this.halfH + 25) {
                 this.Reset();
             }
+            if (this.x >= managers.Game.canvasW - this.halfW)
+                this.x = managers.Game.canvasW - this.halfW;
+            if (this.x <= this.halfW)
+                this.x = this.halfW;
         };
         return Enemy;
     }(objects.GameObject));

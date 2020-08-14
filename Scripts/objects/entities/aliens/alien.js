@@ -23,22 +23,17 @@ var objects;
             _this.isDead = false;
             _this.attackedPlayer = false;
             _this.startX = _this.x;
-            _this.LeftBumpAlien = null;
-            _this.RightBumpAlien = null;
             return _this;
+            // this.LeftAlien = null;
+            // this.RightAlien = null;
+            // this.CollisionActive = false;
         }
         Alien.prototype.Reset = function () {
             _super.prototype.Reset.call(this);
             this.attackedPlayer = false;
-            this.LeftBumpAlien = null;
-            this.RightBumpAlien = null;
-        };
-        Alien.prototype.CheckBound = function () {
-            _super.prototype.CheckBound.call(this);
-            if (this.x >= managers.Game.canvasW - this.halfW)
-                this.x = managers.Game.canvasW - this.halfW;
-            if (this.x <= this.halfW)
-                this.x = this.halfW;
+            // this.CollisionActive = false;
+            // this.LeftAlien = null;
+            // this.RightAlien = null;
         };
         return Alien;
     }(objects.Enemy));

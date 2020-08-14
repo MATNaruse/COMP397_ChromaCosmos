@@ -8,12 +8,18 @@ var managers;
             var baseX = 100;
             var increment = 175;
             alien.x = baseX + (increment * lane);
-            if (alien instanceof objects.PrimaryAlien) {
-                alien.startX = alien.x;
-                alien.x += Math.floor(Math.random() * 1 - 1);
+            alien.startX = alien.x;
+            alien.x += Math.floor(Math.random() * 1 - 1);
+            if (alien instanceof objects.SecondaryAlien) {
+                alien.CollisionActive = false;
             }
+            // if(alien instanceof objects.PrimaryAlien){
+            //     alien.startX = alien.x ;
+            //     alien.x += Math.floor(Math.random() * 1 - 1);
+            // }
         };
         // TODO: Implement "Static" Alien Generation, not random like GenerateWaves()
+        // FIXME: Prevent Collision Detection at Construction
         AlienGenerator.prototype.GenerateWaves = function (numOfWaves, aliensPerWave, basic) {
             // TODO: Prevent aliens stacking --> Mutliple Waves stacking
             if (aliensPerWave === void 0) { aliensPerWave = 5; }

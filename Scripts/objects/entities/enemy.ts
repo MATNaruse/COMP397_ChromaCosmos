@@ -16,9 +16,8 @@ module objects {
             this.CheckBound();
         }
         public Reset():void {
-            // this.x = Math.floor(Math.random() * (this.x - 20)) + 5;
-            this.y = Math.floor(Math.random() * -(managers.Game.canvasH - 100)) - 50;
-            // this.y = -50;
+            // this.y = Math.floor(Math.random() * -(managers.Game.canvasH - 100)) - 50;
+            this.y = -100;
         }
         public Move():void {
             this.y += 5;
@@ -27,6 +26,8 @@ module objects {
             if(this.y >= managers.Game.canvasH + this.halfH + 25) {
                 this.Reset();
             }
+            if(this.x >= managers.Game.canvasW - this.halfW) this.x = managers.Game.canvasW - this.halfW;
+            if(this.x <= this.halfW)  this.x = this.halfW;
         }
     }
 }

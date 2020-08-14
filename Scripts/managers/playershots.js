@@ -15,7 +15,7 @@ var managers;
                 //console.log("Bullets Left:" + scene.playerShots.length);
                 scene.playerShots.forEach(function (bullet) {
                     scene.aliens.forEach(function (alien) {
-                        if (managers.Collision.Detect(bullet, alien)) {
+                        if (managers.Collision.VerticalDetect(bullet, alien)) {
                             managers.Game.Score += alien.ScoreValue;
                             scene.removeChild(bullet);
                             scene.removeChild(alien);

@@ -10,15 +10,20 @@ module managers{
             var baseX: number = 100;
             var increment: number = 175;
             alien.x = baseX + (increment * lane);
-            if(alien instanceof objects.PrimaryAlien){
-                alien.startX = alien.x ;
-                alien.x += Math.floor(Math.random() * 1 - 1);
+            alien.startX = alien.x ;
+            alien.x += Math.floor(Math.random() * 1 - 1);
+            if(alien instanceof objects.SecondaryAlien){
+                alien.CollisionActive = false;
             }
+            // if(alien instanceof objects.PrimaryAlien){
+            //     alien.startX = alien.x ;
+            //     alien.x += Math.floor(Math.random() * 1 - 1);
+            // }
             
         }
 
         // TODO: Implement "Static" Alien Generation, not random like GenerateWaves()
-
+        // FIXME: Prevent Collision Detection at Construction
         public GenerateWaves(numOfWaves: number, aliensPerWave:number = 5, basic:boolean = true){
             // TODO: Prevent aliens stacking --> Mutliple Waves stacking
             
