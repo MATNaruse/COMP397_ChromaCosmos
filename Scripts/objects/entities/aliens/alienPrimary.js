@@ -19,8 +19,6 @@ var objects;
         function PrimaryAlien(assetManager, colourIdx) {
             var _this = _super.call(this, assetManager, colourIdx) || this;
             _this.range = 50;
-            _this.increment = 2;
-            _this.ySpeed = 3;
             _this.leftTrue = true;
             switch (colourIdx) {
                 case (0):

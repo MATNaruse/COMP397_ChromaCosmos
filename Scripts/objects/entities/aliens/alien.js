@@ -17,6 +17,8 @@ var objects;
         __extends(Alien, _super);
         function Alien(assetManager, colourIdx) {
             var _this = _super.call(this, assetManager, "alien" + objects.ColourPalette[colourIdx]) || this;
+            _this.ySpeed = 3;
+            _this.increment = 2;
             _this.ImgScale = 1;
             _this.scaleX = _this.scaleY = _this.ImgScale;
             _this.colour = objects.ColourPalette[colourIdx];

@@ -12,7 +12,6 @@ var managers;
                     else
                         scene.removeChild(b);
                 });
-                //console.log("Bullets Left:" + scene.playerShots.length);
                 scene.playerShots.forEach(function (bullet) {
                     scene.aliens.forEach(function (alien) {
                         if (managers.Collision.VerticalDetect(bullet, alien)) {

@@ -3,8 +3,6 @@ module objects{
         // Variables
         private leftTrue: boolean;
         private range:number = 50;
-        private increment: number = 2;
-        private ySpeed:number = 3;
         // Constructor
         constructor(assetManager: createjs.LoadQueue, colourIdx:number){
             super(assetManager, colourIdx);

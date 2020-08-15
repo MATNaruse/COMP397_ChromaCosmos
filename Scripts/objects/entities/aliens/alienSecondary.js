@@ -22,6 +22,21 @@ var objects;
             _this.LeftAlien = null;
             _this.RightAlien = null;
             _this.CollisionActive = false;
+            // TODO: Play around with playable speeds
+            switch (colourIdx) {
+                case (3):
+                    // Green
+                    _this.ySpeed = 6;
+                    break;
+                case (4):
+                    // Purple
+                    _this.ySpeed = 8;
+                    break;
+                case (5):
+                    // Orange
+                    _this.ySpeed = 10;
+                    break;
+            }
             return _this;
         }
         // Methods
@@ -39,16 +54,15 @@ var objects;
             this.RightAlien = null;
         };
         SecondaryAlien.prototype.Move = function () {
-            this.y += 8;
+            this.y += this.ySpeed;
             var Player = managers.Game.PlayerEntity;
-            var Increment = 1;
             // Moving Right towards Player
             if (Player.x >= this.x) {
                 if (this.IsChained() && this.RightAlien != null) {
                     this.x = this.RightAlien.GetLeftEdge() - this.halfW;
                 }
                 else {
-                    this.x += Increment;
+                    this.x += this.increment;
                 }
             }
             // Moving Left towards Player
@@ -57,57 +71,13 @@ var objects;
                     this.x = this.LeftAlien.GetRightEdge() + this.halfW;
                 }
                 else {
-                    this.x -= Increment;
+                    this.x -= this.increment;
                 }
             }
         };
         SecondaryAlien.prototype.IsChained = function () { return (this.LeftAlien != null || this.RightAlien != null); };
-        SecondaryAlien.prototype.GetLeftMostAlien = function () {
-            if (this.LeftAlien != null) {
-                return this.LeftAlien.GetLeftMostAlien();
-            }
-            else {
-                return this;
-            }
-        };
-        SecondaryAlien.prototype.GetRightMostAlien = function () {
-            if (this.RightAlien != null) {
-                return this.RightAlien.GetRightMostAlien();
-            }
-            else {
-                return this;
-            }
-        };
-        SecondaryAlien.prototype.GetLeftChainXOffset = function () {
-            if (this.LeftAlien != null) {
-                return this.width + this.LeftAlien.GetLeftChainXOffset();
-            }
-            else {
-                return this.halfW;
-            }
-        };
-        SecondaryAlien.prototype.GetRightChainXOffset = function () {
-            if (this.RightAlien != null) {
-                return this.width + this.RightAlien.GetRightChainXOffset();
-            }
-            else {
-                return this.halfW;
-            }
-        };
         SecondaryAlien.prototype.AlienLinkCheck = function (alien) {
             return alien != this.LeftAlien && alien != this.RightAlien;
-        };
-        SecondaryAlien.prototype.DEBUGRightChain = function () {
-            if (this.RightAlien != null) {
-                return this.name + ">" + this.RightAlien.DEBUGRightChain();
-            }
-            // else{ return this.name;}
-        };
-        SecondaryAlien.prototype.DEBUGLeftChain = function () {
-            if (this.LeftAlien != null) {
-                return this.LeftAlien.DEBUGLeftChain() + "<" + this.name;
-            }
-            // else{ return this.name;}
         };
         return SecondaryAlien;
     }(objects.Alien));

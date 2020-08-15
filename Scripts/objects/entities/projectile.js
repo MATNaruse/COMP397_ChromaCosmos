@@ -36,8 +36,8 @@ var objects;
         };
         Projectile.prototype.CheckBound = function () {
             if (this.y < -10) {
-                this.isOffScreen = true;
                 // Currently tracking if it's off screen here to be cleaned up on PlayScene
+                this.isOffScreen = true;
             }
         };
         return Projectile;

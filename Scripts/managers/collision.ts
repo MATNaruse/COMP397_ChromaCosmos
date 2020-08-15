@@ -1,21 +1,18 @@
 module managers{
     export class Collision{
-        public static VerticalDetect(Incoming:objects.GameObject, Target:objects.GameObject){
-            
-            // Collision Detection -> Temp until covered in class
-            // Breaking down "Bullet Hit" logic
-            /*
+            /* 
+                Collision Detection -> Temp until covered in class
+                Breaking down "Bullet Hit" logic
                 1. Check bullet x, y
                 2. Check alien x, y
                 3. If bullet x, y matches alien x,y "range"
                     a. alien & bullet destroyed
             */
-            // if(Incoming.x < (Target.x + (Target.halfW * Target.ImgScale)) && Incoming.x > (Target.x -(Target.halfW * Target.ImgScale)))
+        
+            public static VerticalDetect(Incoming:objects.GameObject, Target:objects.GameObject){
             if(Incoming.x < (Target.GetRightEdge()) && Incoming.x > (Target.GetLeftEdge()))
             {   //If its within the object's range on X axis
                 if(Incoming.y < (Target.GetBottomEdge()) && Incoming.y > (Target.GetTopEdge())){
-                    console.log("HIT!!!")
-                    // Handling Object Type Encounters:
 
                     // If Alien encounters Player
                     if(Incoming instanceof objects.Alien && Target instanceof objects.Player){
@@ -43,12 +40,20 @@ module managers{
         }
         
         public static HorizontalDetect(AlienA: objects.Alien, AlienB: objects.Alien){
+            // If the Alien is a Secondary Alien
             if(AlienA instanceof objects.SecondaryAlien && AlienB instanceof objects.SecondaryAlien){
+                // If Aliens are collidable, and not the same Alien
                 if(AlienA.CollisionActive && AlienB.CollisionActive && AlienA != AlienB){
+                    // If AlienA is RIGHT of Alien B
                     if(AlienA.x > AlienB.x){
+                        // If AlienA is Below AlienB
+                        // FIXME: Does not currently work
                         if(AlienA.GetTopEdge() <= (AlienB.GetBottomEdge() + 10)){
+                            // If AlienA collides LEFT of AlienB
                             if(AlienB.GetRightEdge() > AlienA.GetLeftEdge()){
+                                // Making sure AlienA and AlienB are NOT already assigned to eachother
                                 if(AlienA.AlienLinkCheck(AlienB) && AlienB.AlienLinkCheck(AlienA)){
+                                    // Setting Aliens to each other
                                     AlienA.LeftAlien = AlienB;
                                     AlienB.RightAlien = AlienA;
                                 }

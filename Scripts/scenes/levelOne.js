@@ -39,11 +39,10 @@ var scenes;
                 this.music.destroy();
                 managers.Game.currentScene = config.Scene.LVL_TWO;
             }
-            // if(this.aliens.length == 0) managers.Game.currentScene = config.Scene.OVER;
         };
         LevelOne.prototype.SpawnAliens = function () {
             // this.fleetGen.GenerateWaves(5, 5);
-            this.fleetGen.GenerateWaves(2, 6, false);
+            this.fleetGen.GenerateWaves(2, 6);
             // this.fleetGen.GenerateWaves(1, 12);
         };
         return LevelOne;

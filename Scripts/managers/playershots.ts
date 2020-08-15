@@ -7,7 +7,6 @@ module managers{
                     if(!b.isOffScreen) b.Update();
                     else scene.removeChild(b);
                 });
-                //console.log("Bullets Left:" + scene.playerShots.length);
 
                 scene.playerShots.forEach(bullet => {
                     scene.aliens.forEach(alien => {
@@ -16,7 +15,6 @@ module managers{
                             scene.removeChild(bullet);
                             scene.removeChild(alien);
                         };
-
                     });
                 });
             }

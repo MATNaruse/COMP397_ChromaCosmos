@@ -54,6 +54,7 @@ module scenes{
             this.background2.Update();
             this.player.Update();
 
+            // DEBUG: Removed Player Collision Detection for Testing
             // // Detect if player is hit
             // this.aliens.forEach(alien => {
             //     if(managers.Collision.VerticalDetect(alien, this.player)){
@@ -78,7 +79,6 @@ module scenes{
 
                 // Alien Update
                 this.aliens.forEach(a => a.Update());
-                // this.aliens.forEach(a => this.aliens.forEach(b => managers.Collision.AlienHorizDetect(a,b)))
                 this.aliens.forEach(a => this.aliens.forEach(b => managers.Collision.HorizontalDetect(a,b)))
             
                 // Cleaning up Dead Aliens

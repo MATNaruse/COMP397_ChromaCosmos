@@ -7,9 +7,7 @@ module managers{
             projToReturn = projList.filter(b => !b.isOffScreen);
 
             if (projToDelete.length > 0){
-                //console.log("projToDelete:" + projToDelete.length);
                 projToDelete.splice(0, projToDelete.length);
-                //console.log("projToDeleteConfirm:" + projToDelete.length);
             }
 
             return projToReturn;
@@ -21,6 +19,8 @@ module managers{
             var aliensToReturn;
             aliensToDelete = aliensList.filter(a => a.isDead);
             aliensToReturn = aliensList.filter(a => !a.isDead);
+
+            // Clean up Aliens for Collision Detection
             aliensList.forEach(a => {
                 aliensToDelete.forEach(d =>{
                     if(a instanceof objects.SecondaryAlien && d instanceof objects.SecondaryAlien){
@@ -29,10 +29,9 @@ module managers{
                     }
                 })
             })
+            
             if (aliensToDelete.length > 0){
-                //console.log("aliensToDelete:" + aliensToDelete.length);
                 aliensToDelete.splice(0, aliensToDelete.length);
-                //console.log("aliensToDeleteConfirm:" + aliensToDelete.length);
             }
 
             return aliensToReturn;

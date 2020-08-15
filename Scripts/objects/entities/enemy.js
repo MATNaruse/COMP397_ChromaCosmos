@@ -33,6 +33,7 @@ var objects;
             this.CheckBound();
         };
         Enemy.prototype.Reset = function () {
+            // DEBUG: Disabled random Y value for testing
             // this.y = Math.floor(Math.random() * -(managers.Game.canvasH - 100)) - 50;
             this.y = -100;
         };

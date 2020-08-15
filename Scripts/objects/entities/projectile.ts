@@ -29,8 +29,8 @@ module objects{
 
         public CheckBound():void{
             if (this.y < -10){
-                this.isOffScreen = true;
                 // Currently tracking if it's off screen here to be cleaned up on PlayScene
+                this.isOffScreen = true;
             }
         }
     }

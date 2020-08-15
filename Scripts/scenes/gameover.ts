@@ -28,7 +28,7 @@ module scenes {
             this.background = new objects.Background(this.assetManager);
             this.gameOverLabel = new objects.Label(gameOverMsg, "40px", "Consolas", "#FFFFFF", managers.Game.canvasW/2, 240, true);
             this.scoreLabel = new objects.Label("Your Score: " + managers.Game.Score, "40px", "Consolas", "#FFFFFF", managers.Game.canvasW/2, 200, true)
-            this.backButton = new objects.MenuButton("Play Again?", managers.Game.canvasW/2, 300, true);
+            this.backButton = new objects.MenuButton("Start Again?", managers.Game.canvasW/2, 300, true);
             this.startButton = new objects.MenuButton("Main Menu", managers.Game.canvasW/2, 400, true);
             this.Main();
         }

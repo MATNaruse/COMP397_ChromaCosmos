@@ -13,10 +13,6 @@ var managers;
             if (alien instanceof objects.SecondaryAlien) {
                 alien.CollisionActive = false;
             }
-            // if(alien instanceof objects.PrimaryAlien){
-            //     alien.startX = alien.x ;
-            //     alien.x += Math.floor(Math.random() * 1 - 1);
-            // }
         };
         // TODO: Implement "Static" Alien Generation, not random like GenerateWaves()
         // FIXME: Prevent Collision Detection at Construction

@@ -53,6 +53,7 @@ var scenes;
             this.background1.Update();
             this.background2.Update();
             this.player.Update();
+            // DEBUG: Removed Player Collision Detection for Testing
             // // Detect if player is hit
             // this.aliens.forEach(alien => {
             //     if(managers.Collision.VerticalDetect(alien, this.player)){
@@ -73,7 +74,6 @@ var scenes;
                 this.playerShots = managers.CleanUp.Projectiles(this.playerShots);
                 // Alien Update
                 this.aliens.forEach(function (a) { return a.Update(); });
-                // this.aliens.forEach(a => this.aliens.forEach(b => managers.Collision.AlienHorizDetect(a,b)))
                 this.aliens.forEach(function (a) { return _this.aliens.forEach(function (b) { return managers.Collision.HorizontalDetect(a, b); }); });
                 // Cleaning up Dead Aliens
                 this.aliens = managers.CleanUp.Aliens(this.aliens);

@@ -4,6 +4,8 @@ module objects{
         public isDead:boolean;
         public attackedPlayer:boolean;
         public startX: number;
+        protected ySpeed:number = 3;
+        protected increment: number = 2;
         public CollisionActive: boolean;
         
         constructor(assetManager:createjs.LoadQueue, colourIdx:number){

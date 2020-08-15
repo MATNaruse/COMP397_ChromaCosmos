@@ -15,10 +15,6 @@ module managers{
             if(alien instanceof objects.SecondaryAlien){
                 alien.CollisionActive = false;
             }
-            // if(alien instanceof objects.PrimaryAlien){
-            //     alien.startX = alien.x ;
-            //     alien.x += Math.floor(Math.random() * 1 - 1);
-            // }
             
         }
 
