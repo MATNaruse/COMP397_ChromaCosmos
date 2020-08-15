@@ -18,19 +18,39 @@ var objects;
         // Constructor
         function PrimaryAlien(assetManager, colourIdx) {
             var _this = _super.call(this, assetManager, colourIdx) || this;
-            _this.range = 20;
+            _this.range = 50;
+            _this.increment = 2;
+            _this.ySpeed = 3;
             _this.leftTrue = true;
+            switch (colourIdx) {
+                case (0):
+                    // Red
+                    _this.range = 0;
+                    _this.increment = 0;
+                    _this.ySpeed = 7;
+                    break;
+                case (1):
+                    // Blue
+                    _this.range = 70;
+                    _this.increment = 3;
+                    _this.ySpeed = 4;
+                    break;
+                case (2):
+                    // Yellow
+                    _this.range = 25;
+                    _this.increment = 2;
+                    _this.ySpeed = 2;
+                    break;
+            }
             return _this;
         }
         // Methods
         PrimaryAlien.prototype.Move = function () {
-            this.y += 3;
-            // console.log("X:" + this.x + "| startX:" + this.startX);
-            var increment = 2;
+            this.y += this.ySpeed;
             if (this.leftTrue)
-                this.x -= increment;
+                this.x -= this.increment;
             else
-                this.x += increment;
+                this.x += this.increment;
             if (this.x >= (this.startX + this.range))
                 this.leftTrue = true;
             else if (this.x <= (this.startX - this.range))

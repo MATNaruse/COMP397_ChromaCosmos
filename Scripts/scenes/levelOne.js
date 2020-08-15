@@ -43,7 +43,7 @@ var scenes;
         };
         LevelOne.prototype.SpawnAliens = function () {
             // this.fleetGen.GenerateWaves(5, 5);
-            this.fleetGen.GenerateWaves(1, 6, false);
+            this.fleetGen.GenerateWaves(2, 6, false);
             // this.fleetGen.GenerateWaves(1, 12);
         };
         return LevelOne;
