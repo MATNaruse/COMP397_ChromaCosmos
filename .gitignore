@@ -1,6 +1,7 @@
 node_modules
 Assets/audio/sfx/RawUnsorted
 Assets/audio/music/RawUnsorted
+Assets/RawUnsorted
 Documentation
 /**/*.zip
 OldAssets
