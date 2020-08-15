@@ -15,17 +15,17 @@ module scenes{
 
         // Obj Co-ords - Everything "linked" to main_x/main_y
         private main_x: number = managers.Game.canvasW/2;
-        private main_y: number = 240;
+        private main_y: number = 220;
         private next_x: number = managers.Game.canvasW/2 + 200;
-        private next_y: number = this.main_y + 60;
+        private next_y: number = this.main_y + 80;
         private arrow_x: number = this.next_x + 80;
-        private arrow_y: number = this.next_y;
+        private arrow_y: number = this.next_y + 5;
         private holo_x: number = this.main_x;
-        private holo_y: number = this.main_y + 60;
+        private holo_y: number = this.main_y + 80;
 
         // Colours
-        private main_colour: string = "#db524b"
-        private next_colour: string = "#0026FF";
+        private main_colour: string = "#0f0"
+        private next_colour: string = "#0f0";
 
         // Constructor
         constructor(assetManager:createjs.LoadQueue) {
@@ -37,7 +37,7 @@ module scenes{
             this.background = new objects.Background(managers.Game.assetManager);
             this.MessageText = managers.CSManager.GetCSMessages();
             this.currentMessage = 0;
-            this.MainLabel = new objects.Label(this.MessageText[this.currentMessage], "40px", "Consolas", this.main_colour, this.main_x, this.main_y, true);
+            this.MainLabel = new objects.Label(this.MessageText[this.currentMessage], "40px", "Consolas", this.main_colour, this.main_x, this.main_y, false, true);
             this.NextLabel = new objects.Label("Click to Continue", "16px", "Consolas", this.next_colour, this.next_x, this.next_y, true);
             this.HUD_NextIcon = new objects.Button(managers.Game.assetManager, "hud_nextarrow", this.arrow_x, this.arrow_y, true);
             this.HUD_cockpit = new objects.HUDItem(managers.Game.assetManager, "hud_cockpit", managers.Game.canvasW/2,  managers.Game.canvasH/2);
@@ -65,7 +65,7 @@ module scenes{
                 this.currentMessage += 1;
                 console.log("\tCurrentMsg:"+this.currentMessage);
                 this.removeChild(this.MainLabel);
-                this.MainLabel = new objects.Label(this.MessageText[this.currentMessage], "40px", "Consolas", this.main_colour, this.main_x, this.main_y, true);
+                this.MainLabel = new objects.Label(this.MessageText[this.currentMessage], "40px", "Consolas", this.main_colour, this.main_x, this.main_y, false, true);
                 this.addChild(this.MainLabel);
             }
             else {

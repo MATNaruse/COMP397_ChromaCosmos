@@ -17,15 +17,19 @@ var objects;
         __extends(Label, _super);
         // Variables
         // Constructor
-        function Label(labelString, fontSize, fontFamily, fontColor, x, y, isCentered) {
+        function Label(labelString, fontSize, fontFamily, fontColor, x, y, isCentered, textCentered) {
             if (x === void 0) { x = 0; }
             if (y === void 0) { y = 0; }
             if (isCentered === void 0) { isCentered = false; }
+            if (textCentered === void 0) { textCentered = false; }
             var _this = _super.call(this, labelString, fontSize + " " + fontFamily, fontColor) || this;
             // Set the registration point if true to be in the middle
             if (isCentered) {
                 _this.regX = _this.getMeasuredWidth() * 0.5;
                 _this.regY = _this.getMeasuredHeight() * 0.5;
+            }
+            if (textCentered) {
+                _this.textAlign = "center";
             }
             // Set initial position
             _this.x = x;

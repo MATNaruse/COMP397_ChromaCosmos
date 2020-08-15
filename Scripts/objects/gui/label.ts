@@ -3,7 +3,7 @@ module objects {    // Module = Namespace
         // Variables
         // Constructor
         constructor(labelString:string, fontSize:string, fontFamily:string, fontColor:string, 
-            x:number = 0, y:number = 0, isCentered:boolean = false) {
+            x:number = 0, y:number = 0, isCentered:boolean = false, textCentered:boolean = false) {
 
                 super(labelString, fontSize + " " + fontFamily, fontColor);
 
@@ -13,6 +13,9 @@ module objects {    // Module = Namespace
                     this.regY = this.getMeasuredHeight() * 0.5;
                 }
 
+                if(textCentered){
+                    this.textAlign = "center";
+                }
                 // Set initial position
                 this.x = x;
                 this.y = y;

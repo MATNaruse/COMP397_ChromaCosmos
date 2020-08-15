@@ -5,13 +5,13 @@ module managers{
 
             switch(managers.Game.currentScene){
                 case config.Scene.CS_START_LVLONE:
-                    Messages = ["This is message one", "Which should be followed by message two", "We'll see if we hit message three", "Good luck!"];
+                    Messages = ["Attention Captain Roy!", "Use the Colour Cannon to\nattack the incoming aliens!", "Don't forget to match\nthe alien & laser colours!", "Otherwise it won't do anything!",  "Good luck!"];
                     break;
                 case config.Scene.CS_LVLONE_LVLTWO:
-                    Messages = ["You beat the first wave!", "Uh oh, looks like more aliens incoming", "They look tougher than before..", "Better get ready to mix colours!"];
+                    Messages = ["You beat the first wave!", "Uh oh!\nLooks like more aliens incoming", "They look tougher than before..", "Better get ready to mix colours!"];
                     break;
                 case config.Scene.CS_LVLTWO_OVER:
-                    Messages = ["That's all of them!", "Congrats!", "Thank you for saving us!"];
+                    Messages = ["Scanners indicate that's\nthe last of them!", "Well Done!", "Thank you for\nstopping the Aliens!"];
                     break;
             }
             return Messages;

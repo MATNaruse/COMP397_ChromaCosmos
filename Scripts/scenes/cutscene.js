@@ -20,16 +20,16 @@ var scenes;
             var _this = _super.call(this, assetManager) || this;
             // Obj Co-ords - Everything "linked" to main_x/main_y
             _this.main_x = managers.Game.canvasW / 2;
-            _this.main_y = 240;
+            _this.main_y = 220;
             _this.next_x = managers.Game.canvasW / 2 + 200;
-            _this.next_y = _this.main_y + 60;
+            _this.next_y = _this.main_y + 80;
             _this.arrow_x = _this.next_x + 80;
-            _this.arrow_y = _this.next_y;
+            _this.arrow_y = _this.next_y + 5;
             _this.holo_x = _this.main_x;
-            _this.holo_y = _this.main_y + 60;
+            _this.holo_y = _this.main_y + 80;
             // Colours
-            _this.main_colour = "#db524b";
-            _this.next_colour = "#0026FF";
+            _this.main_colour = "#0f0";
+            _this.next_colour = "#0f0";
             _this.Start();
             return _this;
         }
@@ -38,7 +38,7 @@ var scenes;
             this.background = new objects.Background(managers.Game.assetManager);
             this.MessageText = managers.CSManager.GetCSMessages();
             this.currentMessage = 0;
-            this.MainLabel = new objects.Label(this.MessageText[this.currentMessage], "40px", "Consolas", this.main_colour, this.main_x, this.main_y, true);
+            this.MainLabel = new objects.Label(this.MessageText[this.currentMessage], "40px", "Consolas", this.main_colour, this.main_x, this.main_y, false, true);
             this.NextLabel = new objects.Label("Click to Continue", "16px", "Consolas", this.next_colour, this.next_x, this.next_y, true);
             this.HUD_NextIcon = new objects.Button(managers.Game.assetManager, "hud_nextarrow", this.arrow_x, this.arrow_y, true);
             this.HUD_cockpit = new objects.HUDItem(managers.Game.assetManager, "hud_cockpit", managers.Game.canvasW / 2, managers.Game.canvasH / 2);
@@ -64,7 +64,7 @@ var scenes;
                 this.currentMessage += 1;
                 console.log("\tCurrentMsg:" + this.currentMessage);
                 this.removeChild(this.MainLabel);
-                this.MainLabel = new objects.Label(this.MessageText[this.currentMessage], "40px", "Consolas", this.main_colour, this.main_x, this.main_y, true);
+                this.MainLabel = new objects.Label(this.MessageText[this.currentMessage], "40px", "Consolas", this.main_colour, this.main_x, this.main_y, false, true);
                 this.addChild(this.MainLabel);
             }
             else {
