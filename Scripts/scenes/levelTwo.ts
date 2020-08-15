@@ -27,12 +27,14 @@ module scenes{
                 this.music.destroy();
                 console.log("SCORE:" + managers.Game.Score + " * HEALTH:" + managers.Game.PlayerEntity.Health + " = " + (managers.Game.Score * managers.Game.PlayerEntity.Health));
                 managers.Game.Score *= managers.Game.PlayerEntity.Health;
-                managers.Game.currentScene = config.Scene.OVER;
+                // managers.Game.currentScene = config.Scene.OVER;
+                managers.Game.currentScene = config.Scene.CS_LVLTWO_OVER;
             }
         }
 
         protected SpawnAliens():void{
-            this.fleetGen.GenerateWaves(3, 6, false);
+            // this.fleetGen.GenerateWaves(3, 6, false);
+            this.fleetGen.GenerateWaves(1, 1, false);
         }
 
     }

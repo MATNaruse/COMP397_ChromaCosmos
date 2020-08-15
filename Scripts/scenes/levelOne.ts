@@ -27,13 +27,14 @@ module scenes{
         protected CheckWin():void{
             if(this.aliens.length == 0) {
                 this.music.destroy();
-                managers.Game.currentScene = config.Scene.LVL_TWO;
+                // managers.Game.currentScene = config.Scene.LVL_TWO;
+                managers.Game.currentScene = config.Scene.CS_LVLONE_LVLTWO;
             }
         }
 
         protected SpawnAliens():void{
             // this.fleetGen.GenerateWaves(5, 5);
-            this.fleetGen.GenerateWaves(2,6);
+            this.fleetGen.GenerateWaves(1,1);
             // this.fleetGen.GenerateWaves(1, 12);
         }
 

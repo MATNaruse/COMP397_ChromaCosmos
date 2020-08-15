@@ -15,12 +15,19 @@ var objects;
 (function (objects) {
     var HUDItem = /** @class */ (function (_super) {
         __extends(HUDItem, _super);
-        function HUDItem(assetManager, fileName, x, y, scale) {
+        function HUDItem(assetManager, fileName, x, y, scale, scaleX, scaleY) {
             if (scale === void 0) { scale = 1; }
+            if (scaleX === void 0) { scaleX = 1; }
+            if (scaleY === void 0) { scaleY = 1; }
             var _this = _super.call(this, assetManager, fileName) || this;
-            _this.scaleX = _this.scaleY = scale;
             _this.x = x;
             _this.y = y;
+            if (scale != 1)
+                _this.scaleX = _this.scaleY = scale;
+            if (scaleX != 1 || scaleY != 1) {
+                _this.scaleX = scaleX;
+                _this.scaleY = scaleY;
+            }
             return _this;
         }
         return HUDItem;

@@ -58,6 +58,8 @@
         {id:"healthIndicator0", src:"./Assets/hud/healthIndicator0.png"},
 
         {id:"hud_nextarrow", src:"./Assets/NextButton.png"},
+        {id:"hud_radio", src:"./Assets/hud/radio.png"},
+        {id:"hud_static", src:"./Assets/hud/static1.png"},
 
         /*
             AUDIO ASSETS
@@ -68,6 +70,7 @@
         // {id:"musicLvlTwo", src:"./Assets/audio/music/throughSpace.ogg"},        // LONG LOAD
         {id:"musicWin", src:"./Assets/audio/music/winMusic3.wav"},
         {id:"musicLose", src:"./Assets/audio/music/loseMusic3-1_0.wav"},
+        {id:"radioStatic", src:"./Assets/audio/sfx/static-radio.ogg"},
 
         // Player Related
         {id:"laserFire1", src:"./Assets/audio/sfx/laser1.wav"},
@@ -119,7 +122,7 @@
         // Has my state changed since the last check?
         if(currentState != managers.Game.currentScene)
         {
-            console.log("Changing scenes to " + managers.Game.currentScene);
+            console.log("Changing scenes to " + config.Scene[managers.Game.currentScene]);
             Main();
         }
 

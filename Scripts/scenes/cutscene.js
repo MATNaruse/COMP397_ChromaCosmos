@@ -18,28 +18,41 @@ var scenes;
         // Constructor
         function Cutscene(assetManager) {
             var _this = _super.call(this, assetManager) || this;
-            // Obj Co-ords
+            // Obj Co-ords - Everything "linked" to main_x/main_y
             _this.main_x = managers.Game.canvasW / 2;
-            _this.main_y = 240;
-            _this.next_x = managers.Game.canvasW / 2;
+            _this.main_y = 360;
+            _this.next_x = managers.Game.canvasW / 2 + 20;
             _this.next_y = _this.main_y + 50;
-            _this.arrow_x = _this.next_x + 100;
+            _this.arrow_x = _this.next_x + 80;
             _this.arrow_y = _this.next_y;
+            _this.radio_x = _this.main_x + 300;
+            _this.radio_y = _this.main_y + 100;
+            _this.static_x = _this.main_x;
+            _this.static_y = _this.main_y;
+            // Colours
+            _this.main_colour = "#db524b";
+            _this.next_colour = "#0026FF";
             _this.Start();
             return _this;
         }
         // Methods
         Cutscene.prototype.Start = function () {
-            // Set MessageText before calling Start in ChildClass
+            this.background = new objects.Background(managers.Game.assetManager);
             this.MessageText = managers.CSManager.GetCSMessages();
             this.currentMessage = 0;
-            this.MainLabel = new objects.Label(this.MessageText[this.currentMessage], "40px", "Consolas", "#FFFFFF", this.main_x, this.main_y, true);
-            this.NextLabel = new objects.Label("Click to Continue", "16px", "Consolas", "#FFFFFF", this.next_x, this.next_y, true);
+            this.MainLabel = new objects.Label(this.MessageText[this.currentMessage], "40px", "Consolas", this.main_colour, this.main_x, this.main_y, true);
+            this.NextLabel = new objects.Label("Click to Continue", "16px", "Consolas", this.next_colour, this.next_x, this.next_y, true);
             this.HUD_NextIcon = new objects.Button(managers.Game.assetManager, "hud_nextarrow", this.arrow_x, this.arrow_y, true);
+            this.HUD_radio = new objects.HUDItem(managers.Game.assetManager, "hud_radio", this.radio_x, this.radio_y);
+            this.HUD_static = new objects.HUDItem(managers.Game.assetManager, "hud_static", this.static_x, this.static_y, 2);
+            this.SFX_static = createjs.Sound.play("radioStatic").setVolume(0.5);
             this.Main();
         };
         Cutscene.prototype.Main = function () {
             var _this = this;
+            this.addChild(this.background);
+            this.addChild(this.HUD_radio);
+            this.addChild(this.HUD_static);
             this.addChild(this.MainLabel);
             this.addChild(this.NextLabel);
             this.addChild(this.HUD_NextIcon);
@@ -53,10 +66,12 @@ var scenes;
                 this.currentMessage += 1;
                 console.log("\tCurrentMsg:" + this.currentMessage);
                 this.removeChild(this.MainLabel);
-                this.MainLabel = new objects.Label(this.MessageText[this.currentMessage], "40px", "Consolas", "#FFFFFF", this.main_x, this.main_y, true);
+                this.MainLabel = new objects.Label(this.MessageText[this.currentMessage], "40px", "Consolas", this.main_colour, this.main_x, this.main_y, true);
                 this.addChild(this.MainLabel);
             }
             else {
+                if (this.SFX_static != null)
+                    this.SFX_static.destroy();
                 managers.CSManager.GoToNextScene();
                 console.log("\t...NEXT SCENE!");
             }
