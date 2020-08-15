@@ -19,8 +19,8 @@
         /*
             VISUAL ASSETS
         */
-        {id:"background", src:"./Assets/background4.png"},
-        {id:"background2", src:"./Assets/background3.png"},
+        {id:"background", src:"./Assets/background.png"},
+        {id:"background2", src:"./Assets/background2.png"},
         {id:"player", src:"./Assets/spaceship.png"},
         {id:"gameLogo", src:"./Assets/gameLogo.png"},
 
@@ -58,8 +58,8 @@
         {id:"healthIndicator0", src:"./Assets/hud/healthIndicator0.png"},
 
         {id:"hud_nextarrow", src:"./Assets/NextButton.png"},
-        {id:"hud_radio", src:"./Assets/hud/radio.png"},
-        {id:"hud_static", src:"./Assets/hud/static1.png"},
+        {id:"hud_cockpit", src:"./Assets/hud/cockpit2.png"},
+        {id:"hud_holobg", src:"./Assets/hud/holobg1.png"},
 
         /*
             AUDIO ASSETS
