@@ -44,57 +44,15 @@ var managers;
             if (AlienA instanceof objects.SecondaryAlien && AlienB instanceof objects.SecondaryAlien) {
                 if (AlienA.CollisionActive && AlienB.CollisionActive && AlienA != AlienB) {
                     if (AlienA.x > AlienB.x) {
-                        if (AlienB.GetRightEdge() > AlienA.GetLeftEdge()) {
-                            if (AlienA.AlienLinkCheck(AlienB) && AlienB.AlienLinkCheck(AlienA)) {
-                                AlienA.LeftAlien = AlienB;
-                                AlienB.RightAlien = AlienA;
+                        if (AlienA.GetTopEdge() <= (AlienB.GetBottomEdge() + 10)) {
+                            if (AlienB.GetRightEdge() > AlienA.GetLeftEdge()) {
+                                if (AlienA.AlienLinkCheck(AlienB) && AlienB.AlienLinkCheck(AlienA)) {
+                                    AlienA.LeftAlien = AlienB;
+                                    AlienB.RightAlien = AlienA;
+                                }
                             }
                         }
                     }
-                    // var LeftAlien, RightAlien;
-                    // if(AlienA.x > AlienB.x){
-                    //     LeftAlien = AlienB;
-                    //     RightAlien = AlienA;
-                    // }
-                    // else{
-                    //     LeftAlien = AlienA;
-                    //     RightAlien = AlienB;
-                    // }
-                    // if(LeftAlien.GetRightEdge() > RightAlien.GetLeftEdge()){
-                    //     if(!LeftAlien.AlienLinkCheck(RightAlien) && !RightAlien.AlienLinkCheck(LeftAlien)){
-                    //         LeftAlien.RightAlien = RightAlien;
-                    //         // RightAlien.LeftAlien = LeftAlien;
-                    //         console.log(LeftAlien.name + ", " + RightAlien.name);
-                    //     }
-                    //     // if(LeftAlien.RightAlien != RightAlien || RightAlien.LeftAlien != LeftAlien){
-                    //     //     LeftAlien.RightAlien = RightAlien;
-                    //     //     // RightAlien.LeftAlien = LeftAlien;
-                    //     // }
-                    // }
-                }
-            }
-        };
-        Collision.AlienHorizDetect = function (AlienA, AlienB) {
-            // B or Right will always move
-            var LeftAlien, RightAlien;
-            if (AlienA.x > AlienB.x) {
-                LeftAlien = AlienB;
-                RightAlien = AlienA;
-            }
-            else {
-                LeftAlien = AlienA;
-                RightAlien = AlienB;
-            }
-            // Conditions:
-            //  1- LA.RightEdge between RA.LeftEdge and RA.x
-            //      = RA.x = LA.RightEdge + RA.hw    
-            if (LeftAlien.GetRightEdge() > RightAlien.GetLeftEdge()) {
-                // console.log(LeftAlien.name + " BUMPED " + RightAlien.name)
-                if (RightAlien.bumped) {
-                    RightAlien.bumped = false;
-                }
-                else {
-                    RightAlien.bumped = true;
                 }
             }
         };

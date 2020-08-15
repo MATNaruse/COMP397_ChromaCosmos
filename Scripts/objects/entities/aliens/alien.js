@@ -24,16 +24,10 @@ var objects;
             _this.attackedPlayer = false;
             _this.startX = _this.x;
             return _this;
-            // this.LeftAlien = null;
-            // this.RightAlien = null;
-            // this.CollisionActive = false;
         }
         Alien.prototype.Reset = function () {
             _super.prototype.Reset.call(this);
             this.attackedPlayer = false;
-            // this.CollisionActive = false;
-            // this.LeftAlien = null;
-            // this.RightAlien = null;
         };
         return Alien;
     }(objects.Enemy));

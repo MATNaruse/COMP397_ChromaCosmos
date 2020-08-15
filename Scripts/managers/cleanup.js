@@ -20,6 +20,16 @@ var managers;
             var aliensToReturn;
             aliensToDelete = aliensList.filter(function (a) { return a.isDead; });
             aliensToReturn = aliensList.filter(function (a) { return !a.isDead; });
+            aliensList.forEach(function (a) {
+                aliensToDelete.forEach(function (d) {
+                    if (a instanceof objects.SecondaryAlien && d instanceof objects.SecondaryAlien) {
+                        if (a.LeftAlien == d)
+                            a.LeftAlien = null;
+                        if (a.RightAlien == d)
+                            a.RightAlien = null;
+                    }
+                });
+            });
             if (aliensToDelete.length > 0) {
                 //console.log("aliensToDelete:" + aliensToDelete.length);
                 aliensToDelete.splice(0, aliensToDelete.length);
