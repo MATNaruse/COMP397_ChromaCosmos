@@ -37,7 +37,7 @@ var managers;
                     if (colourPicked < 3)
                         new_alien = new objects.PrimaryAlien(managers.Game.assetManager, colourPicked);
                     else
-                        new_alien = new objects.SecondaryAlien(managers.Game.assetManager, colourPicked);
+                        new_alien = new objects.SecondaryAlien(managers.Game.assetManager, colourPicked, 0, yWaveOffset);
                     // Set Y Offset for "Wave"
                     new_alien.y = yWaveOffset;
                     // Put into a "Lane" -> Ensuring no overlaps

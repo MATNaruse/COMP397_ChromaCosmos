@@ -15,11 +15,15 @@ var objects;
 (function (objects) {
     var Alien = /** @class */ (function (_super) {
         __extends(Alien, _super);
-        function Alien(assetManager, colourIdx) {
+        function Alien(assetManager, colourIdx, startX, startY) {
+            if (startX === void 0) { startX = 0; }
+            if (startY === void 0) { startY = 0; }
             var _this = _super.call(this, assetManager, "alien" + objects.ColourPalette[colourIdx]) || this;
             _this.ySpeed = 3;
             _this.increment = 2;
             _this.ImgScale = 1;
+            _this.x = startX;
+            _this.y = startY;
             _this.scaleX = _this.scaleY = _this.ImgScale;
             _this.colour = objects.ColourPalette[colourIdx];
             _this.isDead = false;

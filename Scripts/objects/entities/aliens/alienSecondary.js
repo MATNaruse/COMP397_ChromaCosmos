@@ -16,8 +16,10 @@ var objects;
     var SecondaryAlien = /** @class */ (function (_super) {
         __extends(SecondaryAlien, _super);
         // Constructor
-        function SecondaryAlien(assetManager, colourIdx) {
-            var _this = _super.call(this, assetManager, colourIdx) || this;
+        function SecondaryAlien(assetManager, colourIdx, startX, startY) {
+            if (startX === void 0) { startX = 0; }
+            if (startY === void 0) { startY = 0; }
+            var _this = _super.call(this, assetManager, colourIdx, startX, startY) || this;
             _this.ScoreValue = 200;
             _this.LeftAlien = null;
             _this.RightAlien = null;

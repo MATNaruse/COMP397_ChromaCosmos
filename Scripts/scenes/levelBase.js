@@ -27,7 +27,8 @@ var scenes;
             managers.Game.PlayerEntity = this.player;
             // Alien Inits
             this.aliens = new Array();
-            this.fleetGen = new managers.AlienGenerator(this.aliens);
+            // this.fleetGen = new managers.AlienGenerator(this.aliens); //DEBUG: Reworking AlienGenerator
+            this.fleetGen = new managers.AlienGenerator2(this.aliens);
             // Other/HUD Inits
             this.background1 = new objects.Background(this.assetManager);
             this.background2 = new objects.Background(this.assetManager, true);

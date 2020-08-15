@@ -1,5 +1,5 @@
 module objects{
-    export class Alien extends objects.Enemy{
+    export abstract class Alien extends objects.Enemy{
         public colour:string;
         public isDead:boolean;
         public attackedPlayer:boolean;
@@ -8,9 +8,11 @@ module objects{
         protected increment: number = 2;
         public CollisionActive: boolean;
         
-        constructor(assetManager:createjs.LoadQueue, colourIdx:number){
+        constructor(assetManager:createjs.LoadQueue, colourIdx:number, startX:number = 0, startY:number = 0){
             super(assetManager, "alien" + objects.ColourPalette[colourIdx]);
             this.ImgScale = 1;
+            this.x = startX;
+            this.y = startY;
             this.scaleX = this.scaleY = this.ImgScale;
             this.colour = objects.ColourPalette[colourIdx];
             this.isDead = false;

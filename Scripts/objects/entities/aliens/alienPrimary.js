@@ -16,8 +16,10 @@ var objects;
     var PrimaryAlien = /** @class */ (function (_super) {
         __extends(PrimaryAlien, _super);
         // Constructor
-        function PrimaryAlien(assetManager, colourIdx) {
-            var _this = _super.call(this, assetManager, colourIdx) || this;
+        function PrimaryAlien(assetManager, colourIdx, startX, startY) {
+            if (startX === void 0) { startX = 0; }
+            if (startY === void 0) { startY = 0; }
+            var _this = _super.call(this, assetManager, colourIdx, startX, startY) || this;
             _this.range = 50;
             _this.leftTrue = true;
             switch (colourIdx) {

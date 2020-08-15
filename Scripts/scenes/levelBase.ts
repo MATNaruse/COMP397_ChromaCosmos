@@ -1,5 +1,5 @@
 module scenes{
-    export class LevelBase extends objects.Scene{
+    export abstract class LevelBase extends objects.Scene{
         // Variables
         protected background1: objects.Background;
         protected background2: objects.Background;
@@ -11,7 +11,7 @@ module scenes{
         protected hud_scoreIndicator: objects.Label;
         protected hud_healthIndicator: objects.HUDItem;
         protected levelName: string;
-        protected fleetGen: managers.AlienGenerator;
+        protected fleetGen: managers.AlienGenerator2;
         
         // Constructor
         constructor(assetManager: createjs.LoadQueue){
@@ -27,7 +27,8 @@ module scenes{
 
             // Alien Inits
             this.aliens = new Array<objects.Alien>();
-            this.fleetGen = new managers.AlienGenerator(this.aliens);
+            // this.fleetGen = new managers.AlienGenerator(this.aliens); //DEBUG: Reworking AlienGenerator
+            this.fleetGen = new managers.AlienGenerator2(this.aliens);
 
             // Other/HUD Inits
             this.background1 = new objects.Background(this.assetManager);
