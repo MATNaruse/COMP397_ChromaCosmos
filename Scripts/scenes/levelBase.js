@@ -32,8 +32,9 @@ var scenes;
             this.background1 = new objects.Background(this.assetManager);
             this.background2 = new objects.Background(this.assetManager, true);
             this.hud_colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY", 250, 550, 0.2);
-            this.hud_healthIndicator = new objects.HUDItem(this.assetManager, "healthIndicator5", 1150, 650);
+            this.hud_healthIndicator = new objects.HUDItem(this.assetManager, "healthIndicator5", 1150, 550);
             this.hud_levelIndicator = new objects.Label(this.levelName, "35px", "Consolas", "#FFFFFF", 25, 680);
+            this.hud_scoreIndicator = new objects.Label(managers.Game.Score.toString(), "35px", "Consolas", "#FFFFFF", 1150, 650);
             this.SpawnAliens();
         };
         LevelBase.prototype.Main = function () {
@@ -43,6 +44,7 @@ var scenes;
             this.addChild(this.player);
             this.addChild(this.hud_colourChamber);
             this.addChild(this.hud_levelIndicator);
+            this.addChild(this.hud_scoreIndicator);
             this.addChild(this.hud_healthIndicator);
             this.UpdateHealthIndicator();
             this.aliens.forEach(function (a) { return _this.addChild(a); });
@@ -79,6 +81,8 @@ var scenes;
                 this.aliens = managers.CleanUp.Aliens(this.aliens);
                 // Win Condition
                 this.CheckWin();
+                // Update Score
+                this.UpdateScoreIndicator();
             }
         };
         // Protected Methods
@@ -116,8 +120,13 @@ var scenes;
             var assetName = "healthIndicator" + this.player.Health;
             console.log("UPDATING HEALTH: " + assetName);
             this.removeChild(this.hud_healthIndicator);
-            this.hud_healthIndicator = new objects.HUDItem(this.assetManager, assetName, 1150, 650);
+            this.hud_healthIndicator = new objects.HUDItem(this.assetManager, assetName, 1175, 590);
             this.addChild(this.hud_healthIndicator);
+        };
+        LevelBase.prototype.UpdateScoreIndicator = function () {
+            this.removeChild(this.hud_scoreIndicator);
+            this.hud_scoreIndicator = new objects.Label(managers.Game.Score.toString(), "35px", "Consolas", "#FFFFFF", 1175, 675, true);
+            this.addChild(this.hud_scoreIndicator);
         };
         return LevelBase;
     }(objects.Scene));
