@@ -1,13 +1,20 @@
 module objects {
     export class Button extends createjs.Bitmap {
         // Variables
+        public midVertical:number;
+        public midHorizontal:number;
         // Constructor
-        constructor(assetManager:createjs.LoadQueue, imageString:string, x:number = 0, y:number = 0) {
+        constructor(assetManager:createjs.LoadQueue, imageString:string, x:number = 0, y:number = 0, verticalCenter: boolean = false) {
             super(assetManager.getResult(imageString));
 
             // Default position
             this.x = x;
             this.y = y;
+
+            this.midVertical = this.getBounds().height / 2;
+            this.midHorizontal = this.getBounds().width / 2;
+
+            if(verticalCenter) this.y -= this.midVertical;
 
             // Set up event handlers
             this.on("mouseover", this.mouseOver);

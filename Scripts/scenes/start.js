@@ -44,7 +44,8 @@ var scenes;
             this.addChild(this.instructButton);
             this.startButton.on("click", function () {
                 _this.music.destroy();
-                managers.Game.currentScene = config.Scene.LVL_ONE;
+                // managers.Game.currentScene = config.Scene.LVL_ONE;
+                managers.Game.currentScene = config.Scene.CS_START_LVLONE;
             });
             // this.overButton.on("click", () => {managers.Game.currentScene = config.Scene.OVER;});
             this.instructButton.on("click", function () {

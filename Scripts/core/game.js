@@ -46,6 +46,7 @@
         { id: "healthIndicator2", src: "./Assets/hud/healthIndicator2.png" },
         { id: "healthIndicator1", src: "./Assets/hud/healthIndicator1.png" },
         { id: "healthIndicator0", src: "./Assets/hud/healthIndicator0.png" },
+        { id: "hud_nextarrow", src: "./Assets/NextButton.png" },
         /*
             AUDIO ASSETS
         */
@@ -136,6 +137,21 @@
             case config.Scene.OVER:
                 stage.removeAllChildren();
                 currentScene = new scenes.GameOverScene(assetManager);
+                stage.addChild(currentScene);
+                break;
+            case config.Scene.CS_START_LVLONE:
+                stage.removeAllChildren();
+                currentScene = new scenes.Cutscene(assetManager);
+                stage.addChild(currentScene);
+                break;
+            case config.Scene.CS_LVLONE_LVLTWO:
+                stage.removeAllChildren();
+                currentScene = new scenes.Cutscene(assetManager);
+                stage.addChild(currentScene);
+                break;
+            case config.Scene.CS_LVLTWO_OVER:
+                stage.removeAllChildren();
+                currentScene = new scenes.Cutscene(assetManager);
                 stage.addChild(currentScene);
                 break;
         }

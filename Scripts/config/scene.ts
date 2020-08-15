@@ -5,6 +5,9 @@ module config {
         GAME,
         LVL_ONE,
         LVL_TWO,
-        OVER
+        OVER,
+        CS_START_LVLONE,
+        CS_LVLONE_LVLTWO,
+        CS_LVLTWO_OVER
     }
 }

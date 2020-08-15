@@ -15,15 +15,19 @@ var objects;
 (function (objects) {
     var Button = /** @class */ (function (_super) {
         __extends(Button, _super);
-        // Variables
         // Constructor
-        function Button(assetManager, imageString, x, y) {
+        function Button(assetManager, imageString, x, y, verticalCenter) {
             if (x === void 0) { x = 0; }
             if (y === void 0) { y = 0; }
+            if (verticalCenter === void 0) { verticalCenter = false; }
             var _this = _super.call(this, assetManager.getResult(imageString)) || this;
             // Default position
             _this.x = x;
             _this.y = y;
+            _this.midVertical = _this.getBounds().height / 2;
+            _this.midHorizontal = _this.getBounds().width / 2;
+            if (verticalCenter)
+                _this.y -= _this.midVertical;
             // Set up event handlers
             _this.on("mouseover", _this.mouseOver);
             _this.on("mouseout", _this.mouseOut);
