@@ -30,8 +30,8 @@ var managers;
                         new_alien = new objects.SecondaryAlien(colourPicked, this.LaneXValues[currentLane], yWaveOffset);
                     currentLane += 1;
                     aliensInWave.push(new_alien);
-                    console.log("WAVE[" + i + "]:ALIEN[" + j + "]:startX=" + new_alien.x + "|startY=" + new_alien.y);
-                    console.log("WAVE[" + i + "]:ALIEN[" + j + "]:yWaveOffset=" + yWaveOffset);
+                    // console.log("WAVE["+i+"]:ALIEN["+j+"]:startX="+ new_alien.x + "|startY="+ new_alien.y);
+                    // console.log("WAVE["+i+"]:ALIEN["+j+"]:yWaveOffset="+ yWaveOffset);
                 }
                 yWaveOffset -= 1500;
                 this.Waves.push(aliensInWave);
@@ -52,6 +52,7 @@ var managers;
                 currWave = [];
                 row.forEach(function (num) {
                     var new_alien;
+                    // Create a new alien based on colour index, -1 returns null
                     switch (num) {
                         case (0):
                             new_alien = new objects.PrimaryAlien(0, _this.LaneXValues[currLane], yWaveOffset);

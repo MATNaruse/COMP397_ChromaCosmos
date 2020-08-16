@@ -8,8 +8,8 @@ module scenes {
         private overButton: objects.MenuButton;
 
         // Constructor
-        constructor(assetManager:createjs.LoadQueue) {
-            super(assetManager);
+        constructor() {
+            super();
             this.Start();
         }
         // Methods

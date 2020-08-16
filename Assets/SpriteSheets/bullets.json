@@ -1,0 +1,31 @@
+{
+
+"images": [
+    "bullets.png"
+],
+
+"framerate": 20,
+"frames": [
+    [1, 1, 36, 56, 0, 0, 0],
+    [39, 1, 36, 56, 0, 0, 0],
+    [77, 1, 36, 56, 0, 0, 0],
+    [115, 1, 36, 56, 0, 0, 0],
+    [153, 1, 36, 56, 0, 0, 0],
+    [191, 1, 36, 56, 0, 0, 0]
+],
+
+"animations": {
+    "bulletBlue": { "frames": [0] },
+    "bulletGreen": { "frames": [1] },
+    "bulletOrange": { "frames": [2] },
+    "bulletPurple": { "frames": [3] },
+    "bulletRed": { "frames": [4] },
+    "bulletYellow": { "frames": [5] }
+},
+
+"texturepacker": [
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:e5dbb9e4bed39cbf75c8d3359dcdaeb6:5917bd829fcfdd93862c5f1fd88987fe:878d09cf2bf4ec0dfb23d5bcf7e0eb82$",
+        "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
+]
+
+}

@@ -26,8 +26,8 @@ module scenes{
         private next_colour: string = "#0f0";
 
         // Constructor
-        constructor(assetManager:createjs.LoadQueue) {
-            super(assetManager);
+        constructor() {
+            super();
             this.Start();
         }
         // Methods

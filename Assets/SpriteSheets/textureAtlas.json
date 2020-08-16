@@ -1,0 +1,73 @@
+{
+
+"images": [
+    "textureAtlas.png"
+],
+
+"framerate": 20,
+"frames": [
+    [1, 1, 150, 173, 0, 0, 0],
+    [1, 176, 150, 72, 0, 0, 0],
+    [153, 1, 150, 161, 0, 0, 0],
+    [153, 164, 150, 72, 0, 0, 0],
+    [305, 1, 150, 155, 0, 0, 0],
+    [305, 158, 150, 72, 0, 0, 0],
+    [457, 1, 125, 125, 0, 0, 0],
+    [457, 128, 125, 125, 0, 0, 0],
+    [584, 1, 125, 125, 0, 0, 0],
+    [584, 128, 125, 125, 0, 0, 0],
+    [711, 1, 125, 125, 0, 0, 0],
+    [711, 128, 125, 125, 0, 0, 0],
+    [838, 1, 150, 72, 0, 0, 0],
+    [838, 75, 50, 90, 0, 0, 0],
+    [838, 167, 75, 55, 0, 0, 0],
+    [838, 224, 39, 31, 0, 0, 0],
+    [890, 75, 75, 44, 0, 0, 0],
+    [890, 121, 50, 39, 0, 0, 0],
+    [915, 162, 50, 66, 0, 0, 0],
+    [967, 75, 41, 61, 0, 0, 0],
+    [990, 1, 35, 66, 0, 0, 0],
+    [967, 138, 36, 56, 0, 0, 0],
+    [967, 196, 36, 56, 0, 0, 0],
+    [1005, 138, 36, 56, 0, 0, 0],
+    [1005, 196, 36, 56, 0, 0, 0],
+    [1010, 69, 36, 56, 0, 0, 0],
+    [1027, 1, 36, 56, 0, 0, 0]
+],
+
+"animations": {
+    "colourChamberPURPLE": { "frames": [0] },
+    "colourChamberBLUE": { "frames": [1] },
+    "colourChamberGREEN": { "frames": [2] },
+    "colourChamberEMPTY": { "frames": [3] },
+    "colourChamberORANGE": { "frames": [4] },
+    "colourChamberRED": { "frames": [5] },
+    "healthIndicator0": { "frames": [6] },
+    "healthIndicator1": { "frames": [7] },
+    "healthIndicator2": { "frames": [8] },
+    "healthIndicator3": { "frames": [9] },
+    "healthIndicator4": { "frames": [10] },
+    "healthIndicator5": { "frames": [11] },
+    "colourChamberYELLOW": { "frames": [12] },
+    "alienOrange": { "frames": [13] },
+    "alienGreen": { "frames": [14] },
+    "NextButton": { "frames": [15] },
+    "alienYellow": { "frames": [16] },
+    "alienBlue": { "frames": [17] },
+    "alienPurple": { "frames": [18] },
+    "spaceship": { "frames": [19] },
+    "alienRed": { "frames": [20] },
+    "bulletBlue": { "frames": [21] },
+    "bulletGreen": { "frames": [22] },
+    "bulletOrange": { "frames": [23] },
+    "bulletPurple": { "frames": [24] },
+    "bulletRed": { "frames": [25] },
+    "bulletYellow": { "frames": [26] }
+},
+
+"texturepacker": [
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:c9c1be2664594bd1f939fb7fc6b4ed69:36c69907b35c97c2b90168c47cd9a954:2b5604bc88faefd55ddac16e9bce1532$",
+        "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
+]
+
+}

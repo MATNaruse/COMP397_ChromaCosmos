@@ -14,8 +14,8 @@ module scenes{
         protected fleetGen: managers.AlienGenerator;
         
         // Constructor
-        constructor(assetManager: createjs.LoadQueue){
-            super(assetManager);
+        constructor(){
+            super();
         }
 
         // Public Methods

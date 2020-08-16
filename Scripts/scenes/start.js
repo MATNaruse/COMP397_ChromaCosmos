@@ -16,8 +16,8 @@ var scenes;
     var StartScene = /** @class */ (function (_super) {
         __extends(StartScene, _super);
         // Constructor
-        function StartScene(assetManager) {
-            var _this = _super.call(this, assetManager) || this;
+        function StartScene() {
+            var _this = _super.call(this) || this;
             _this.Start();
             return _this;
         }

@@ -5,6 +5,7 @@ module managers {
         public static assetManager: createjs.LoadQueue;
         public static currentScene: number;
         public static controlManager: managers.PlayerControls;
+        public static textureAtlas: createjs.SpriteSheet;
 
         // Tracking Canvas Size
         public static canvasW:number;

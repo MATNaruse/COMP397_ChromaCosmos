@@ -1,0 +1,31 @@
+{
+
+"images": [
+    "aliens.png"
+],
+
+"framerate": 20,
+"frames": [
+    [1, 1, 50, 90, 0, 0, 0],
+    [53, 1, 75, 55, 0, 0, 0],
+    [53, 58, 75, 44, 0, 0, 0],
+    [130, 1, 50, 66, 0, 0, 0],
+    [130, 69, 50, 39, 0, 0, 0],
+    [182, 1, 35, 66, 0, 0, 0]
+],
+
+"animations": {
+    "alienOrange": { "frames": [0] },
+    "alienGreen": { "frames": [1] },
+    "alienYellow": { "frames": [2] },
+    "alienPurple": { "frames": [3] },
+    "alienBlue": { "frames": [4] },
+    "alienRed": { "frames": [5] }
+},
+
+"texturepacker": [
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:101b69755d9811d90a52ba96209cca83:0a827f6fa555e7494ee52cb726836cbf:542a018f2a9ec5ce3b067001c284779a$",
+        "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
+]
+
+}

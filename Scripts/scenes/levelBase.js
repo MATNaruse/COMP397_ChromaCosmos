@@ -16,8 +16,8 @@ var scenes;
     var LevelBase = /** @class */ (function (_super) {
         __extends(LevelBase, _super);
         // Constructor
-        function LevelBase(assetManager) {
-            return _super.call(this, assetManager) || this;
+        function LevelBase() {
+            return _super.call(this) || this;
         }
         // Public Methods
         LevelBase.prototype.Start = function () {

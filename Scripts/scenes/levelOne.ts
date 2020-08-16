@@ -4,8 +4,8 @@ module scenes{
         public hud_levelIndicator: objects.Label;
 
         // Constructor
-        constructor(assetManager: createjs.LoadQueue){
-            super(assetManager);
+        constructor(){
+            super();
             this.levelName = "Level One";
             managers.Levels.LevelOne = this;
             managers.Game.Score = 0;

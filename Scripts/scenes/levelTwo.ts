@@ -3,8 +3,8 @@ module scenes{
         // Variables
         
         // Constructor
-        constructor(assetManager: createjs.LoadQueue){
-            super(assetManager);
+        constructor(){
+            super();
             this.levelName = "Level Two";
             managers.Levels.LevelTwo = this;
             this.Start();

@@ -8,8 +8,8 @@ module scenes {
         private background: objects.Background;
 
         // Constructor
-        constructor(assetManager:createjs.LoadQueue) {
-            super(assetManager);
+        constructor() {
+            super();
             this.Start();
         }
 

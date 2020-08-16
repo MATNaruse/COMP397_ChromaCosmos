@@ -17,8 +17,8 @@ module scenes {
                                         "Use Multiple Keys to Mix Colours!"];
 
         // Constructor
-        constructor(assetManager: createjs.LoadQueue){
-            super(assetManager);
+        constructor(){
+            super();
             this.Start();
         }
 

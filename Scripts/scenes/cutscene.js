@@ -16,8 +16,8 @@ var scenes;
     var Cutscene = /** @class */ (function (_super) {
         __extends(Cutscene, _super);
         // Constructor
-        function Cutscene(assetManager) {
-            var _this = _super.call(this, assetManager) || this;
+        function Cutscene() {
+            var _this = _super.call(this) || this;
             _this.currentMessage = 0;
             // Obj Co-ords - Everything "linked" to main_x/main_y
             _this.main_x = managers.Game.canvasW / 2;

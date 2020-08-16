@@ -16,8 +16,8 @@ var scenes;
     var LevelOne = /** @class */ (function (_super) {
         __extends(LevelOne, _super);
         // Constructor
-        function LevelOne(assetManager) {
-            var _this = _super.call(this, assetManager) || this;
+        function LevelOne() {
+            var _this = _super.call(this) || this;
             _this.levelName = "Level One";
             managers.Levels.LevelOne = _this;
             managers.Game.Score = 0;

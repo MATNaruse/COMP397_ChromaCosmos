@@ -1,0 +1,45 @@
+{
+
+"images": [
+    "indicators.png"
+],
+
+"framerate": 20,
+"frames": [
+    [1, 1, 150, 173, 0, 0, 0],
+    [153, 1, 150, 161, 0, 0, 0],
+    [305, 1, 150, 155, 0, 0, 0],
+    [457, 1, 125, 125, 0, 0, 0],
+    [584, 1, 125, 125, 0, 0, 0],
+    [711, 1, 125, 125, 0, 0, 0],
+    [838, 1, 125, 125, 0, 0, 0],
+    [1, 176, 150, 72, 0, 0, 0],
+    [153, 164, 150, 72, 0, 0, 0],
+    [305, 158, 150, 72, 0, 0, 0],
+    [457, 128, 125, 125, 0, 0, 0],
+    [584, 128, 125, 125, 0, 0, 0],
+    [711, 128, 150, 72, 0, 0, 0]
+],
+
+"animations": {
+    "colourChamberPURPLE": { "frames": [0] },
+    "colourChamberGREEN": { "frames": [1] },
+    "colourChamberORANGE": { "frames": [2] },
+    "healthIndicator0": { "frames": [3] },
+    "healthIndicator1": { "frames": [4] },
+    "healthIndicator2": { "frames": [5] },
+    "healthIndicator3": { "frames": [6] },
+    "colourChamberBLUE": { "frames": [7] },
+    "colourChamberEMPTY": { "frames": [8] },
+    "colourChamberRED": { "frames": [9] },
+    "healthIndicator4": { "frames": [10] },
+    "healthIndicator5": { "frames": [11] },
+    "colourChamberYELLOW": { "frames": [12] }
+},
+
+"texturepacker": [
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:f38504b59a2e04f9853d1eef2d4bb854:6cbde35995e9445b073c982f3d6f1981:ce747235c3689c52f61007e67a288862$",
+        "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
+]
+
+}

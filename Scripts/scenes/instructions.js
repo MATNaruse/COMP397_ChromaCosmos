@@ -16,8 +16,8 @@ var scenes;
     var InstructionScene = /** @class */ (function (_super) {
         __extends(InstructionScene, _super);
         // Constructor
-        function InstructionScene(assetManager) {
-            var _this = _super.call(this, assetManager) || this;
+        function InstructionScene() {
+            var _this = _super.call(this) || this;
             _this.instructions = ["How to Play",
                 "Use the Mouse to move Left and Right",
                 "Use Left Click to Fire",

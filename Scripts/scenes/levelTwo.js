@@ -17,8 +17,8 @@ var scenes;
         __extends(LevelTwo, _super);
         // Variables
         // Constructor
-        function LevelTwo(assetManager) {
-            var _this = _super.call(this, assetManager) || this;
+        function LevelTwo() {
+            var _this = _super.call(this) || this;
             _this.levelName = "Level Two";
             managers.Levels.LevelTwo = _this;
             _this.Start();
