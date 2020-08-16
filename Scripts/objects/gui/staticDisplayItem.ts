@@ -21,6 +21,7 @@ module objects{
                 this.scaleX = scaleX;
                 this.scaleY = scaleY;
             }
+            this.Init();
         }
 
         private Init():void {

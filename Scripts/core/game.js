@@ -84,77 +84,7 @@
         { id: "hud_nextarrow", src: "./Assets/NextButton.png" },
         { id: "hud_cockpit", src: "./Assets/hud/cockpit2.png" },
         { id: "hud_holobg", src: "./Assets/hud/holobg1.png" },
-        { id: "textureAtlas", src: "./Assets/SpriteSheets/textureAtlas.png" }
-        // // Player
-        // {id:"player", src:"./Assets/spaceship.png"},
-        // // Bullet Colours
-        // {id:"bulletRED", src:"./Assets/bullets/bulletRed.png"},
-        // {id:"bulletBLUE", src:"./Assets/bullets/bulletBlue.png"},
-        // {id:"bulletYELLOW", src:"./Assets/bullets/bulletYellow.png"},
-        // {id:"bulletGREEN", src:"./Assets/bullets/bulletGreen.png"},
-        // {id:"bulletPURPLE", src:"./Assets/bullets/bulletPurple.png"},
-        // {id:"bulletORANGE", src:"./Assets/bullets/bulletOrange.png"},
-        // // Enemies
-        // {id:"alienRED", src:"./Assets/aliens/alienRed.png"},
-        // {id:"alienBLUE", src:"./Assets/aliens/alienBlue.png"},
-        // {id:"alienYELLOW", src:"./Assets/aliens/alienYellow.png"},
-        // {id:"alienGREEN", src:"./Assets/aliens/alienGreen.png"},
-        // {id:"alienPURPLE", src:"./Assets/aliens/alienPurple.png"},
-        // {id:"alienORANGE", src:"./Assets/aliens/alienOrange.png"},
-        // // Colour Chamber
-        // {id:"chamberEMPTY", src:"./Assets/hud/colourChamberEMPTY.png"},
-        // {id:"chamberRED", src:"./Assets/hud/colourChamberRED.png"},
-        // {id:"chamberBLUE", src:"./Assets/hud/colourChamberBLUE.png"},
-        // {id:"chamberYELLOW", src:"./Assets/hud/colourChamberYELLOW.png"},
-        // {id:"chamberGREEN", src:"./Assets/hud/colourChamberGREEN.png"},
-        // {id:"chamberPURPLE", src:"./Assets/hud/colourChamberPURPLE.png"},
-        // {id:"chamberORANGE", src:"./Assets/hud/colourChamberORANGE.png"},
-        // // Health Indicator
-        // {id:"healthIndicator5", src:"./Assets/hud/healthIndicator5.png"},
-        // {id:"healthIndicator4", src:"./Assets/hud/healthIndicator4.png"},
-        // {id:"healthIndicator3", src:"./Assets/hud/healthIndicator3.png"},
-        // {id:"healthIndicator2", src:"./Assets/hud/healthIndicator2.png"},
-        // {id:"healthIndicator1", src:"./Assets/hud/healthIndicator1.png"},
-        // {id:"healthIndicator0", src:"./Assets/hud/healthIndicator0.png"},
-        /*
-            AUDIO ASSETS
-        */
-        // Music Related
-        // {id:"musicMain", src:"./Assets/audio/music/Hardmoon_-_Deep_space.mp3"}, // LONG LOAD
-        // {id:"musicLvlOne", src:"./Assets/audio/music/Roboxel-SpaceMusic.mp3"},  // LONG LOAD
-        // {id:"musicLvlTwo", src:"./Assets/audio/music/throughSpace.ogg"},        // LONG LOAD
-        ,
-        // // Player
-        // {id:"player", src:"./Assets/spaceship.png"},
-        // // Bullet Colours
-        // {id:"bulletRED", src:"./Assets/bullets/bulletRed.png"},
-        // {id:"bulletBLUE", src:"./Assets/bullets/bulletBlue.png"},
-        // {id:"bulletYELLOW", src:"./Assets/bullets/bulletYellow.png"},
-        // {id:"bulletGREEN", src:"./Assets/bullets/bulletGreen.png"},
-        // {id:"bulletPURPLE", src:"./Assets/bullets/bulletPurple.png"},
-        // {id:"bulletORANGE", src:"./Assets/bullets/bulletOrange.png"},
-        // // Enemies
-        // {id:"alienRED", src:"./Assets/aliens/alienRed.png"},
-        // {id:"alienBLUE", src:"./Assets/aliens/alienBlue.png"},
-        // {id:"alienYELLOW", src:"./Assets/aliens/alienYellow.png"},
-        // {id:"alienGREEN", src:"./Assets/aliens/alienGreen.png"},
-        // {id:"alienPURPLE", src:"./Assets/aliens/alienPurple.png"},
-        // {id:"alienORANGE", src:"./Assets/aliens/alienOrange.png"},
-        // // Colour Chamber
-        // {id:"chamberEMPTY", src:"./Assets/hud/colourChamberEMPTY.png"},
-        // {id:"chamberRED", src:"./Assets/hud/colourChamberRED.png"},
-        // {id:"chamberBLUE", src:"./Assets/hud/colourChamberBLUE.png"},
-        // {id:"chamberYELLOW", src:"./Assets/hud/colourChamberYELLOW.png"},
-        // {id:"chamberGREEN", src:"./Assets/hud/colourChamberGREEN.png"},
-        // {id:"chamberPURPLE", src:"./Assets/hud/colourChamberPURPLE.png"},
-        // {id:"chamberORANGE", src:"./Assets/hud/colourChamberORANGE.png"},
-        // // Health Indicator
-        // {id:"healthIndicator5", src:"./Assets/hud/healthIndicator5.png"},
-        // {id:"healthIndicator4", src:"./Assets/hud/healthIndicator4.png"},
-        // {id:"healthIndicator3", src:"./Assets/hud/healthIndicator3.png"},
-        // {id:"healthIndicator2", src:"./Assets/hud/healthIndicator2.png"},
-        // {id:"healthIndicator1", src:"./Assets/hud/healthIndicator1.png"},
-        // {id:"healthIndicator0", src:"./Assets/hud/healthIndicator0.png"},
+        { id: "textureAtlas", src: "./Assets/SpriteSheets/textureAtlas.png" },
         /*
             AUDIO ASSETS
         */

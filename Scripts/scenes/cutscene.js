@@ -43,9 +43,11 @@ var scenes;
             // Creating Labels & 'HUD' Items
             this.MainLabel = new objects.Label(this.MessageText[this.currentMessage], "40px", "Consolas", this.main_colour, this.main_x, this.main_y, false, true);
             this.NextLabel = new objects.Label("Click to Continue", "16px", "Consolas", this.next_colour, this.next_x, this.next_y, true);
-            this.HUD_NextIcon = new objects.Button("hud_nextarrow", this.arrow_x, this.arrow_y, true);
-            this.HUD_cockpit = new objects.HUDItem("hud_cockpit", managers.Game.canvasW / 2, managers.Game.canvasH / 2);
-            this.HUD_holobg = new objects.HUDItem("hud_holobg", this.holo_x, this.holo_y, 3, 1.5);
+            this.HUD_NextIcon = new objects.Button("hud_nextarrow", this.arrow_x, this.arrow_y);
+            this.HUD_cockpit = new objects.StaticDisplayItem("hud_cockpit", managers.Game.canvasW / 2, managers.Game.canvasH / 2);
+            this.HUD_holobg = new objects.StaticDisplayItem("hud_holobg", this.holo_x, this.holo_y, 3, 1.5);
+            // this.HUD_cockpit = new objects.HUDItem("hud_cockpit", managers.Game.canvasW/2,  managers.Game.canvasH/2);
+            // this.HUD_holobg = new objects.HUDItem("hud_holobg", this.holo_x, this.holo_y, 3, 1.5)
             // Setting/Starting Radio Static Audio
             this.SFX_static = createjs.Sound.play("radioStatic").setVolume(0.5);
             this.Main();

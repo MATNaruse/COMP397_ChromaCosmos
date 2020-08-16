@@ -26,6 +26,7 @@ var objects;
                 _this.scaleX = scaleX;
                 _this.scaleY = scaleY;
             }
+            _this.Init();
             return _this;
         }
         StaticDisplayItem.prototype.Init = function () {
