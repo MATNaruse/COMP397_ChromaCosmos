@@ -20,7 +20,7 @@ var objects;
             if (x === void 0) { x = 0; }
             if (y === void 0) { y = 0; }
             if (verticalCenter === void 0) { verticalCenter = false; }
-            var _this = _super.call(this, imageString) || this;
+            var _this = _super.call(this, managers.Game.assetManager.getResult(imageString)) || this;
             // Default position
             _this.x = x;
             _this.y = y;

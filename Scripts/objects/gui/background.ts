@@ -6,7 +6,7 @@ module objects {
         // Constructor
         constructor(second: boolean = false)
         {
-            super("background");
+            super(managers.Game.assetManager.getResult("background"));
             // console.log("Creating the background");
             this.scaleX = 1.25;
             this.scaleY = .72;

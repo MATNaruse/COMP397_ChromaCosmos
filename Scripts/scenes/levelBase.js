@@ -32,7 +32,7 @@ var scenes;
             // Other/HUD Inits
             this.background1 = new objects.Background();
             this.background2 = new objects.Background(true);
-            this.hud_colourChamber = new objects.HUDItem("chamberEMPTY", 250, 550, 0.2);
+            this.hud_colourChamber = new objects.HUDItem("chamberEMPTY", 250, 550);
             this.hud_healthIndicator = new objects.HUDItem("healthIndicator5", 1150, 550);
             this.hud_levelIndicator = new objects.Label(this.levelName, "35px", "Consolas", "#FFFFFF", 25, 680);
             this.hud_scoreIndicator = new objects.Label(managers.Game.Score.toString(), "35px", "Consolas", "#FFFFFF", 1150, 650);
@@ -108,12 +108,12 @@ var scenes;
             var CurrentColour = managers.Game.GetActiveColour();
             if (CurrentColour != -1) {
                 this.removeChild(this.hud_colourChamber);
-                this.hud_colourChamber = new objects.HUDItem("chamber" + objects.ColourPalette[CurrentColour], 100, 620, 0.2);
+                this.hud_colourChamber = new objects.HUDItem("chamber" + objects.ColourPalette[CurrentColour], 100, 620);
                 this.addChild(this.hud_colourChamber);
             }
             else {
                 this.removeChild(this.hud_colourChamber);
-                this.hud_colourChamber = new objects.HUDItem("chamberEMPTY", 100, 620, 0.2);
+                this.hud_colourChamber = new objects.HUDItem("chamberEMPTY", 100, 620);
                 this.addChild(this.hud_colourChamber);
             }
         };

@@ -5,7 +5,7 @@ module objects {
         public midHorizontal:number;
         // Constructor
         constructor(imageString:string, x:number = 0, y:number = 0, verticalCenter: boolean = false) {
-            super(imageString);
+            super(managers.Game.assetManager.getResult(imageString));
 
             // Default position
             this.x = x;
