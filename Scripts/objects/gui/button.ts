@@ -1,11 +1,11 @@
 module objects {
-    export class Button extends createjs.Bitmap {
+    export class Button extends objects.GameObject {
         // Variables
         public midVertical:number;
         public midHorizontal:number;
         // Constructor
         constructor(imageString:string, x:number = 0, y:number = 0, verticalCenter: boolean = false) {
-            super(managers.Game.assetManager.getResult(imageString));
+            super(imageString);
 
             // Default position
             this.x = x;

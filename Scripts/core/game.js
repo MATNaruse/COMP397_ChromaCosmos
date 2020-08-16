@@ -12,9 +12,7 @@
     var textureAtlasData;
     var textureAtlas;
     textureAtlasData = {
-        "images": [
-            ""
-        ],
+        "images": [""],
         "framerate": 20,
         "frames": [
             [1, 1, 150, 173, 0, 0, 0],
@@ -46,33 +44,33 @@
             [1027, 1, 36, 56, 0, 0, 0]
         ],
         "animations": {
-            "colourChamberPURPLE": { "frames": [0] },
-            "colourChamberBLUE": { "frames": [1] },
-            "colourChamberGREEN": { "frames": [2] },
-            "colourChamberEMPTY": { "frames": [3] },
-            "colourChamberORANGE": { "frames": [4] },
-            "colourChamberRED": { "frames": [5] },
+            "chamberPURPLE": { "frames": [0] },
+            "chamberBLUE": { "frames": [1] },
+            "chamberGREEN": { "frames": [2] },
+            "chamberEMPTY": { "frames": [3] },
+            "chamberORANGE": { "frames": [4] },
+            "chamberRED": { "frames": [5] },
             "healthIndicator0": { "frames": [6] },
             "healthIndicator1": { "frames": [7] },
             "healthIndicator2": { "frames": [8] },
             "healthIndicator3": { "frames": [9] },
             "healthIndicator4": { "frames": [10] },
             "healthIndicator5": { "frames": [11] },
-            "colourChamberYELLOW": { "frames": [12] },
-            "alienOrange": { "frames": [13] },
-            "alienGreen": { "frames": [14] },
-            "NextButton": { "frames": [15] },
-            "alienYellow": { "frames": [16] },
-            "alienBlue": { "frames": [17] },
-            "alienPurple": { "frames": [18] },
-            "spaceship": { "frames": [19] },
-            "alienRed": { "frames": [20] },
-            "bulletBlue": { "frames": [21] },
-            "bulletGreen": { "frames": [22] },
-            "bulletOrange": { "frames": [23] },
-            "bulletPurple": { "frames": [24] },
-            "bulletRed": { "frames": [25] },
-            "bulletYellow": { "frames": [26] }
+            "chamberYELLOW": { "frames": [12] },
+            "alienORANGE": { "frames": [13] },
+            "alienGREEN": { "frames": [14] },
+            "hub_nextarrow": { "frames": [15] },
+            "alienYELLOW": { "frames": [16] },
+            "alienBLUE": { "frames": [17] },
+            "alienPURPLE": { "frames": [18] },
+            "player": { "frames": [19] },
+            "alienRED": { "frames": [20] },
+            "bulletBLUE": { "frames": [21] },
+            "bulletGREEN": { "frames": [22] },
+            "bulletORANGE": { "frames": [23] },
+            "bulletPURPLE": { "frames": [24] },
+            "bulletRED": { "frames": [25] },
+            "bulletYELLOW": { "frames": [26] }
         }
     };
     assetManifest = [

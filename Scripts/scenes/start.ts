@@ -2,7 +2,8 @@ module scenes {
     export class StartScene extends objects.Scene {
         // Variables
         private background: objects.Background;
-        private gameLogo: objects.HUDItem;
+        // private gameLogo: objects.HUDItem;
+        private gameLogo: objects.StaticDisplayItem;
         private startButton: objects.MenuButton;
         private instructButton: objects.MenuButton;
         private overButton: objects.MenuButton;
@@ -16,7 +17,8 @@ module scenes {
         public Start():void {
             // Initialize our objects for this scene
             this.background = new objects.Background();
-            this.gameLogo = new objects.HUDItem("gameLogo", managers.Game.canvasW/2, 240);
+            // this.gameLogo = new objects.HUDItem("gameLogo", managers.Game.canvasW/2, 240);
+            this.gameLogo = new objects.StaticDisplayItem("gameLogo", managers.Game.canvasW/2, 240);
             this.music = createjs.Sound.play("musicMain").setVolume(2);
             // NOTE: PreloadJS manifest id
             this.startButton = new objects.MenuButton("Start", managers.Game.canvasW/2, 380, true);
