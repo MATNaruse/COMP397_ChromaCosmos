@@ -37,7 +37,7 @@ var managers;
             }
             return false;
         };
-        //TODO: MUST BE FIXED
+        //FIXME: Currently "works", will redo if time permits
         Collision.HorizontalDetect = function (AlienA, AlienB) {
             // If the Alien is a Secondary Alien
             if (AlienA instanceof objects.SecondaryAlien && AlienB instanceof objects.SecondaryAlien) {
@@ -46,7 +46,6 @@ var managers;
                     // If AlienA is RIGHT of Alien B
                     if (AlienA.x > AlienB.x) {
                         // If AlienA is Below AlienB
-                        // FIXME: Does not currently work
                         if (AlienA.GetTopEdge() <= (AlienB.GetBottomEdge() + 10)) {
                             // If AlienA collides LEFT of AlienB
                             if (AlienB.GetRightEdge() > AlienA.GetLeftEdge()) {

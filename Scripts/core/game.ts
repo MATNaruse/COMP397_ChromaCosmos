@@ -87,7 +87,6 @@
     assetManifest = [
         /*
             VISUAL ASSETS
-            TODO: Move to sprite sheet
         */
         {id:"background", src:"./Assets/background.png"},
         {id:"background2", src:"./Assets/background2.png"},
@@ -102,9 +101,9 @@
             AUDIO ASSETS
         */
         // Music Related
-        // {id:"musicMain", src:"./Assets/audio/music/Hardmoon_-_Deep_space.mp3"}, // LONG LOAD
-        // {id:"musicLvlOne", src:"./Assets/audio/music/Roboxel-SpaceMusic.mp3"},  // LONG LOAD
-        // {id:"musicLvlTwo", src:"./Assets/audio/music/throughSpace.ogg"},        // LONG LOAD
+        {id:"musicMain", src:"./Assets/audio/music/Hardmoon_-_Deep_space.mp3"}, // LONG LOAD
+        {id:"musicLvlOne", src:"./Assets/audio/music/Roboxel-SpaceMusic.mp3"},  // LONG LOAD
+        {id:"musicLvlTwo", src:"./Assets/audio/music/throughSpace.ogg"},        // LONG LOAD
         {id:"musicWin", src:"./Assets/audio/music/winMusic3.wav"},
         {id:"musicLose", src:"./Assets/audio/music/loseMusic3-1_0.wav"},
         {id:"radioStatic", src:"./Assets/audio/sfx/static-radio.ogg"},
