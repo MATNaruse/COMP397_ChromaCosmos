@@ -15,17 +15,17 @@ var scenes;
 (function (scenes) {
     var InstructionScene = /** @class */ (function (_super) {
         __extends(InstructionScene, _super);
+        // private instructions:string[] = ["How to Play",
+        //                                 "Use the Mouse to move Left and Right",
+        //                                 "Use Left Click to Fire",
+        //                                 "Use the A, S, and D keys on the keyboard to change Cannon Colour",
+        //                                 "| A = Red",
+        //                                 "| S = Blue",
+        //                                 "| D = Yellow",
+        //                                 "Use Multiple Keys to Mix Colours!"];
         // Constructor
         function InstructionScene() {
             var _this = _super.call(this) || this;
-            _this.instructions = ["How to Play",
-                "Use the Mouse to move Left and Right",
-                "Use Left Click to Fire",
-                "Use the A, S, and D keys on the keyboard to change Cannon Colour",
-                "| A = Red",
-                "| S = Blue",
-                "| D = Yellow",
-                "Use Multiple Keys to Mix Colours!"];
             _this.Start();
             return _this;
         }
@@ -34,15 +34,17 @@ var scenes;
             // Initalize Objects
             this.music = createjs.Sound.play("musicMain").setVolume(2);
             this.background = new objects.Background();
-            this.instructLabels = Array();
-            this.MultiLineLabels(this.instructions, 100, 100, 50);
-            this.returnButton = new objects.MenuButton("Return to Title", managers.Game.canvasW / 2, 500, true);
+            this.overlay = new objects.StaticDisplayItem("instructOverlay", managers.Game.canvasW / 2, managers.Game.canvasH / 2);
+            // this.instructLabels = Array<objects.Label>();
+            // this.MultiLineLabels(this.instructions, 100, 100, 50);
+            this.returnButton = new objects.MenuButton("Return to Title", managers.Game.canvasW / 2, 650, true);
             this.Main();
         };
         InstructionScene.prototype.Main = function () {
             var _this = this;
             this.addChild(this.background);
-            this.instructLabels.forEach(function (l) { return _this.addChild(l); });
+            // this.instructLabels.forEach(l => this.addChild(l));
+            this.addChild(this.overlay);
             this.addChild(this.returnButton);
             this.returnButton.on("click", function () {
                 if (_this.music != null)
