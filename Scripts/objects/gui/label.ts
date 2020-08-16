@@ -16,6 +16,7 @@ module objects {    // Module = Namespace
                 if(textCentered){
                     this.textAlign = "center";
                 }
+                
                 // Set initial position
                 this.x = x;
                 this.y = y;

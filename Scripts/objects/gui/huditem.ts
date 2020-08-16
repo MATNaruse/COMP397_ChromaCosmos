@@ -5,6 +5,7 @@ module objects{
             this.x = x;
             this.y = y;
             
+            // TODO: Simplify to scaleX/scaleY, no general scale
             if(scale != 1) this.scaleX = this.scaleY = scale;
             if(scaleX != 1 || scaleY != 1){
                 this.scaleX = scaleX;

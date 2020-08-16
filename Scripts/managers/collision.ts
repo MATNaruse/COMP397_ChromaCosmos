@@ -39,6 +39,7 @@ module managers{
             return false;
         }
         
+        //TODO: MUST BE FIXED
         public static HorizontalDetect(AlienA: objects.Alien, AlienB: objects.Alien){
             // If the Alien is a Secondary Alien
             if(AlienA instanceof objects.SecondaryAlien && AlienB instanceof objects.SecondaryAlien){

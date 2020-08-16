@@ -1,5 +1,6 @@
 module scenes{
     export class Cutscene extends objects.Scene{
+        // TODO: Comment Code
         // Variables
         private MessageText: string[];
         private MainLabel: objects.Label;
@@ -7,8 +8,6 @@ module scenes{
         private HUD_NextIcon: objects.Button;
         private currentMessage: number;
         private background: objects.Background;
-        private HUD_radio: objects.HUDItem;
-        private HUD_static: objects.HUDItem;
         private HUD_holobg: objects.HUDItem;
         private HUD_cockpit: objects.HUDItem;
         private SFX_static: createjs.AbstractSoundInstance;

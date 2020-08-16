@@ -18,6 +18,7 @@
     assetManifest = [
         /*
             VISUAL ASSETS
+            TODO: Move to sprite sheet
         */
         {id:"background", src:"./Assets/background.png"},
         {id:"background2", src:"./Assets/background2.png"},

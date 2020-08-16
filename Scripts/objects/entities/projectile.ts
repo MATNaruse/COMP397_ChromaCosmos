@@ -2,7 +2,7 @@ module objects{
     export class Projectile extends objects.GameObject{
         public isOffScreen:boolean;
         public colour:string;
-        public shooter: objects.GameObject
+        public shooter: objects.GameObject  //TODO: Remove shooter reference -> No longer needed
 
         constructor(assetManager:createjs.LoadQueue, colour: objects.ColourPalette, shooter:objects.GameObject){
             super(assetManager, "bullet" + ColourPalette[colour]);

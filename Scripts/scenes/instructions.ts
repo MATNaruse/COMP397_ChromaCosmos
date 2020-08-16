@@ -1,5 +1,7 @@
 module scenes {
     export class InstructionScene extends objects.Scene{
+        // TODO: Spruce up Scene
+
         // Variables
         private background: objects.Background;
         private instructLabels: objects.Label[];

@@ -2,7 +2,7 @@ module managers{
     export class CSManager{
         public static GetCSMessages():string[]{
             var Messages = [];
-
+            // TODO: Rework the 'Script' 
             switch(managers.Game.currentScene){
                 case config.Scene.CS_START_LVLONE:
                     Messages = ["Attention Captain Roy!", "Use the Colour Cannon to\nattack the incoming aliens!", "Don't forget to match\nthe alien & laser colours!", "Otherwise it won't do anything!",  "Good luck!"];

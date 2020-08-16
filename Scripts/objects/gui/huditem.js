@@ -22,6 +22,7 @@ var objects;
             var _this = _super.call(this, assetManager, fileName) || this;
             _this.x = x;
             _this.y = y;
+            // TODO: Simplify to scaleX/scaleY, no general scale
             if (scale != 1)
                 _this.scaleX = _this.scaleY = scale;
             if (scaleX != 1 || scaleY != 1) {

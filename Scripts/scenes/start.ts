@@ -20,7 +20,6 @@ module scenes {
             this.music = createjs.Sound.play("musicMain").setVolume(2);
             // NOTE: PreloadJS manifest id
             this.startButton = new objects.MenuButton("Start", managers.Game.canvasW/2, 380, true);
-            // this.overButton = new objects.MenuButton("Skip to Game Over Screen", managers.Game.canvasW/2, 460, true);
             this.instructButton = new objects.MenuButton("Instructions", managers.Game.canvasW/2, 460, true);
             this.Main();
         }
@@ -32,7 +31,6 @@ module scenes {
             this.addChild(this.background);
             this.addChild(this.gameLogo);
             this.addChild(this.startButton);
-            // this.addChild(this.overButton);
             this.addChild(this.instructButton);
 
             this.startButton.on("click", () => {
@@ -40,7 +38,7 @@ module scenes {
                 managers.Game.currentScene = config.Scene.LVL_ONE;
                 // managers.Game.currentScene = config.Scene.CS_START_LVLONE; //DEBUG: Disabled Cutscene for now
             });
-            // this.overButton.on("click", () => {managers.Game.currentScene = config.Scene.OVER;});
+            
             this.instructButton.on("click", () => {
                 this.music.destroy();
                 managers.Game.currentScene = config.Scene.INSTRUCT;

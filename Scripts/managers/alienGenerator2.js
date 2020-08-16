@@ -99,8 +99,10 @@ var managers;
                 this.Waves = new Array();
             }
         };
+        // Static Alien Waves
         AlienGenerator2.TestStaticWave = [
-            [0, -1, 0, 0, -1, 0]
+            [0, -1, 0, 0, -1, 0],
+            [3, 4, 5, 5, 4, 3]
         ];
         return AlienGenerator2;
     }());

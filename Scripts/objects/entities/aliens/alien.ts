@@ -1,5 +1,6 @@
 module objects{
     export abstract class Alien extends objects.Enemy{
+        //TODO: Remove objects.Enemy -> Merge into here
         public colour:string;
         public isDead:boolean;
         public attackedPlayer:boolean;

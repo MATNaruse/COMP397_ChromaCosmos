@@ -37,6 +37,7 @@ var managers;
             }
             return false;
         };
+        //TODO: MUST BE FIXED
         Collision.HorizontalDetect = function (AlienA, AlienB) {
             // If the Alien is a Secondary Alien
             if (AlienA instanceof objects.SecondaryAlien && AlienB instanceof objects.SecondaryAlien) {

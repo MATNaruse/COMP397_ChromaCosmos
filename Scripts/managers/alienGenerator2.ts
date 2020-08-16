@@ -1,5 +1,6 @@
 module managers{
     export class AlienGenerator2{
+        //TODO: Remove AlienGenerator and replace with this class
         private listOfAllAliens: objects.Alien[];
         // private LaneXValues: number[] = [375, 550, 725, 900, 1075, 1250];
         private LaneXValues: number[] = [100, 300, 500, 700, 900, 1100];
@@ -104,8 +105,10 @@ module managers{
             }
         }
 
+        // Static Alien Waves
         public static TestStaticWave = [
-            [0, -1, 0, 0, -1, 0]
+            [0, -1, 0, 0, -1, 0],
+            [3, 4, 5, 5, 4, 3]
         ];
     }
 }
