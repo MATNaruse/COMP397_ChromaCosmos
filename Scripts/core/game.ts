@@ -94,7 +94,7 @@
         {id:"hud_nextarrow", src:"./Assets/NextButton.png"},
         {id:"hud_cockpit", src:"./Assets/hud/cockpit2.png"},
         {id:"hud_holobg", src:"./Assets/hud/holobg1.png"},
-        {id:"instructOverlay", src:"./InkscapeAssets/instructscene.png"},
+        {id:"instructOverlay", src:"./Assets/hud/instructscene.png"},
         {id:"textureAtlas", src:"./Assets/SpriteSheets/textureAtlas.png"},
 
         /*
