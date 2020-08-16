@@ -37,8 +37,8 @@ module scenes {
 
             this.startButton.on("click", () => {
                 this.music.destroy();
-                managers.Game.currentScene = config.Scene.LVL_ONE;
-                // managers.Game.currentScene = config.Scene.CS_START_LVLONE; //DEBUG: Disabled Cutscene for now
+                // managers.Game.currentScene = config.Scene.LVL_ONE; //DEBUG: Disabled Cutscene for now
+                managers.Game.currentScene = config.Scene.CS_START_LVLONE; 
             });
             
             this.instructButton.on("click", () => {

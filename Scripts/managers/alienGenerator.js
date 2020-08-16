@@ -33,7 +33,7 @@ var managers;
                     // console.log("WAVE["+i+"]:ALIEN["+j+"]:startX="+ new_alien.x + "|startY="+ new_alien.y);
                     // console.log("WAVE["+i+"]:ALIEN["+j+"]:yWaveOffset="+ yWaveOffset);
                 }
-                yWaveOffset -= 1500;
+                yWaveOffset -= 500;
                 this.Waves.push(aliensInWave);
             }
             this.DeployWaves();
@@ -52,7 +52,7 @@ var managers;
                 currWave = [];
                 row.forEach(function (num) {
                     var new_alien;
-                    // Create a new alien based on colour index, -1 returns null
+                    // Create a new alien based on colour index, anything else returns null
                     switch (num) {
                         case (0):
                             new_alien = new objects.PrimaryAlien(0, _this.LaneXValues[currLane], yWaveOffset);
@@ -72,14 +72,14 @@ var managers;
                         case (5):
                             new_alien = new objects.SecondaryAlien(5, _this.LaneXValues[currLane], yWaveOffset);
                             break;
-                        case (-1):
+                        default:
                             new_alien = null;
                             break;
                     }
                     currWave.push(new_alien);
                     currLane += 1;
                 });
-                yWaveOffset -= 1000;
+                yWaveOffset -= 500;
                 waves.push(currWave);
             });
             this.Waves = waves;
@@ -101,9 +101,29 @@ var managers;
             }
         };
         // Static Alien Waves
-        AlienGenerator.TestStaticWave = [
-            [0, -1, 0, 0, -1, 0],
-            [3, 4, 5, 5, 4, 3]
+        // Note: Spawns rows in order. Visually here, it would be top to bottom
+        AlienGenerator.LevelOneWaves = [
+            [9, 9, 2, 2, 9, 9],
+            [9, 1, 9, 9, 1, 9],
+            [0, 9, 9, 9, 9, 0],
+            [9, 9, 0, 0, 9, 9],
+            [1, 0, 1, 1, 0, 1],
+            [0, 1, 2, 2, 1, 0],
+            [2, 2, 2, 2, 2, 2],
+            [1, 1, 1, 1, 1, 1],
+            [0, 0, 0, 0, 0, 0]
+        ];
+        AlienGenerator.LevelTwoWaves = [
+            [9, 9, 0, 0, 9, 9],
+            [9, 1, 9, 9, 1, 9],
+            [2, 9, 9, 9, 9, 2],
+            [9, 3, 9, 9, 3, 9],
+            [9, 9, 9, 9, 9, 9],
+            [4, 9, 9, 9, 9, 4],
+            [9, 9, 9, 9, 9, 9],
+            [9, 5, 9, 9, 5, 9],
+            [9, 9, 9, 9, 9, 9],
+            [5, 4, 3, 3, 4, 5]
         ];
         return AlienGenerator;
     }());

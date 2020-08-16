@@ -34,9 +34,8 @@ module objects{
         } 
 
         public Reset(){
-            // DEBUG: Disabled random Y value for testing
             this.y = Math.floor(Math.random() * -(managers.Game.canvasH - 100)) - 50;
-            // this.y = -100;
+            // this.y = -100; // DEBUG: Disabled random Y value for testing
             this.attackedPlayer = false;
         }
 

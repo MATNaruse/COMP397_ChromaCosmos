@@ -33,7 +33,8 @@ module scenes{
         }
 
         protected SpawnAliens():void{
-            this.fleetGen.GenerateRandomWaves(1,6, false);
+            // this.fleetGen.GenerateRandomWaves(1,6, false);
+            this.fleetGen.GenerateStaticWaves(managers.AlienGenerator.LevelTwoWaves);
         }
 
     }

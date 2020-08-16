@@ -45,7 +45,8 @@ var scenes;
             }
         };
         LevelTwo.prototype.SpawnAliens = function () {
-            this.fleetGen.GenerateRandomWaves(1, 6, false);
+            // this.fleetGen.GenerateRandomWaves(1,6, false);
+            this.fleetGen.GenerateStaticWaves(managers.AlienGenerator.LevelTwoWaves);
         };
         return LevelTwo;
     }(scenes.LevelBase));

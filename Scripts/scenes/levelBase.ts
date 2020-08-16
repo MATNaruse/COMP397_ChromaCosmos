@@ -27,7 +27,6 @@ module scenes{
 
             // Alien Inits
             this.aliens = new Array<objects.Alien>();
-            // this.fleetGen = new managers.AlienGenerator(this.aliens); //DEBUG: Reworking AlienGenerator
             this.fleetGen = new managers.AlienGenerator(this.aliens);
 
             // Other/HUD Inits
@@ -59,14 +58,14 @@ module scenes{
             this.player.Update();
 
             // DEBUG: Removed Player Collision Detection for Testing
-            // // Detect if player is hit
-            // this.aliens.forEach(alien => {
-            //     if(managers.Collision.VerticalDetect(alien, this.player)){
-            //         this.player.TakeDamage();
-            //         this.UpdateHealthIndicator();
-            //         // console.log("Player Dead Status - " + this.player.isDead);
-            //     }
-            // });
+            // Detect if player is hit
+            this.aliens.forEach(alien => {
+                if(managers.Collision.VerticalDetect(alien, this.player)){
+                    this.player.TakeDamage();
+                    this.UpdateHealthIndicator();
+                    // console.log("Player Dead Status - " + this.player.isDead);
+                }
+            });
             
             // If Player is dead, move to Game Over immediately
             if(this.player.isDead){
