@@ -2,7 +2,7 @@ module managers {
     export class Game {
         // GLOBAL VARIABLES
         public static stage: createjs.Stage;
-        public static assetManager: createjs.LoadQueue; // TODO: [!!!] replace ALL Constructors with this reference
+        public static assetManager: createjs.LoadQueue;
         public static currentScene: number;
         public static controlManager: managers.PlayerControls;
 

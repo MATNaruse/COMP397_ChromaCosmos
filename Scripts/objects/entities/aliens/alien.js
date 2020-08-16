@@ -15,12 +15,14 @@ var objects;
 (function (objects) {
     var Alien = /** @class */ (function (_super) {
         __extends(Alien, _super);
+        // Constructor
         function Alien(colourIdx, startX, startY) {
             if (startX === void 0) { startX = 0; }
             if (startY === void 0) { startY = 0; }
             var _this = _super.call(this, "alien" + objects.ColourPalette[colourIdx]) || this;
-            _this.ySpeed = 3;
+            _this.ScoreValue = 100;
             _this.increment = 2;
+            _this.ySpeed = 3;
             _this.ImgScale = 1;
             _this.x = startX;
             _this.y = startY;
@@ -31,12 +33,30 @@ var objects;
             _this.startX = _this.x;
             return _this;
         }
+        // Methods
+        Alien.prototype.Start = function () {
+            this.Reset();
+        };
+        Alien.prototype.Update = function () {
+            this.Move();
+            this.CheckBound();
+        };
         Alien.prototype.Reset = function () {
-            _super.prototype.Reset.call(this);
+            // DEBUG: Disabled random Y value for testing
+            this.y = Math.floor(Math.random() * -(managers.Game.canvasH - 100)) - 50;
+            // this.y = -100;
             this.attackedPlayer = false;
         };
+        Alien.prototype.CheckBound = function () {
+            if (this.y >= managers.Game.canvasH + this.halfH + 25)
+                this.Reset();
+            if (this.x >= managers.Game.canvasW - this.halfW)
+                this.x = managers.Game.canvasW - this.halfW;
+            if (this.x <= this.halfW)
+                this.x = this.halfW;
+        };
         return Alien;
-    }(objects.Enemy));
+    }(objects.GameObject));
     objects.Alien = Alien;
 })(objects || (objects = {}));
 //# sourceMappingURL=alien.js.map
