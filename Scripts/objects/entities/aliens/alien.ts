@@ -9,8 +9,8 @@ module objects{
         protected increment: number = 2;
         public CollisionActive: boolean;
         
-        constructor(assetManager:createjs.LoadQueue, colourIdx:number, startX:number = 0, startY:number = 0){
-            super(assetManager, "alien" + objects.ColourPalette[colourIdx]);
+        constructor(colourIdx:number, startX:number = 0, startY:number = 0){
+            super("alien" + objects.ColourPalette[colourIdx]);
             this.ImgScale = 1;
             this.x = startX;
             this.y = startY;

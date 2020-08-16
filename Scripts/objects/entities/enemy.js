@@ -16,9 +16,9 @@ var objects;
     var Enemy = /** @class */ (function (_super) {
         __extends(Enemy, _super);
         // Constructor
-        function Enemy(assetManager, spriteName) {
+        function Enemy(spriteName) {
             if (spriteName === void 0) { spriteName = "enemy"; }
-            var _this = _super.call(this, assetManager, spriteName) || this;
+            var _this = _super.call(this, spriteName) || this;
             // Variables
             _this.ScoreValue = 100;
             _this.Start();

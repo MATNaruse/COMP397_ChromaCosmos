@@ -16,11 +16,11 @@ var objects;
     var Button = /** @class */ (function (_super) {
         __extends(Button, _super);
         // Constructor
-        function Button(assetManager, imageString, x, y, verticalCenter) {
+        function Button(imageString, x, y, verticalCenter) {
             if (x === void 0) { x = 0; }
             if (y === void 0) { y = 0; }
             if (verticalCenter === void 0) { verticalCenter = false; }
-            var _this = _super.call(this, assetManager.getResult(imageString)) || this;
+            var _this = _super.call(this, imageString) || this;
             // Default position
             _this.x = x;
             _this.y = y;

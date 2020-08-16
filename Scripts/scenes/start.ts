@@ -15,8 +15,8 @@ module scenes {
         // Methods
         public Start():void {
             // Initialize our objects for this scene
-            this.background = new objects.Background(this.assetManager);
-            this.gameLogo = new objects.HUDItem(managers.Game.assetManager, "gameLogo", managers.Game.canvasW/2, 240);
+            this.background = new objects.Background();
+            this.gameLogo = new objects.HUDItem("gameLogo", managers.Game.canvasW/2, 240);
             this.music = createjs.Sound.play("musicMain").setVolume(2);
             // NOTE: PreloadJS manifest id
             this.startButton = new objects.MenuButton("Start", managers.Game.canvasW/2, 380, true);

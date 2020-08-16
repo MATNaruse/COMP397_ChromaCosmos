@@ -4,8 +4,8 @@ module objects {
         public midVertical:number;
         public midHorizontal:number;
         // Constructor
-        constructor(assetManager:createjs.LoadQueue, imageString:string, x:number = 0, y:number = 0, verticalCenter: boolean = false) {
-            super(assetManager.getResult(imageString));
+        constructor(imageString:string, x:number = 0, y:number = 0, verticalCenter: boolean = false) {
+            super(imageString);
 
             // Default position
             this.x = x;

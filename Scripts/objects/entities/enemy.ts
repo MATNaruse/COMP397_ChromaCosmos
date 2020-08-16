@@ -3,8 +3,8 @@ module objects {
         // Variables
         public ScoreValue:number = 100;
         // Constructor
-        constructor(assetManager:createjs.LoadQueue, spriteName:string = "enemy") {
-            super(assetManager, spriteName);
+        constructor(spriteName:string = "enemy") {
+            super(spriteName);
             this.Start();
         }
         // Methods

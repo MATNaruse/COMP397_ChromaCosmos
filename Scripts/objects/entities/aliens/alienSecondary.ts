@@ -6,8 +6,8 @@ module objects{
         public CollisionActive: boolean;
 
         // Constructor
-        constructor(assetManager: createjs.LoadQueue, colourIdx:number, startX:number = 0, startY:number = 0){
-            super(assetManager, colourIdx, startX, startY);
+        constructor(colourIdx:number, startX:number = 0, startY:number = 0){
+            super(colourIdx, startX, startY);
             this.ScoreValue = 200;
             this.LeftAlien = null;
             this.RightAlien = null;

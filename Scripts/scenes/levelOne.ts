@@ -33,7 +33,7 @@ module scenes{
         }
 
         protected SpawnAliens():void{
-            this.fleetGen.GenerateStaticWaves(managers.AlienGenerator2.TestStaticWave);
+            this.fleetGen.GenerateStaticWaves(managers.AlienGenerator.TestStaticWave);
         }
 
         // MOVED: GetActiveColour to managers.Game

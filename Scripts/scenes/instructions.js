@@ -33,7 +33,7 @@ var scenes;
         InstructionScene.prototype.Start = function () {
             // Initalize Objects
             this.music = createjs.Sound.play("musicMain").setVolume(2);
-            this.background = new objects.Background(this.assetManager);
+            this.background = new objects.Background();
             this.instructLabels = Array();
             this.MultiLineLabels(this.instructions, 100, 100, 50);
             this.returnButton = new objects.MenuButton("Return to Title", managers.Game.canvasW / 2, 500, true);

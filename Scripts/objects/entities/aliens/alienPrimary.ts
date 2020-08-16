@@ -4,8 +4,8 @@ module objects{
         private leftTrue: boolean;
         private range:number = 50;
         // Constructor
-        constructor(assetManager: createjs.LoadQueue, colourIdx:number,  startX:number = 0, startY:number = 0){
-            super(assetManager, colourIdx, startX, startY);
+        constructor(colourIdx:number,  startX:number = 0, startY:number = 0){
+            super(colourIdx, startX, startY);
             this.leftTrue = true;
 
             switch(colourIdx){

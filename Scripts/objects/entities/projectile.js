@@ -15,10 +15,9 @@ var objects;
 (function (objects) {
     var Projectile = /** @class */ (function (_super) {
         __extends(Projectile, _super);
-        function Projectile(assetManager, colour, shooter) {
-            var _this = _super.call(this, assetManager, "bullet" + objects.ColourPalette[colour]) || this;
+        function Projectile(colour, shooter) {
+            var _this = _super.call(this, "bullet" + objects.ColourPalette[colour]) || this;
             _this.colour = objects.ColourPalette[colour];
-            _this.shooter = shooter;
             _this.x = shooter.x;
             _this.y = shooter.y - shooter.halfH;
             _this.scaleX = 0.25;

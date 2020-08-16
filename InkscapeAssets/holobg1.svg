@@ -114,39 +114,45 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-244.08332)">
-    <path
-       sodipodi:type="star"
-       style="opacity:0.26400003;fill:url(#radialGradient1529);fill-opacity:1;stroke:none;stroke-width:1.32291663;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
-       id="path1521"
-       sodipodi:sides="3"
-       sodipodi:cx="-24.190475"
-       sodipodi:cy="20.032738"
-       sodipodi:r1="24.781591"
-       sodipodi:r2="17.924452"
-       sodipodi:arg1="1.0471976"
-       sodipodi:arg2="2.0943952"
-       inkscape:flatsided="true"
-       inkscape:rounded="0"
-       inkscape:randomized="0"
-       d="M -11.799681,41.494226 -48.972067,20.032737 -11.799679,-1.4287494 Z"
-       transform="matrix(0,-0.51049022,1.5609064,0,-7.3762168,268.79693)"
-       inkscape:transform-center-x="-1.1433134"
-       inkscape:transform-center-y="0.41747076" />
-    <rect
-       style="opacity:0.26400003;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1.32291663;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
-       id="rect1519"
-       width="66.901787"
-       height="33.450893"
-       x="-9.7328873"
-       y="241.62648"
-       ry="3.8742559" />
-    <rect
-       style="opacity:1;fill:url(#linearGradient3220);fill-opacity:1;stroke:none;stroke-width:1.22738147;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
-       id="rect1519-7"
-       width="63.311012"
-       height="30.427084"
-       x="-7.9375005"
-       y="243.13838"
-       ry="2.8348215" />
+    <g
+       id="g3244"
+       inkscape:export-filename="D:\School\Summer2020\COMP397_ChromaCosmos\Assets\hud\holobg1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <path
+         inkscape:transform-center-y="0.41747076"
+         inkscape:transform-center-x="-1.1433134"
+         transform="matrix(0,-0.51049022,1.5609064,0,-7.3762168,268.79693)"
+         d="M -11.799681,41.494226 -48.972067,20.032737 -11.799679,-1.4287494 Z"
+         inkscape:randomized="0"
+         inkscape:rounded="0"
+         inkscape:flatsided="true"
+         sodipodi:arg2="2.0943952"
+         sodipodi:arg1="1.0471976"
+         sodipodi:r2="17.924452"
+         sodipodi:r1="24.781591"
+         sodipodi:cy="20.032738"
+         sodipodi:cx="-24.190475"
+         sodipodi:sides="3"
+         id="path1521"
+         style="opacity:0.26400003;fill:url(#radialGradient1529);fill-opacity:1;stroke:none;stroke-width:1.32291663;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
+         sodipodi:type="star" />
+      <rect
+         ry="3.8742559"
+         y="241.62648"
+         x="-9.7328873"
+         height="33.450893"
+         width="66.901787"
+         id="rect1519"
+         style="opacity:0.26400003;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1.32291663;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill" />
+      <rect
+         ry="2.8348215"
+         y="243.13838"
+         x="-7.9375005"
+         height="30.427084"
+         width="63.311012"
+         id="rect1519-7"
+         style="opacity:1;fill:url(#linearGradient3220);fill-opacity:1;stroke:none;stroke-width:1.22738147;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill" />
+    </g>
   </g>
 </svg>

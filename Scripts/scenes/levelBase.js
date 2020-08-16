@@ -22,18 +22,18 @@ var scenes;
         // Public Methods
         LevelBase.prototype.Start = function () {
             // Player Inits
-            this.player = new objects.Player(this.assetManager);
+            this.player = new objects.Player();
             this.playerShots = new Array();
             managers.Game.PlayerEntity = this.player;
             // Alien Inits
             this.aliens = new Array();
             // this.fleetGen = new managers.AlienGenerator(this.aliens); //DEBUG: Reworking AlienGenerator
-            this.fleetGen = new managers.AlienGenerator2(this.aliens);
+            this.fleetGen = new managers.AlienGenerator(this.aliens);
             // Other/HUD Inits
-            this.background1 = new objects.Background(this.assetManager);
-            this.background2 = new objects.Background(this.assetManager, true);
-            this.hud_colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY", 250, 550, 0.2);
-            this.hud_healthIndicator = new objects.HUDItem(this.assetManager, "healthIndicator5", 1150, 550);
+            this.background1 = new objects.Background();
+            this.background2 = new objects.Background(true);
+            this.hud_colourChamber = new objects.HUDItem("chamberEMPTY", 250, 550, 0.2);
+            this.hud_healthIndicator = new objects.HUDItem("healthIndicator5", 1150, 550);
             this.hud_levelIndicator = new objects.Label(this.levelName, "35px", "Consolas", "#FFFFFF", 25, 680);
             this.hud_scoreIndicator = new objects.Label(managers.Game.Score.toString(), "35px", "Consolas", "#FFFFFF", 1150, 650);
             this.SpawnAliens();
@@ -96,7 +96,7 @@ var scenes;
         LevelBase.prototype.FireBullet = function () {
             var BulletColourIndex = managers.Game.GetActiveColour();
             if (BulletColourIndex != -1) {
-                var newBullet = new objects.Projectile(this.assetManager, BulletColourIndex, this.player);
+                var newBullet = new objects.Projectile(BulletColourIndex, this.player);
                 this.playerShots.push(newBullet);
                 this.addChild(newBullet);
                 createjs.Sound.play("laserFire1");
@@ -108,12 +108,12 @@ var scenes;
             var CurrentColour = managers.Game.GetActiveColour();
             if (CurrentColour != -1) {
                 this.removeChild(this.hud_colourChamber);
-                this.hud_colourChamber = new objects.HUDItem(this.assetManager, "chamber" + objects.ColourPalette[CurrentColour], 100, 620, 0.2);
+                this.hud_colourChamber = new objects.HUDItem("chamber" + objects.ColourPalette[CurrentColour], 100, 620, 0.2);
                 this.addChild(this.hud_colourChamber);
             }
             else {
                 this.removeChild(this.hud_colourChamber);
-                this.hud_colourChamber = new objects.HUDItem(this.assetManager, "chamberEMPTY", 100, 620, 0.2);
+                this.hud_colourChamber = new objects.HUDItem("chamberEMPTY", 100, 620, 0.2);
                 this.addChild(this.hud_colourChamber);
             }
         };
@@ -121,7 +121,7 @@ var scenes;
             var assetName = "healthIndicator" + this.player.Health;
             console.log("UPDATING HEALTH: " + assetName);
             this.removeChild(this.hud_healthIndicator);
-            this.hud_healthIndicator = new objects.HUDItem(this.assetManager, assetName, 1175, 590);
+            this.hud_healthIndicator = new objects.HUDItem(assetName, 1175, 590);
             this.addChild(this.hud_healthIndicator);
         };
         LevelBase.prototype.UpdateScoreIndicator = function () {

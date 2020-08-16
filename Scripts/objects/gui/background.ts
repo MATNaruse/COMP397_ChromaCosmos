@@ -4,9 +4,9 @@ module objects {
         private speedY:number = 2;
         private second:boolean;
         // Constructor
-        constructor(assetManager:createjs.LoadQueue, second: boolean = false)
+        constructor(second: boolean = false)
         {
-            super(assetManager.getResult("background"));
+            super("background");
             // console.log("Creating the background");
             this.scaleX = 1.25;
             this.scaleY = .72;
