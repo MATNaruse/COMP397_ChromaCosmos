@@ -1,12 +1,11 @@
 module scenes{
     export class Cutscene extends objects.Scene{
-        // TODO: Comment Code
         // Variables
         private MessageText: string[];
         private MainLabel: objects.Label;
         private NextLabel: objects.Label;
         private HUD_NextIcon: objects.Button;
-        private currentMessage: number;
+        private currentMessage: number = 0;
         private background: objects.Background;
         private HUD_holobg: objects.HUDItem;
         private HUD_cockpit: objects.HUDItem;
@@ -33,18 +32,27 @@ module scenes{
         }
         // Methods
         public Start(){
+            // Setup Background
             this.background = new objects.Background();
+            
+            // Get Cutscene 'Script/Messages'
             this.MessageText = managers.CSManager.GetCSMessages();
-            this.currentMessage = 0;
+
+            // Creating Labels & 'HUD' Items
             this.MainLabel = new objects.Label(this.MessageText[this.currentMessage], "40px", "Consolas", this.main_colour, this.main_x, this.main_y, false, true);
             this.NextLabel = new objects.Label("Click to Continue", "16px", "Consolas", this.next_colour, this.next_x, this.next_y, true);
             this.HUD_NextIcon = new objects.Button("hud_nextarrow", this.arrow_x, this.arrow_y, true);
             this.HUD_cockpit = new objects.HUDItem("hud_cockpit", managers.Game.canvasW/2,  managers.Game.canvasH/2);
             this.HUD_holobg = new objects.HUDItem("hud_holobg", this.holo_x, this.holo_y, 3, 1.5)
+
+            // Setting/Starting Radio Static Audio
             this.SFX_static = createjs.Sound.play("radioStatic").setVolume(0.5);
+
             this.Main();
         }
-
+        
+        // Methods
+        
         public Main(){
             this.addChild(this.background);
             this.addChild(this.HUD_cockpit)
@@ -54,19 +62,21 @@ module scenes{
             this.addChild(this.HUD_NextIcon);
             this.HUD_NextIcon.on("click", () => this.MoveToNextMessage());
         }
-
-        public Update(){}
-
-        // Protected Methods
-        protected MoveToNextMessage():void{
+        
+        private MoveToNextMessage():void{
             console.log("NEXT CLICKED...")
+
+            // If there's more messages in the 'script'..
             if(this.currentMessage + 1 != this.MessageText.length){
+                // Update the Message
                 this.currentMessage += 1;
                 console.log("\tCurrentMsg:"+this.currentMessage);
                 this.removeChild(this.MainLabel);
                 this.MainLabel = new objects.Label(this.MessageText[this.currentMessage], "40px", "Consolas", this.main_colour, this.main_x, this.main_y, false, true);
                 this.addChild(this.MainLabel);
             }
+
+            // ..Otherwise, move to the next scene
             else {
                 if(this.SFX_static != null) this.SFX_static.destroy();
                 managers.CSManager.GoToNextScene();

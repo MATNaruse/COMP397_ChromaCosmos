@@ -1,6 +1,5 @@
 module managers{
     export class PlayerShots{
-        // TODO: Move Player Shot management here (?)
         public static OnScreen(scene: scenes.LevelBase){
             if(scene.playerShots.length > 0){
                 scene.playerShots.forEach(b => {

@@ -3,7 +3,6 @@ var managers;
     var PlayerShots = /** @class */ (function () {
         function PlayerShots() {
         }
-        // TODO: Move Player Shot management here (?)
         PlayerShots.OnScreen = function (scene) {
             if (scene.playerShots.length > 0) {
                 scene.playerShots.forEach(function (b) {

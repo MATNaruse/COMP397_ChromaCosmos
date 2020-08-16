@@ -18,6 +18,7 @@ var scenes;
         // Constructor
         function Cutscene(assetManager) {
             var _this = _super.call(this, assetManager) || this;
+            _this.currentMessage = 0;
             // Obj Co-ords - Everything "linked" to main_x/main_y
             _this.main_x = managers.Game.canvasW / 2;
             _this.main_y = 220;
@@ -35,17 +36,21 @@ var scenes;
         }
         // Methods
         Cutscene.prototype.Start = function () {
+            // Setup Background
             this.background = new objects.Background();
+            // Get Cutscene 'Script/Messages'
             this.MessageText = managers.CSManager.GetCSMessages();
-            this.currentMessage = 0;
+            // Creating Labels & 'HUD' Items
             this.MainLabel = new objects.Label(this.MessageText[this.currentMessage], "40px", "Consolas", this.main_colour, this.main_x, this.main_y, false, true);
             this.NextLabel = new objects.Label("Click to Continue", "16px", "Consolas", this.next_colour, this.next_x, this.next_y, true);
             this.HUD_NextIcon = new objects.Button("hud_nextarrow", this.arrow_x, this.arrow_y, true);
             this.HUD_cockpit = new objects.HUDItem("hud_cockpit", managers.Game.canvasW / 2, managers.Game.canvasH / 2);
             this.HUD_holobg = new objects.HUDItem("hud_holobg", this.holo_x, this.holo_y, 3, 1.5);
+            // Setting/Starting Radio Static Audio
             this.SFX_static = createjs.Sound.play("radioStatic").setVolume(0.5);
             this.Main();
         };
+        // Methods
         Cutscene.prototype.Main = function () {
             var _this = this;
             this.addChild(this.background);
@@ -56,17 +61,18 @@ var scenes;
             this.addChild(this.HUD_NextIcon);
             this.HUD_NextIcon.on("click", function () { return _this.MoveToNextMessage(); });
         };
-        Cutscene.prototype.Update = function () { };
-        // Protected Methods
         Cutscene.prototype.MoveToNextMessage = function () {
             console.log("NEXT CLICKED...");
+            // If there's more messages in the 'script'..
             if (this.currentMessage + 1 != this.MessageText.length) {
+                // Update the Message
                 this.currentMessage += 1;
                 console.log("\tCurrentMsg:" + this.currentMessage);
                 this.removeChild(this.MainLabel);
                 this.MainLabel = new objects.Label(this.MessageText[this.currentMessage], "40px", "Consolas", this.main_colour, this.main_x, this.main_y, false, true);
                 this.addChild(this.MainLabel);
             }
+            // ..Otherwise, move to the next scene
             else {
                 if (this.SFX_static != null)
                     this.SFX_static.destroy();
